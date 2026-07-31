@@ -25,6 +25,8 @@
 
 目标技术栈已经敲定：Astro static + React Islands + TypeScript strict + Tailwind CSS 4，GitHub Pages 正式地址 `https://luckymaomi.github.io/ui/`，资源基路径 `/ui/`，分支 `master`，MIT 版权人 `luckymaomi`。英文不进入首发验收；文案集中为类型化字典，为未来 i18n 留接入点。
 
+本地生产效果必须与 GitHub Pages 一样。根目录必须实现 `start.py`：默认执行正式构建，随后不改写 `dist/`，而是把同一份 `dist/` 挂载到 `http://127.0.0.1:4567/ui/` 并打开浏览器。Astro 开发服务器只用于热更新，不是最终效果验收入口。
+
 ## 执行规则
 
 - 这是专业模式：每完成一个可验证切片，立即更新 `plan.md` checklist、当前事实和验证记录；新事实推翻设计时先更新计划再改实现。
@@ -34,19 +36,21 @@
 - 只写正向测试。测试保护真实结果：目录可用、搜索/筛选返回、详情内容可渲染、演示产生状态变化、复制/下载成功、静态页面可访问、GitHub Pages `/ui/` 子路径可用。不要写旧文件/旧路由/旧字符串/旧依赖不存在的反向测试，也不要用源码扫描冒充删除验收。
 - 视觉审美由 owner 人工验收；自动证据只覆盖结构、加载、焦点、状态、交互、构建和目标路径。
 - PowerShell 运行包管理器使用 `npm.cmd`、`npx.cmd`。不要把未来能力写成已完成，不要把一次构建绿灯写成视觉验收通过。
+- `start.py` 只使用 Python 标准库，支持 `--check`、`--port`、`--no-build`、`--no-open`，正确处理构建失败、端口失败和 Ctrl+C；本地生产验收与 GitHub Pages 必须消费同一静态产物合同。
 - 不读取、输出、提交密钥、令牌、个人数据或私有配置。
 - 不要 commit、push、发布或部署，除非我在当前窗口明确授权；默认保持 `master`。
 
 ## 必须完成的工作顺序
 
 1. 检查工作区、分支、远端和初始化文件；保护已有改动。
-2. 按 `migration-map.md` 建立 Astro/React/TypeScript/Tailwind 骨架、锁文件、`verify` 命令和部署配置。
+2. 按 `migration-map.md` 建立 Astro/React/TypeScript/Tailwind 骨架、锁文件、`verify` 命令、根目录 `start.py` 和部署配置。
 3. 编写一次性确定性迁移器，把 `stylekit` 的静态数据、143 个风格条目/展示、57 个动效、143 个配方、36 个模板、资源、原则、指南和提示词迁移到 `ui/src/content` 与 `ui/public`。正常构建不依赖源目录。
 4. 以 Astro `getStaticPaths` 生成唯一中文根路径；使用 `/ui/` base 和 trailing slash，确保 GitHub Pages 深层页面刷新。
 5. 用 Astro 静态页面 + React Islands 实现目录、详情、展示、动效、模板、资源、指南、搜索、筛选、主题、交互、复制和下载。
 6. 逐项核对本地资源、字体、代码/提示词展示、reduced-motion、键盘焦点、响应式自然流和可访问结构。
 7. 完成 GitHub Pages workflow、README、spec、migration map、项目 skill 和计划收口。
-8. 运行短验证和完整验证；失败从首个真实根因修复，不靠重复运行掩盖问题。
+8. 运行 `python .\start.py --check`，再用 `start.py` 托管正式 `dist/`，在本地 `/ui/` 完成与发布候选相同的页面和交互验收。
+9. 运行短验证和完整验证；失败从首个真实根因修复，不靠重复运行掩盖问题。
 
 ## 验证命令
 
@@ -57,10 +61,11 @@ npm.cmd run check
 npm.cmd run lint
 npm.cmd test
 npm.cmd run build
+python .\start.py --check
 npm.cmd run verify
 ```
 
-另用静态预览服务/已授权 Playwright 正向检查首页、风格目录、代表性详情与展示、动效、模板、搜索、场景筛选、主题切换、复制、下载和 `/ui/` 深层刷新。最终报告必须明确实际命令、退出码、正向路径结果、未验证项和剩余风险。
+另用 `start.py --no-build --no-open` 启动同一 `dist/`，通过静态请求/已授权 Playwright 正向检查首页、风格目录、代表性详情与展示、动效、模板、搜索、场景筛选、主题切换、复制、下载和 `/ui/` 深层刷新。最终报告必须明确实际命令、退出码、正向路径结果、未验证项和剩余风险。
 
 ## 收口条件
 

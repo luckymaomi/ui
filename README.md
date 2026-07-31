@@ -14,11 +14,20 @@
 
 ## 开发入口
 
-应用骨架建立后，安装与运行命令会写入本文件。当前尚不存在可运行的 `package.json`，因此不能把未来命令写成已经验证的能力。
+应用实现必须提供根目录 `start.py` 作为唯一的本地生产效果入口：
+
+```powershell
+python .\start.py --check
+python .\start.py
+```
+
+`start.py` 默认执行正式构建，再将未经改写的 `dist/` 挂载到 `http://127.0.0.1:4567/ui/` 并打开浏览器。本地预览与 GitHub Pages 发布使用同一构建产物合同，因此页面、样式、脚本、资源和交互效果一致。`npm.cmd run dev` 只服务热更新开发，不作为最终效果验收入口。
+
+当前尚不存在可运行的 `package.json`、`start.py` 或应用实现；以上是已确认且必须在实施窗口完成的入口合同，不能表述为当前已经可运行。
 
 ## 验证
 
-应用骨架建立后，完整验证入口将统一为 `npm.cmd run verify`，并在 [`AGENTS.md`](AGENTS.md)、项目 skill 与 [`plan.md`](plan.md) 同步。当前尚无可运行验证命令。
+应用骨架建立后，完整验证入口将统一为 `npm.cmd run verify`，并包含 `start.py` 对同一 `dist/` 的本地 `/ui/` 正向烟测。当前尚无可运行验证命令。
 
 ## 授权
 

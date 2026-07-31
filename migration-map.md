@@ -11,6 +11,7 @@
 | 目标分支 | `master` | 已确认 |
 | 目标远端 | `https://github.com/luckymaomi/ui.git` | 已确认 |
 | 目标发布 | GitHub Pages | 正式地址 `https://luckymaomi.github.io/ui/`，项目路径 `/ui/`，已由 owner 确认 |
+| 本地生产预览 | `start.py` | 构建并托管同一 `dist/` 到 `http://127.0.0.1:4567/ui/`，与发布候选同源 |
 
 ## 2. 源项目盘点基线
 
@@ -41,6 +42,7 @@
 | `src/lib` | 浏览器交互规则 | 搜索、筛选、主题、复制、下载、基路径和文本序列化 |
 | `public` | 静态资源 | 本地图片、字体和演示资产；使用基路径安全引用 |
 | `tools` | 迁移/生成工具 | 一次性确定性迁移器、manifest 和静态构建 smoke，不作为运行时 API |
+| `start.py` | 本地生产预览 | 构建正式 `dist/`，按 `/ui/` 挂载原始产物并自动打开浏览器 |
 
 ## 4. 源到目标映射
 
@@ -93,7 +95,8 @@
 4. 迁移动效、鼠标交互、组件、配方、模板和资源领域。
 5. 接入搜索、筛选、主题、复制、下载和所有公共页面。
 6. 完成依赖/基路径/资源/文案审计，运行正向验证和人工视觉验收。
-7. 生成 GitHub Pages workflow 与发布候选 artifact；发布动作等待 owner 授权。
+7. 用根目录 `start.py` 托管正式 `dist/` 完成本地生产效果验收。
+8. 生成 GitHub Pages workflow 与发布候选 artifact；发布动作等待 owner 授权。
 
 ## 8. 迁移风险与处理
 
@@ -101,7 +104,7 @@
 | --- | --- |
 | Next server wrapper 或 `next/image` 混入 | 迁移器只提取浏览器组件和静态数据，页面壳由 Astro 重建 |
 | 展示组件依赖后端/登录/收藏 | showcase 只接收静态 props；交互状态由 island 管理 |
-| `/ui/` 基路径导致资源错链 | 集中 `withBase()` 工具 + 构建后深层页面 smoke |
+| `/ui/` 基路径导致资源错链 | 集中 `withBase()` 工具 + `start.py` 按真实 `/ui/` 前缀托管 + 构建后深层页面 smoke |
 | 单个数据条目字段缺失 | 迁移器输出类型错误和 manifest；修复源映射后再构建 |
 | 动效偏好影响可读性 | reduced-motion 分支保留静态内容和操作入口 |
 | 源内容/资源授权信息不清 | 首次提交和发布前由 owner 核对；不复制归属不清的第三方内容 |

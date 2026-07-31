@@ -31,6 +31,7 @@
 
 - 目标技术栈：Astro 静态生成、React Islands、TypeScript strict、Tailwind CSS 4。
 - 目标交付：GitHub Pages 项目站，正式地址 `https://luckymaomi.github.io/ui/`，资源基路径 `/ui/`。
+- 本地生产效果入口固定为根目录 `start.py`：默认正式构建并直接托管同一 `dist/` 到 `http://127.0.0.1:4567/ui/`，本地验收与线上发布不得使用两套页面或构建路径。
 - 生产运行时只有静态 HTML/CSS/JS/资源；浏览器状态只服务当前页面交互。
 - 源项目由 owner 提供且位于 `../stylekit`；迁移只在 `ui` 目录形成新主干，不修改源项目。
 - 当前无必须保留的业务生产数据或外部 API 合同，因此按断裂式重建处理；源项目的历史后端行为不构成兼容目标。
@@ -43,6 +44,7 @@
 - 分支：`master`；远端：`https://github.com/luckymaomi/ui.git`。
 - GitHub Pages 正式地址已由 owner 确认为 `https://luckymaomi.github.io/ui/`，项目资源基路径为 `/ui/`。
 - MIT License 版权人已由 owner 确认为 `luckymaomi`，版权年份为 2026。
+- owner 已确认本地预览必须与 GitHub Pages 用户可见效果一致；`start.py` 必须托管正式 `dist/`，开发热更新服务器不承担最终验收。
 - 已存在 `AGENTS.md`、`spec.md`、`README.md`、`rapid-dev-skill.md`、项目 skills、MIT `LICENSE`、贡献与安全文档。
 - 当前只有初始化文档和 skill；没有 `package.json`、Astro 配置、应用源码、测试、构建产物或部署 workflow。
 - 初始化扫描建议阶段为 `requirements`；owner 已明确进入专业模式，本计划因此成为当前合同。
@@ -79,7 +81,8 @@
 4. 搜索/筛选、主题切换、交互 demo、复制和下载在浏览器中闭环；用户可以从发现内容到获取内容，不产生远程业务状态。
 5. 143 个源风格条目与对应展示内容在目标目录中可追踪，所有迁移条目具有唯一 slug 和唯一数据 owner，代码/提示词可渲染、复制或下载。
 6. 站点在 GitHub Pages 项目路径 `/ui/` 下的内部链接、CSS、JS、字体、图片、刷新访问和深层页面访问均可用。
-7. 页面具备可键盘操作、稳定焦点、清晰层级、响应式自然流和不溢出结果；视觉审美由 owner 在目标浏览器完成最终人工验收。
+7. `python .\start.py` 从同一生产构建生成并托管 `dist/` 到本地 `/ui/`；本地生产预览与 GitHub Pages 使用同一静态产物合同，页面、样式、脚本、资源和交互效果一致。
+8. 页面具备可键盘操作、稳定焦点、清晰层级、响应式自然流和不溢出结果；视觉审美由 owner 在目标浏览器完成最终人工验收。
 
 ## 不做范围
 
@@ -93,6 +96,7 @@
 
 ```text
 ui/
+  start.py                  构建并托管生产 dist 的本地唯一验收入口
   src/
     pages/                 Astro 公共路由，全部静态生成
     layouts/               页面壳、SEO、主题属性和基路径链接
@@ -152,7 +156,16 @@ ui/
 - `package.json` 统一提供 `dev`、`build`、`preview`、`check`、`lint`、`test`、`test:e2e`、`verify`；PowerShell 验证统一使用 `npm.cmd`/`npx.cmd`。
 - GitHub workflow 使用 Node LTS、锁文件安装、构建并上传 `dist/`；发布步骤只在 owner 授权后执行。
 
-### 6. 错误、恢复与安全
+### 6. 本地生产预览与发布同源
+
+- 根目录必须提供只使用 Python 标准库的 `start.py`，默认端口 `4567`，默认绑定 `127.0.0.1`，默认先执行 `npm.cmd run build`（非 Windows 使用 `npm run build`）。
+- 构建成功后，脚本不复制、不重写 `dist/`；本地 HTTP handler 将 URL 前缀 `/ui/` 直接映射到 `dist/`，根路径只负责跳转到 `/ui/`。
+- 默认打开 `http://127.0.0.1:4567/ui/`；支持 `--port`、`--no-build`、`--no-open` 和 `--check`。`Ctrl+C` 干净停止本地服务器，构建或端口失败返回非零退出码和可读错误。
+- `--check` 正向确认 Python 入口、`package.json`、npm 命令和构建配置可用；自动 smoke 在已有 `dist/` 上启动 `start.py --no-build --no-open`，访问 `/ui/` 代表性页面后终止进程。
+- GitHub Pages workflow 与 `start.py` 使用相同锁文件、Node 版本约束、Astro 配置和 `npm run build`；构建过程不写入时间戳、随机值或环境专属页面分支，保证同一提交可确定性重建同一用户可见结果。
+- `npm.cmd run dev` 只用于源码热更新和开发反馈；视觉验收、正向浏览器 smoke 和发布候选检查一律使用 `start.py` 托管的生产 `dist/`。
+
+### 7. 错误、恢复与安全
 
 - 静态页面加载失败由 GitHub Pages 和构建产物验证负责；页面不依赖运行时远程服务。
 - Clipboard 不可用时保留可读代码和下载出口；下载失败时给出用户可观察状态，不静默吞错。
@@ -160,7 +173,7 @@ ui/
 - 不读取、打印、提交密钥、令牌、个人数据或私有配置；workflow 不写入 secret。
 - 所有页面支持 `prefers-reduced-motion`，演示失败不阻塞目录、详情、复制和下载主路径。
 
-### 7. 正向测试原则
+### 8. 正向测试原则
 
 只测试重建后仍有产品意义的正向结果：
 
@@ -190,6 +203,7 @@ ui/
 - [ ] 建立 Astro + React + TypeScript strict + Tailwind 4 项目入口和锁文件。
 - [ ] 配置 `astro.config` 的 static output、site、base `/ui/`、trailing slash、React integration 和构建目录。
 - [ ] 建立 ESLint、TypeScript、Vitest、Playwright/静态 smoke、统一 `verify` 命令和 UTF-8 文件规则。
+- [ ] 实现根目录 `start.py`，让一次命令完成生产构建、`/ui/` 前缀静态托管和自动打开浏览器；完成 `--check`、`--port`、`--no-build`、`--no-open` 与 Ctrl+C 收口。
 - [ ] 建立全局 CSS tokens、明暗主题、字体加载、可访问焦点和响应式基础布局。
 - [ ] 建立 `src/layouts`、`src/components`、`src/lib`、`src/content`、`public`、`tools`、`tests` 的唯一职责边界。
 
@@ -218,6 +232,7 @@ ui/
 - [ ] 逐项核对 package、Astro config、路由、layout、组件、文案、资源和 workflow 的当前边界，删除迁移过程中产生的无主文件。
 - [ ] 同步 `spec.md`、`README.md`、`AGENTS.md`、`CONTRIBUTING.md` 和项目 skill 的验证入口；未验证项保持明确标记。
 - [ ] 完成 GitHub Pages workflow、README 部署说明和 `/ui/` 基路径本地复现配置。
+- [ ] 文档明确区分热更新开发入口与 `start.py` 生产验收入口，并保证本地和 GitHub Pages 使用同一 `dist/` 合同。
 
 ### F. 正向验证与发布候选
 
@@ -225,6 +240,7 @@ ui/
 - [ ] 用静态 HTTP 预览服务验证首页、目录、详情、展示、动效、模板、资源和提示词代表性路径。
 - [ ] 用 Playwright 或等价浏览器正向 smoke 验证搜索、场景筛选、主题切换、演示、复制和下载。
 - [ ] 对 `dist/` 进行 GitHub Pages `/ui/` 子路径预览，确认资源、内部链接和深层页面刷新。
+- [ ] 使用 `python .\start.py --check` 和实际 `start.py --no-build --no-open` 正向 smoke，确认本地 `/ui/` 消费的就是生产 `dist/`。
 - [ ] owner 在目标浏览器人工验收视觉层级、颜色、间距、字号、比例、动效节奏和整体可读性。
 - [ ] 回填本计划所有实际命令、通过项、未验证项和剩余风险；只有全部必需正向路径闭环后才可申请提交/发布。
 
@@ -239,6 +255,7 @@ npm.cmd run check
 npm.cmd run lint
 npm.cmd test
 npm.cmd run build
+python .\start.py --check
 ```
 
 命令必须使用目标仓库自己的 `package.json`，不能把源项目 Next 命令当作目标验证。
@@ -251,7 +268,7 @@ npm.cmd run build
 npm.cmd run verify
 ```
 
-`verify` 至少串联：`check`、`lint`、正向 Vitest、生产 `build`、静态预览 smoke 和已授权的浏览器正向 smoke。预计超过一分钟的完整浏览器/发布候选验证由 owner 在目标环境执行；Agent 不用重复运行掩盖不稳定。
+`verify` 至少串联：`check`、`lint`、正向 Vitest、生产 `build`、`start.py` 托管同一 `dist/` 的静态预览 smoke 和已授权的浏览器正向 smoke。预计超过一分钟的完整浏览器/发布候选验证由 owner 在目标环境执行；Agent 不用重复运行掩盖不稳定。
 
 ### 正向场景矩阵
 
@@ -266,6 +283,7 @@ npm.cmd run verify
 | 主题切换 | 页面主题变量更新，焦点和内容层级保持清晰 |
 | 复制/下载 | 浏览器得到对应文本或文件，UI 给出完成反馈 |
 | GitHub Pages 子路径 | `/ui/` 下深层页面、资源和刷新访问成功 |
+| 本地生产预览 | `start.py` 构建并托管同一 `dist/` 到 `/ui/`，代表性页面与交互结果和发布候选一致 |
 
 ### 人工验收
 
@@ -276,6 +294,6 @@ owner 负责最终视觉判断：颜色、间距、字号、比例、视觉层�
 - 完成事实：待实现后回填；当前仅完成需求确认、规则阅读、源项目研究和计划/地图建立。
 - 实际命令：待实现窗口按 `npm.cmd run verify`、静态预览 smoke 和授权的浏览器正向 smoke 回填。
 - 通过项：当前已通过目标仓库初始化扫描、分支/远端核对和源项目只读盘点；应用实现尚未开始。
-- 未验证项：Astro 工程、静态构建、所有迁移页面、交互、GitHub Pages 发布物和 owner 视觉验收均尚未验证。
+- 未验证项：Astro 工程、`start.py`、静态构建、所有迁移页面、交互、GitHub Pages 发布物和 owner 视觉验收均尚未验证。
 - 剩余风险：源展示组件与 Next 特定 API 的迁移适配、个别本地资源的基路径和源内容授权边界仍需在实现与发布前核对。
 - 外部操作：需求与专业计划基线已提交到本地 `master`；尚未 push、未发布、未部署。应用实现提交仍需在实现完成并经验证后单独授权。
