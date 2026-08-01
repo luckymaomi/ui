@@ -36,20 +36,6 @@ capabilities: search, filter, preview, interact, copy, download, static-deep-lin
 agent_files: robots.txt, llms.txt, sitemap.xml
 ```
 
-## Canonical Agent Entry Points
-
-| Intent | Canonical URL | Indexed content |
-| --- | --- | --- |
-| 视觉风格 | https://luckymaomi.github.io/ui/styles/ | 143 种 UI 风格、色板、规则、tokens、CSS、真实展示 |
-| React 模板 | https://luckymaomi.github.io/ui/templates/ | 35 个完整 React 页面模板与响应式预览 |
-| 交互动效 | https://luckymaomi.github.io/ui/animations/ | 57 个 UI 动效、动画词汇与运行示例 |
-| 组件配方 | https://luckymaomi.github.io/ui/recipes/ | 143 组组件样式与 className 配方 |
-| 设计资源 | https://luckymaomi.github.io/ui/resources/ | 颜色、渐变、阴影、背景、字体、字号、间距、层级 |
-| AI 提示词 | https://luckymaomi.github.io/ui/ui-prompts/ | 中文 UI 生成提示词与场景化 Prompt |
-| Agent 文档 | https://luckymaomi.github.io/ui/llms.txt | 内容范围、页面合同、主要入口 |
-| 抓取规则 | https://luckymaomi.github.io/ui/robots.txt | robots 与 sitemap 位置 |
-| URL 索引 | https://luckymaomi.github.io/ui/sitemap.xml | 全部 canonical URL |
-
 ## Indexed Knowledge
 
 - Visual styles: Neo-Brutalism, Editorial, Neumorphism, Glassmorphism, Bento Grid, Corporate Clean, Geometric Bold, Minimalist, Dark Mode, Retro Vintage, macOS Vibrancy, Masonry Flow, Cottagecore, Risograph, Mecha, Gothic Lolita, Cyber Chinese, Acid Graphics, Bauhaus, Material Design, Fluent Design, Skeuomorphism, Art Deco, Y2K, Vaporwave, Cyberpunk, Japanese Aesthetic, Anime UI.
