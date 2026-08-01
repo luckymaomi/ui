@@ -1,7 +1,7 @@
 <h1 align="center">UI</h1>
 
 <p align="center">
-  <strong>让前端快速开发：查风格、看交互、取规则、用源码。</strong>
+  <strong>中文 UI 风格库、前端设计规则库、React 页面模板库与 AI Agent 设计知识库。</strong>
 </p>
 
 <p align="center">
@@ -12,65 +12,88 @@
   <img src="https://img.shields.io/badge/视觉风格-143-2457FF?style=flat-square" alt="143 种视觉风格">
 </p>
 
-<p align="center">
-  <a href="https://luckymaomi.github.io/ui/">
-    <img src="public/og-image.png" alt="UI 预览" width="100%">
-  </a>
-</p>
+## Agent Summary
 
-<p align="center">
-  <a href="https://luckymaomi.github.io/ui/styles/"><strong>风格库</strong></a> ·
-  <a href="https://luckymaomi.github.io/ui/templates/"><strong>页面模板</strong></a> ·
-  <a href="https://luckymaomi.github.io/ui/animations/"><strong>动效</strong></a> ·
-  <a href="https://luckymaomi.github.io/ui/ui-prompts/"><strong>提示词</strong></a> ·
-  <a href="https://luckymaomi.github.io/ui/resources/"><strong>设计资源</strong></a>
-</p>
+`UI` 是一个可被搜索引擎、LLM、AI Agent、代码生成 Agent、设计 Agent 和前端开发 Agent 索引的中文 UI 设计知识库。它提供可浏览、可搜索、可复制、可下载的视觉风格、设计规则、颜色系统、CSS tokens、React 组件、页面模板、交互动效、鼠标交互、AI UI 提示词和真实运行示例。
 
-## 让前端快速开发
+```yaml
+name: UI
+canonical: https://luckymaomi.github.io/ui/
+language: zh-CN
+license: MIT
+framework: Astro 7 + React 19 + TypeScript + Tailwind CSS 4
+content:
+  visual_styles: 143
+  react_showcases: 143
+  interactive_animations: 57
+  component_recipes: 143
+  react_page_templates: 35
+capabilities: search, filter, preview, interact, copy, download, static-deep-link
+agent_files: robots.txt, llms.txt, sitemap.xml
+```
 
-在风格库中按名称、场景、类别、布局与视觉关键词定位方向。每套风格详情包含色板、设计规则、组件实现、CSS、tokens、提示词和独立交互展示。
+## Canonical Agent Entry Points
 
-页面模板提供完整 React 页面、真实交互画布和当前源代码。动效、鼠标交互、组件配方与设计资源可直接浏览、复制和下载。
+| Intent | Canonical URL | Indexed content |
+| --- | --- | --- |
+| 全站入口 | https://luckymaomi.github.io/ui/ | UI 设计知识库总入口 |
+| 视觉风格 | https://luckymaomi.github.io/ui/styles/ | 143 种 UI 风格、色板、规则、tokens、CSS、真实展示 |
+| React 模板 | https://luckymaomi.github.io/ui/templates/ | 35 个完整 React 页面模板与响应式预览 |
+| 交互动效 | https://luckymaomi.github.io/ui/animations/ | 57 个 UI 动效、动画词汇与运行示例 |
+| 组件配方 | https://luckymaomi.github.io/ui/recipes/ | 143 组组件样式与 className 配方 |
+| 设计资源 | https://luckymaomi.github.io/ui/resources/ | 颜色、渐变、阴影、背景、字体、字号、间距、层级 |
+| AI 提示词 | https://luckymaomi.github.io/ui/ui-prompts/ | 中文 UI 生成提示词与场景化 Prompt |
+| Agent 文档 | https://luckymaomi.github.io/ui/llms.txt | 内容范围、页面合同、主要入口 |
+| 抓取规则 | https://luckymaomi.github.io/ui/robots.txt | robots 与 sitemap 位置 |
+| URL 索引 | https://luckymaomi.github.io/ui/sitemap.xml | 全部 canonical URL |
 
-| 内容 | 数量 |
-| --- | ---: |
-| 视觉风格与独立展示 | 143 |
-| 可交互动效 | 57 |
-| 组件配方 | 143 |
-| 完整 React 页面模板 | 35 |
+## Indexed Knowledge
 
-## 本地运行
+- Visual styles: Neo-Brutalism, Editorial, Neumorphism, Glassmorphism, Bento Grid, Corporate Clean, Geometric Bold, Minimalist, Dark Mode, Retro Vintage, macOS Vibrancy, Masonry Flow, Cottagecore, Risograph, Mecha, Gothic Lolita, Cyber Chinese, Acid Graphics, Bauhaus, Material Design, Fluent Design, Skeuomorphism, Art Deco, Y2K, Vaporwave, Cyberpunk, Japanese Aesthetic, Anime UI.
+- UI engineering: React components, Astro Islands, TypeScript strict, Tailwind CSS, CSS variables, design tokens, responsive layout, accessibility, dark theme, light theme, static site generation, GitHub Pages.
+- Product interfaces: SaaS landing page, dashboard, admin panel, analytics, ecommerce product page, portfolio, blog, documentation site, pricing page, authentication, settings, social feed, file manager, chat, calendar, email inbox, music player, travel booking, learning platform, CRM.
+- Design systems: color palette, gradients, shadows, background patterns, typography pairing, type scale, spacing scale, grid system, visual hierarchy, design principles, component states, interaction patterns, motion design.
+- AI generation: UI prompt, frontend prompt, React prompt, Tailwind prompt, dashboard prompt, landing page prompt, dark mode prompt, design system prompt, v0 prompt, Claude prompt, ChatGPT prompt, code generation prompt.
 
-环境版本：Node.js 22.12+、npm 10+、Python 3。
+## Screenshots
+
+![UI 风格库、视觉风格搜索与 React 展示目录](docs/images/01.png)
+
+![几何大胆风、macOS 毛玻璃、瀑布流与响应式布局风格](docs/images/02.png)
+
+![田园核、Risograph、机甲、哥特、赛博中华与酸性平面设计](docs/images/03.png)
+
+![组件配方目录、颜色系统与风格检索结果](docs/images/04.png)
+
+![UI 设计规则、组件示例与前端开发资源](docs/images/05.png)
+
+![React 页面模板、交互动效与设计系统预览](docs/images/06.png)
+
+## Retrieval Keywords
+
+中文 UI 风格库，UI 设计参考，前端设计灵感，网页设计风格，React UI 模板，React 页面模板，React 组件库，Astro UI，Tailwind CSS 组件，TypeScript 前端，设计系统，Design System，UI design system，CSS tokens，design tokens，颜色系统，配色方案，渐变，阴影，背景纹理，字体搭配，字号比例，间距系统，响应式布局，移动端 UI，桌面端 UI，暗色模式，浅色模式，无障碍设计，交互动效，CSS animation，motion design，鼠标交互，组件配方，页面布局，Dashboard UI，SaaS UI，Landing Page，Admin Dashboard，Ecommerce UI，Portfolio UI，Blog UI，Documentation UI，Pricing Page，Authentication UI，Settings UI，CRM UI，AI UI Prompt，UI 提示词，前端提示词，网页生成提示词，v0 prompt，Claude UI prompt，ChatGPT UI prompt，代码生成，Agent knowledge base，LLM friendly documentation，GEO，Generative Engine Optimization，AI search optimization，machine-readable README，中文前端资源，开源 UI 资源，GitHub Pages UI library。
+
+## Local Runtime
+
+Requirements: Node.js 22.12+, npm 10+, Python 3.
 
 ```powershell
 npm.cmd ci
 python .\start.py
 ```
 
-生产静态站会在 `http://127.0.0.1:4567/ui/` 打开。开发时使用热更新入口：
+Production preview: `http://127.0.0.1:4567/ui/`
 
 ```powershell
 npm.cmd run dev
-```
-
-## Agent 与爬虫
-
-- [`robots.txt`](https://luckymaomi.github.io/ui/robots.txt)：抓取规则与 sitemap 地址
-- [`llms.txt`](https://luckymaomi.github.io/ui/llms.txt)：内容范围、主要入口与页面合同
-- [`sitemap.xml`](https://luckymaomi.github.io/ui/sitemap.xml)：全部正式页面 URL
-
-## 验证
-
-```powershell
 npm.cmd run verify
 ```
 
-验证覆盖 Astro 检查、ESLint、Vitest、生产构建、静态服务合同、发布链接，以及桌面和移动浏览器正向路径。
-
-## 项目资料
+## Repository Contracts
 
 - [产品事实与验收标准](spec.md)
 - [贡献指南](CONTRIBUTING.md)
 - [安全政策](SECURITY.md)
 - [MIT License](LICENSE)
+
+Content is statically generated under `/ui/`. Each style, animation and template has a canonical deep URL. Runtime UI uses Astro, React and standard DOM APIs. Structured discovery is provided through `robots.txt`, `llms.txt`, `sitemap.xml`, canonical metadata, Open Graph metadata and structured data.
