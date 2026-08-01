@@ -38,8 +38,6 @@ agent_files: robots.txt, llms.txt, sitemap.xml
 
 ## Canonical Agent Entry Points
 
-**在线访问：[https://luckymaomi.github.io/ui/](https://luckymaomi.github.io/ui/)**
-
 | Intent | Canonical URL | Indexed content |
 | --- | --- | --- |
 | 视觉风格 | https://luckymaomi.github.io/ui/styles/ | 143 种 UI 风格、色板、规则、tokens、CSS、真实展示 |
