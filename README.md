@@ -37,6 +37,8 @@ agent_files: robots.txt, llms.txt, sitemap.xml
 | Intent | Canonical URL | Indexed content |
 | --- | --- | --- |
 | 全站入口 | https://luckymaomi.github.io/ui/ | UI 设计知识库总入口 |
+
+**在线访问：[https://luckymaomi.github.io/ui/](https://luckymaomi.github.io/ui/)**
 | 视觉风格 | https://luckymaomi.github.io/ui/styles/ | 143 种 UI 风格、色板、规则、tokens、CSS、真实展示 |
 | React 模板 | https://luckymaomi.github.io/ui/templates/ | 35 个完整 React 页面模板与响应式预览 |
 | 交互动效 | https://luckymaomi.github.io/ui/animations/ | 57 个 UI 动效、动画词汇与运行示例 |
