@@ -10,14 +10,19 @@
   align-items: center;
   gap: 16px;
   border: 1px solid var(--line-soft);
-  border-radius: 8px;
+  border-radius: var(--radius-panel);
   background: var(--surface);
   padding: 18px;
 }
 
 .resource-index > a:hover {
-  background: var(--sun);
-  color: #11110f;
+  border-color: var(--line);
+  background: var(--surface-muted);
+  color: var(--ink);
+}
+
+.resource-index > a:hover p {
+  color: inherit;
 }
 
 .resource-index h2,
@@ -36,7 +41,7 @@
 }
 
 .resource-index b {
-  color: var(--accent-strong);
+  color: var(--ink);
   font-size: 13px;
 }
 
@@ -52,7 +57,7 @@
   align-items: center;
   gap: 18px;
   border: 1px solid var(--line-soft);
-  border-radius: 8px;
+  border-radius: var(--radius-panel);
   background: var(--surface);
   padding: 14px;
 }
@@ -77,7 +82,7 @@
   min-width: 0;
   overflow: hidden;
   border: 1px solid var(--line);
-  border-radius: 6px;
+  border-radius: var(--radius-control);
   background: var(--surface);
   padding: 0;
   cursor: pointer;
@@ -131,7 +136,7 @@
 .shadow-sample {
   margin: 30px;
   border: 1px solid #eeeeea;
-  border-radius: 6px;
+  border-radius: 0;
   background: #ffffff;
 }
 
@@ -160,7 +165,7 @@
   grid-template-columns: minmax(240px, 0.8fr) minmax(0, 1.2fr);
   overflow: hidden;
   border: 1px solid var(--line-soft);
-  border-radius: 8px;
+  border-radius: var(--radius-panel);
   background: var(--surface);
 }
 
@@ -169,9 +174,9 @@
   min-height: 230px;
   flex-direction: column;
   justify-content: space-between;
-  background: var(--sun);
+  background: var(--surface-muted);
   padding: 24px;
-  color: #11110f;
+  color: var(--ink);
 }
 
 .type-specimen strong {
@@ -213,7 +218,7 @@
 .scale-list article,
 .hierarchy-composition {
   border: 1px solid var(--line-soft);
-  border-radius: 8px;
+  border-radius: var(--radius-panel);
   background: var(--surface);
   padding: 18px;
 }
@@ -252,7 +257,7 @@
   display: block;
   max-width: 100%;
   height: 12px;
-  border-radius: 999px;
+  border-radius: 0;
   background: var(--accent);
 }
 
@@ -265,8 +270,8 @@
   display: flex;
   justify-content: space-between;
   gap: 20px;
-  border-radius: 6px;
-  background: var(--surface-2);
+  border-radius: var(--radius-panel);
+  background: var(--surface-muted);
   padding: 10px;
 }
 
@@ -299,10 +304,11 @@
 .principle-list blockquote {
   margin: 18px 0;
   border: 1px solid var(--line-soft);
-  border-radius: 8px;
-  background: var(--sun);
+  border-inline-start: 6px solid var(--signal);
+  border-radius: var(--radius-panel);
+  background: var(--surface-muted);
   padding: 12px 16px;
-  color: #11110f;
+  color: var(--ink);
   font-weight: 700;
 }
 
@@ -347,8 +353,8 @@
 
 .hierarchy-cta strong {
   width: fit-content;
-  border-radius: 8px;
-  background: var(--signal);
+  border-radius: var(--radius-control);
+  background: var(--accent);
   padding: 12px 16px;
-  color: #ffffff;
+  color: var(--accent-ink);
 }

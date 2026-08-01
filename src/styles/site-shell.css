@@ -1,25 +1,26 @@
 :root {
   color-scheme: light;
-  --bg: #f5f6f8;
+  --bg: #f3f4f6;
   --surface: #ffffff;
-  --surface-2: #e8edff;
-  --ink: #111214;
-  --muted: #565b66;
-  --line: #111214;
-  --line-soft: #d7dbe5;
-  --header-bg: #ffffff;
-  --header-hover: #e8edff;
-  --accent: #2557f5;
-  --accent-strong: #1538b6;
-  --accent-soft: #dce5ff;
-  --signal: #ef463b;
-  --signal-soft: #ffe2df;
-  --sun: #ef463b;
-  --sun-soft: #ffe2df;
-  --focus: #2557f5;
-  --code-bg: #eceff5;
-  --code-ink: #17191e;
-  --shadow: none;
+  --surface-muted: #e4e7ed;
+  --ink: #090a0d;
+  --muted: #454b57;
+  --line: #090a0d;
+  --line-soft: #bdc3cf;
+  --header-bg: rgba(255, 255, 255, 0.98);
+  --accent: #090a0d;
+  --accent-ink: #ffffff;
+  --signal: #ff4538;
+  --signal-ink: #090a0d;
+  --highlight: #ffe100;
+  --highlight-ink: #090a0d;
+  --focus: #090a0d;
+  --code-bg: #ffffff;
+  --code-ink: #090a0d;
+  --grid-line: rgba(9, 10, 13, 0.075);
+  --hard-shadow: 4px 4px 0 #090a0d;
+  --radius-panel: 2px;
+  --radius-control: 2px;
   --font-display-active: Inter, "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif;
   --font-body-active: Inter, "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif;
   --font-mono-active: "JetBrains Mono", "Cascadia Code", monospace;
@@ -28,35 +29,38 @@
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #151514;
-  --surface: #202124;
-  --surface-2: #2b3142;
-  --ink: #f7f7f1;
-  --muted: #b9bdc8;
-  --line: #eceee7;
-  --line-soft: #424652;
-  --header-bg: rgba(17, 18, 20, 0.96);
-  --header-hover: #2b3142;
-  --accent: #7d9bff;
-  --accent-strong: #a8baff;
-  --accent-soft: #29365c;
-  --signal: #ff746b;
-  --signal-soft: #4a2928;
-  --sun: #ff746b;
-  --sun-soft: #4a2928;
-  --focus: #7d9bff;
-  --code-bg: #10110f;
-  --code-ink: #f1f2ec;
-  --shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
+  --bg: #090a0d;
+  --surface: #15171d;
+  --surface-muted: #252933;
+  --ink: #f7f8fc;
+  --muted: #b6bdc9;
+  --line: #f7f8fc;
+  --line-soft: #3f4550;
+  --header-bg: rgba(9, 10, 13, 0.98);
+  --accent: #f7f8fc;
+  --accent-ink: #090a0d;
+  --signal: #ff6258;
+  --signal-ink: #090a0d;
+  --highlight: #ffe247;
+  --highlight-ink: #090a0d;
+  --focus: #f7f8fc;
+  --code-bg: #000000;
+  --code-ink: #f7f8fc;
+  --grid-line: rgba(247, 248, 252, 0.075);
+  --hard-shadow: 4px 4px 0 #f7f8fc;
 }
 
 .site-page {
   min-width: 320px;
-  background: var(--bg);
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 24px 24px;
   color: var(--ink);
 }
 
-.site-page a {
+.site-page :where(a) {
   color: inherit;
   text-decoration: none;
 }
@@ -74,8 +78,8 @@
 }
 
 .site-page ::selection {
-  background: var(--sun);
-  color: #11110f;
+  background: var(--highlight);
+  color: var(--highlight-ink);
 }
 
 .site-page :focus-visible {
@@ -99,9 +103,9 @@
   z-index: 1000;
   translate: 0 -80px;
   border: 2px solid var(--line);
-  border-radius: 8px;
-  background: var(--sun);
-  color: #11110f;
+  border-radius: var(--radius-control);
+  background: var(--highlight);
+  color: var(--highlight-ink);
   padding: 12px 16px;
   font-weight: 800;
 }
@@ -114,6 +118,7 @@
   position: sticky;
   inset-block-start: 0;
   z-index: 80;
+  border-block-end: 1px solid var(--line);
   background: var(--header-bg);
   color: var(--ink);
 }
@@ -139,7 +144,7 @@
 
 .primary-nav a {
   flex: none;
-  border-radius: 999px;
+  border-radius: var(--radius-control);
   padding: 10px 13px;
   color: var(--ink);
   font-size: 14px;
@@ -148,7 +153,7 @@
 }
 
 .primary-nav a:hover {
-  background: var(--header-hover);
+  background: var(--surface-muted);
   color: var(--ink);
 }
 
@@ -158,15 +163,15 @@
   height: 42px;
   place-items: center;
   border: 0;
-  border-radius: 999px;
-  background: var(--surface);
+  border-radius: 0;
+  background: transparent;
   color: var(--ink);
   cursor: pointer;
 }
 
 .icon-button:hover {
-  background: var(--surface-2);
-  color: var(--accent-strong);
+  background: transparent;
+  color: var(--muted);
 }
 
 .page-shell {
@@ -215,8 +220,9 @@
 .meta-row span,
 .page-meta span,
 .meta-chip {
-  border-radius: 999px;
-  background: var(--sun-soft);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-control);
+  background: var(--surface-muted);
   padding: 7px 11px;
   color: var(--ink);
   font-size: 12px;

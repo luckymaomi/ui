@@ -244,7 +244,7 @@ export default function ShowcaseContent() {
         <div className="absolute top-16 right-0 w-72 h-72 bg-blue-600 pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-56 h-56 bg-red-500 pointer-events-none" />
         <div
-          className="absolute top-1/2 right-20 w-40 h-40 border-8 border-yellow-300 pointer-events-none geo-rotate-cw"
+          className="absolute top-1/2 right-20 hidden h-40 w-40 border-8 border-yellow-300 pointer-events-none geo-rotate-cw md:block"
           style={{ marginTop: "-80px" }}
         />
         <div className="absolute top-20 left-1/3 w-20 h-20 bg-yellow-300 rotate-45 pointer-events-none" />
@@ -272,7 +272,7 @@ export default function ShowcaseContent() {
           {/* Title — massive, offset, asymmetric */}
           <div className="relative mb-12">
             <h1
-              className="text-[80px] md:text-[120px] lg:text-[160px] font-black uppercase leading-none tracking-tight text-white"
+              className="text-[64px] font-black uppercase leading-none tracking-tight text-white sm:text-[80px] md:text-[120px] lg:text-[160px]"
               style={{
                 opacity: heroVisible ? 1 : 0,
                 transform: heroVisible ? "translateX(0)" : "translateX(-40px)",
@@ -283,7 +283,7 @@ export default function ShowcaseContent() {
               GEO
             </h1>
             <h1
-              className="text-[80px] md:text-[120px] lg:text-[160px] font-black uppercase leading-none tracking-tight text-red-500 ml-8 md:ml-20"
+              className="ml-4 text-[64px] font-black uppercase leading-none tracking-tight text-red-500 sm:ml-8 sm:text-[80px] md:ml-20 md:text-[120px] lg:text-[160px]"
               style={{
                 opacity: heroVisible ? 1 : 0,
                 transform: heroVisible ? "translateX(0)" : "translateX(40px)",
@@ -294,7 +294,7 @@ export default function ShowcaseContent() {
               METRIC
             </h1>
             <h1
-              className="text-[80px] md:text-[120px] lg:text-[160px] font-black uppercase leading-none tracking-tight text-blue-500 ml-4 md:ml-10"
+              className="ml-2 text-[64px] font-black uppercase leading-none tracking-tight text-blue-500 sm:ml-4 sm:text-[80px] md:ml-10 md:text-[120px] lg:text-[160px]"
               style={{
                 opacity: heroVisible ? 1 : 0,
                 transform: heroVisible ? "translateX(0)" : "translateX(-20px)",
@@ -327,7 +327,7 @@ export default function ShowcaseContent() {
               包豪斯与构成主义的影响。强烈的几何形状，极端的色块对比，没有渐变，没有阴影。
               纯粹的视觉冲击力。
             </p>
-            <div className="flex gap-4 shrink-0">
+            <div className="flex shrink-0 flex-wrap gap-4">
               <button
                 className="group relative px-8 py-4 bg-black text-white border-4 border-white font-black uppercase tracking-widest text-sm transition-all duration-100 ease-linear hover:bg-red-500 hover:-translate-x-1 hover:-translate-y-1 active:translate-x-1 active:translate-y-1"
                 style={{

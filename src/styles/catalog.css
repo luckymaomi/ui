@@ -15,7 +15,7 @@
   gap: 10px;
   height: 48px;
   border: 1px solid var(--line-soft);
-  border-radius: 999px;
+  border-radius: var(--radius-control);
   background: var(--surface);
   padding: 0 14px;
 }
@@ -34,7 +34,7 @@
   display: inline-grid;
   place-items: center;
   border: 0;
-  border-radius: 999px;
+  border-radius: var(--radius-control);
   background: transparent;
   padding: 6px;
   color: var(--ink);
@@ -46,7 +46,7 @@
   display: flex;
   gap: 3px;
   border: 1px solid var(--line-soft);
-  border-radius: 999px;
+  border-radius: var(--radius-control);
   background: var(--surface);
   padding: 3px;
 }
@@ -55,7 +55,7 @@
 .category-row button,
 .canvas-segmented button {
   border: 0;
-  border-radius: 999px;
+  border-radius: var(--radius-control);
   background: transparent;
   padding: 9px 12px;
   color: var(--ink);
@@ -69,7 +69,7 @@
 .category-row button[aria-pressed="true"],
 .canvas-segmented button[aria-pressed="true"] {
   background: var(--accent);
-  color: #ffffff;
+  color: var(--accent-ink);
 }
 
 .scenario-select select,
@@ -77,7 +77,7 @@
 .pattern-workspace select {
   min-height: 48px;
   border: 1px solid var(--line-soft);
-  border-radius: 999px;
+  border-radius: var(--radius-control);
   background: var(--surface);
   color: var(--ink);
   padding: 0 34px 0 12px;
@@ -115,12 +115,13 @@
   min-width: 0;
   overflow: hidden;
   border: 1px solid var(--line-soft);
-  border-radius: 12px;
+  border-radius: var(--radius-panel);
   background: var(--surface);
   transition:
     translate 100ms linear,
     border-color 100ms linear,
-    background 100ms linear;
+    background 100ms linear,
+    box-shadow 100ms linear;
 }
 
 .style-card {
@@ -133,15 +134,16 @@
 .compact-item:hover,
 .prompt-topic-grid > a:hover,
 .guide-grid > a:hover {
-  border-color: color-mix(in srgb, var(--accent) 42%, var(--line-soft));
-  translate: 0 -3px;
+  border-color: var(--line);
+  box-shadow: var(--hard-shadow);
+  translate: -3px -3px;
 }
 
 .style-cover,
 .template-cover {
   display: block;
   overflow: hidden;
-  background: var(--surface-2);
+  background: var(--surface-muted);
 }
 
 .style-cover {
@@ -195,7 +197,7 @@
 
 .style-heading > span,
 .compact-item > span {
-  border-radius: 999px;
+  border-radius: var(--radius-control);
   background: var(--ink);
   padding: 4px 7px;
   color: var(--bg);
@@ -230,7 +232,7 @@
   width: 25px;
   height: 14px;
   border: 1px solid #11110f;
-  border-radius: 4px;
+  border-radius: 0;
 }
 
 .style-card-actions {
@@ -244,8 +246,9 @@
 .text-link,
 .pattern-copy a,
 .workflow-list a {
-  border-radius: 999px;
-  background: var(--accent-soft);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-control);
+  background: var(--surface-muted);
   padding: 8px 11px;
   color: var(--ink);
   font-size: 13px;
@@ -262,7 +265,7 @@
   justify-content: center;
   gap: 8px;
   border: 1px solid var(--line-soft);
-  border-radius: 999px;
+  border-radius: var(--radius-control);
   background: var(--surface);
   padding: 8px 13px;
   color: var(--ink);
@@ -274,18 +277,18 @@
 .tool-button:hover,
 .secondary-command:hover,
 .canvas-open:hover {
-  background: var(--sun);
-  color: #11110f;
+  background: var(--surface-muted);
+  color: var(--ink);
 }
 
 .primary-command {
   background: var(--accent);
-  color: #ffffff;
+  color: var(--accent-ink);
 }
 
 .primary-command:hover {
-  background: var(--ink);
-  color: var(--bg);
+  background: var(--highlight);
+  color: var(--highlight-ink);
 }
 
 .copy-actions,
@@ -308,8 +311,8 @@
 .empty-state,
 .interactive-loading,
 .showcase-loading {
-  border-radius: 14px;
-  background: var(--surface-2);
+  border-radius: var(--radius-panel);
+  background: var(--surface-muted);
   padding: 48px 24px;
   color: var(--muted);
   text-align: center;

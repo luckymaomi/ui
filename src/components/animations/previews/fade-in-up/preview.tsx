@@ -11,15 +11,20 @@ export function FadeInUpPreview() {
         @keyframes fadeInUp {
           from {
             opacity: 0;
-            transform: translateY(20px);
+            transform: translate3d(0, 14px, 0);
           }
           to {
             opacity: 1;
-            transform: translateY(0);
+            transform: none;
           }
         }
         .animate-fade-in-up {
-          animation: fadeInUp 500ms ease-out forwards;
+          animation: fadeInUp 420ms cubic-bezier(0.2, 0.75, 0.25, 1) backwards;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .animate-fade-in-up {
+            animation: none;
+          }
         }
       `}</style>
       <ReplayButton onReplay={replay} />

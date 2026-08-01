@@ -1,59 +1,25 @@
-@keyframes ui-fade-up {
+@keyframes ui-page-enter {
   from {
     opacity: 0;
-    translate: 0 18px;
+    transform: translate3d(0, 14px, 0);
   }
 
   to {
     opacity: 1;
-    translate: 0 0;
+    transform: none;
   }
 }
 
-@supports (animation-timeline: view()) {
-  .page-intro,
-  .style-detail-hero,
-  .catalog-workspace,
-  .domain-section,
-  .detail-section,
-  .template-canvas,
-  .pattern-workspace,
-  .resource-index,
-  .resource-color-list,
-  .resource-specimen-grid,
-  .type-pairing-list,
-  .scale-list,
-  .spacing-groups,
-  .principle-list,
-  .hierarchy-content,
-  .guide-detail,
-  .workflow-list {
-    animation: ui-fade-up linear both;
-    animation-timeline: view();
-    animation-range: entry 0% entry 28%;
+@media (prefers-reduced-motion: no-preference) {
+  .page-shell {
+    animation: ui-page-enter 420ms cubic-bezier(0.2, 0.75, 0.25, 1) backwards;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .page-intro,
-  .style-detail-hero,
-  .catalog-workspace,
-  .domain-section,
-  .detail-section,
-  .template-canvas,
-  .pattern-workspace,
-  .resource-index,
-  .resource-color-list,
-  .resource-specimen-grid,
-  .type-pairing-list,
-  .scale-list,
-  .spacing-groups,
-  .principle-list,
-  .hierarchy-content,
-  .guide-detail,
-  .workflow-list {
+  .page-shell {
     animation: none;
     opacity: 1;
-    translate: none;
+    transform: none;
   }
 }
