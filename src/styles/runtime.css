@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--bg, #ffffff);
+  --color-foreground: var(--ink, #111111);
+  --color-border: var(--line, #d9d9d2);
+  --color-muted: var(--muted, #66665f);
+  --color-muted-foreground: var(--muted, #66665f);
+  --color-accent: var(--accent, #2457ff);
+  --font-sans: var(
+    --font-body-active,
+    Inter,
+    "Noto Sans SC",
+    "Microsoft YaHei",
+    system-ui,
+    sans-serif
+  );
+  --font-serif: var(--font-display-active, Georgia, "Noto Serif SC", serif);
+  --font-mono: var(
+    --font-mono-active,
+    "JetBrains Mono",
+    "Cascadia Code",
+    monospace
+  );
+}
+
+html {
+  min-width: 320px;
+}
+
+body {
+  margin: 0;
+}
+
+.showcase-page {
+  overflow-x: hidden;
+  font-family: var(--font-body-active);
+}
+
+.showcase-page h1,
+.showcase-page h2,
+.showcase-page h3,
+.showcase-page h4,
+.showcase-page h5,
+.showcase-page h6 {
+  font-family: var(--font-display-active);
+  letter-spacing: 0;
+}
+
+.showcase-page .showcase-back-link {
+  display: inline !important;
+  width: auto !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  text-decoration: underline !important;
+  text-decoration-thickness: 1px !important;
+  text-underline-offset: 0.22em !important;
+  transform: none !important;
+}
+
+.template-page {
+  min-height: 100%;
+  overflow-x: clip;
+  background: #ffffff;
+}
+
+.template-page body {
+  min-height: 100vh;
+  overflow-x: clip;
+}
+
+.template-preview-navigation {
+  display: flex;
+  min-height: 44px;
+  align-items: center;
+  padding-inline: 16px;
+  background: #ffffff;
+  color: #111214;
+  font: 700 13px/1.4 Inter, "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif;
+}
+
+.template-preview-back-link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+}
+
+.interactive-loading,
+.showcase-loading {
+  display: grid;
+  min-height: 240px;
+  place-items: center;
+  padding: 32px;
+  color: #5f5f5a;
+  font:
+    600 14px/1.5 Inter,
+    "Noto Sans SC",
+    system-ui,
+    sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

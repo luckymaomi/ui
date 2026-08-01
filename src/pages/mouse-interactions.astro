@@ -1,0 +1,8 @@
+---
+import { MouseInteractions } from "@/components/mouse/MouseInteractions";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="鼠标交互实验室" wide>
+  <MouseInteractions client:only="react" />
+</BaseLayout>

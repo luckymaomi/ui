@@ -1,0 +1,12 @@
+---
+import { animationVocabulary } from "@/content/catalog";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+const entries = Object.entries(animationVocabulary).filter(([, value]) => typeof value !== "function");
+---
+
+<BaseLayout title="动效词汇表">
+  <header class="page-intro"><h1>动效词汇表</h1></header>
+  <section class="detail-section vocabulary-list">
+    {entries.map(([key, value]) => <article><h2>{key}</h2><pre><code>{JSON.stringify(value, null, 2)}</code></pre></article>)}
+  </section>
+</BaseLayout>

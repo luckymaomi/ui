@@ -1,0 +1,38 @@
+---
+import { animations } from "@/content/catalog";
+import { zh } from "@/content/i18n/zh";
+import { withBase } from "@/lib/base";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+const groups = animations.reduce<Record<string, typeof animations>>((result, animation) => {
+  (result[animation.category] ??= []).push(animation);
+  return result;
+}, {});
+const categoryLabel = (value: string) => zh.animation.categories[value as keyof typeof zh.animation.categories] ?? value;
+const triggerLabel = (value: string) => zh.animation.triggers[value as keyof typeof zh.animation.triggers] ?? value;
+---
+
+<BaseLayout title="动效库">
+  <header class="page-intro">
+    <h1>动效与交互</h1>
+    <nav class="inline-navigation" aria-label="动效相关入口">
+      <a href={withBase("/animations/vocabulary/")}>动效词汇表</a>
+      <a href={withBase("/mouse-interactions/")}>鼠标交互实验室</a>
+    </nav>
+  </header>
+  <div class="domain-sections">
+    {Object.entries(groups).map(([category, items]) => (
+      <section class="domain-section">
+        <div class="section-heading"><h2>{categoryLabel(category)}</h2><p>{items?.length ?? 0} 个动效</p></div>
+        <div class="compact-grid">
+          {items?.map((animation) => (
+            <a class="compact-item" href={withBase(`/animations/${animation.slug}/`)}>
+              <div><h3>{animation.name}</h3></div>
+              <span>{triggerLabel(animation.trigger)} · {animation.duration}</span>
+              <p>{animation.description}</p>
+            </a>
+          ))}
+        </div>
+      </section>
+    ))}
+  </div>
+</BaseLayout>

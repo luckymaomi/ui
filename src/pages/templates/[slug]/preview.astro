@@ -1,0 +1,33 @@
+---
+import { TemplateLoader } from "@/components/templates/TemplateLoader";
+import { templates } from "@/content/catalog";
+import { withBase } from "@/lib/base";
+import "@/styles/runtime.css";
+
+export function getStaticPaths() {
+  return templates.map((template) => ({
+    params: { slug: template.id },
+    props: { template },
+  }));
+}
+
+const { template } = Astro.props;
+const canonical = new URL(withBase(`/templates/${template.id}/preview/`), Astro.site);
+---
+
+<!doctype html>
+<html lang="zh-CN" class="template-page">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={`${template.name.zh}完整交互页面`} />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="icon" type="image/svg+xml" href={withBase("/icon.svg")} />
+    <link rel="canonical" href={canonical} />
+    <title>{template.name.zh}交互预览 | UI</title>
+  </head>
+  <body>
+    <nav id="template-preview-navigation" class="template-preview-navigation" aria-label="模板导航"></nav>
+    <TemplateLoader id={template.id} client:only="react" />
+  </body>
+</html>

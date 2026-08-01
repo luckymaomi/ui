@@ -1,0 +1,13 @@
+---
+import { prompts, styles } from "@/content/catalog";
+import { withBase } from "@/lib/base";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="UI 提示词">
+  <header class="page-intro"><h1>UI 提示词</h1></header>
+  <section class="prompt-topic-grid">
+    {prompts.map((topic) => <a href={withBase(`/ui-prompts/${topic.slug}/`)}><div class="meta-row"><span>{topic.prompts.length} 条提示词</span></div><h2>{topic.titleZh}</h2><p>{topic.descriptionZh}</p><span>打开主题</span></a>)}
+  </section>
+  <section class="detail-section"><div class="section-heading"><h2>按风格查找 AI 规则</h2></div><div class="link-cloud">{styles.map((style) => <a href={withBase(`/styles/${style.slug}/`)}>{style.name}</a>)}</div></section>
+</BaseLayout>

@@ -1,0 +1,18 @@
+---
+import { RecipeWorkbench } from "@/components/RecipeWorkbench";
+import { styles } from "@/content/catalog";
+import { withBase } from "@/lib/base";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+export function getStaticPaths() { return styles.map((style) => ({ params: { slug: style.slug }, props: { style } })); }
+const { style } = Astro.props;
+---
+
+<BaseLayout title={`${style.name}组件配方`}>
+  <header class="page-intro"><a class="back-link" href={withBase("/recipes/")}>返回配方目录</a><div class="meta-row"><span>{style.nameEn}</span></div><h1>{style.name}组件配方</h1><div class="detail-actions"><a class="primary-command" href={withBase(`/styles/${style.slug}/`)}>查看风格规则</a></div></header>
+  <section class="detail-section"><RecipeWorkbench recipes={style.recipe.recipes} client:visible /></section>
+  <section class="detail-section recipe-definitions">
+    {Object.values(style.recipe.recipes).map((recipe: any) => (
+      <article><div><div class="meta-row"><span>{recipe.id}</span></div><h2>{recipe.nameZh}</h2><p>{recipe.description}</p></div><dl><dt>基础骨架</dt><dd><code>{recipe.skeleton.baseClasses.join(" ")}</code></dd><dt>变体</dt><dd>{Object.values(recipe.variants).map((variant: any) => variant.labelZh).join("、")}</dd><dt>状态</dt><dd>{Object.keys(recipe.states ?? {}).join("、") || "静态"}</dd></dl></article>
+    ))}
+  </section>
+</BaseLayout>

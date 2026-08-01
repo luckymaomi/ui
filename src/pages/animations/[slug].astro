@@ -1,0 +1,43 @@
+---
+import { AnimationLoader } from "@/components/animations/AnimationLoader";
+import { CopyDownload } from "@/components/CopyDownload";
+import { animations, animationDefinitions } from "@/content/catalog";
+import { zh } from "@/content/i18n/zh";
+import { withBase } from "@/lib/base";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+export function getStaticPaths() {
+  const definitions = Array.isArray(animationDefinitions) ? animationDefinitions : [];
+  return animations.map((animation) => ({
+    params: { slug: animation.slug },
+    props: {
+      animation,
+      definition: definitions.find((item: any) => item?.slug === animation.slug) ?? null,
+    },
+  }));
+}
+const { animation, definition } = Astro.props;
+const source = JSON.stringify(definition ?? animation, null, 2);
+const category = zh.animation.categories[animation.category as keyof typeof zh.animation.categories] ?? animation.category;
+const trigger = zh.animation.triggers[animation.trigger as keyof typeof zh.animation.triggers] ?? animation.trigger;
+const difficulty = zh.animation.difficulties[animation.difficulty as keyof typeof zh.animation.difficulties] ?? animation.difficulty;
+---
+
+<BaseLayout title={animation.name} description={animation.description}>
+  <header class="page-intro">
+    <a class="back-link" href={withBase("/animations/")}>返回动效库</a>
+    <div class="meta-row"><span>{category}</span><span>{difficulty}</span></div>
+    <h1>{animation.name}</h1>
+    <p>{animation.description}</p>
+    <div class="page-meta"><span>{trigger}</span><span>{animation.duration}</span></div>
+  </header>
+  <section class="detail-section">
+    <div class="section-heading"><h2>交互预览</h2></div>
+    <div class="animation-stage"><AnimationLoader slug={animation.slug} client:only="react" /></div>
+  </section>
+  <section class="detail-section code-panel">
+    <div class="section-heading"><h2>动效定义与代码</h2></div>
+    <pre><code id="animation-source">{source}</code></pre>
+    <CopyDownload sourceId="animation-source" filename={`${animation.slug}.json`} label="动效定义" client:visible />
+  </section>
+</BaseLayout>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">几何图形</title>
+  <rect width="512" height="512" rx="112" fill="#ffffff"/>
+  <circle cx="190" cy="206" r="116" fill="#2557f5"/>
+  <rect x="246" y="246" width="176" height="176" rx="48" fill="#ef463b"/>
+</svg>

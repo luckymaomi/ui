@@ -1,0 +1,12 @@
+---
+import { StyleExplorer } from "@/components/StyleExplorer";
+import { styleSummaries } from "@/content/catalog";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="风格库" wide>
+  <header class="page-intro">
+    <h1>风格库</h1>
+  </header>
+  <StyleExplorer items={styleSummaries} client:idle />
+</BaseLayout>

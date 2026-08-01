@@ -1,0 +1,17 @@
+---
+import { guides } from "@/content/catalog";
+import { withBase } from "@/lib/base";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+export function getStaticPaths() { return Object.values(guides).map((guide) => ({ params: { slug: guide.slug }, props: { guide } })); }
+const { guide } = Astro.props;
+---
+
+<BaseLayout title={guide.name} description={guide.description}>
+  <header class="page-intro"><a class="back-link" href={withBase("/guides/")}>返回指南目录</a><h1>{guide.name}</h1></header>
+  <article class="guide-detail">
+    <section><h2>历史</h2><p>{guide.history}</p></section>
+    <section><h2>设计哲学</h2><p>{guide.philosophy}</p></section>
+    <section><h2>适用场景</h2><div class="guide-use-cases">{guide.useCases.map((item) => <div><strong>{item.title}</strong><span>{item.industry}</span><p>{item.description}</p></div>)}</div></section>
+    <section><h2>参考资料</h2><ul>{guide.references.map((reference) => <li><a href={reference.url} target="_blank" rel="noreferrer">{reference.title}</a><span>{reference.type}</span></li>)}</ul></section>
+  </article>
+</BaseLayout>

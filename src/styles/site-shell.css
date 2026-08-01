@@ -1,0 +1,242 @@
+:root {
+  color-scheme: light;
+  --bg: #f5f6f8;
+  --surface: #ffffff;
+  --surface-2: #e8edff;
+  --ink: #111214;
+  --muted: #565b66;
+  --line: #111214;
+  --line-soft: #d7dbe5;
+  --header-bg: #ffffff;
+  --header-hover: #e8edff;
+  --accent: #2557f5;
+  --accent-strong: #1538b6;
+  --accent-soft: #dce5ff;
+  --signal: #ef463b;
+  --signal-soft: #ffe2df;
+  --sun: #ef463b;
+  --sun-soft: #ffe2df;
+  --focus: #2557f5;
+  --code-bg: #eceff5;
+  --code-ink: #17191e;
+  --shadow: none;
+  --font-display-active: Inter, "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif;
+  --font-body-active: Inter, "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif;
+  --font-mono-active: "JetBrains Mono", "Cascadia Code", monospace;
+  font-family: var(--font-body-active);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #151514;
+  --surface: #202124;
+  --surface-2: #2b3142;
+  --ink: #f7f7f1;
+  --muted: #b9bdc8;
+  --line: #eceee7;
+  --line-soft: #424652;
+  --header-bg: rgba(17, 18, 20, 0.96);
+  --header-hover: #2b3142;
+  --accent: #7d9bff;
+  --accent-strong: #a8baff;
+  --accent-soft: #29365c;
+  --signal: #ff746b;
+  --signal-soft: #4a2928;
+  --sun: #ff746b;
+  --sun-soft: #4a2928;
+  --focus: #7d9bff;
+  --code-bg: #10110f;
+  --code-ink: #f1f2ec;
+  --shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
+}
+
+.site-page {
+  min-width: 320px;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.site-page a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-page button,
+.site-page input,
+.site-page select,
+.site-page textarea {
+  font: inherit;
+}
+
+.site-page img {
+  display: block;
+  max-width: 100%;
+}
+
+.site-page ::selection {
+  background: var(--sun);
+  color: #11110f;
+}
+
+.site-page :focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: fixed;
+  inset: 12px auto auto 12px;
+  z-index: 1000;
+  translate: 0 -80px;
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  background: var(--sun);
+  color: #11110f;
+  padding: 12px 16px;
+  font-weight: 800;
+}
+
+.skip-link:focus {
+  translate: 0;
+}
+
+.site-header {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 80;
+  background: var(--header-bg);
+  color: var(--ink);
+}
+
+.header-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 24px;
+  min-height: 64px;
+  max-width: 1500px;
+  margin: auto;
+  padding: 8px 24px;
+}
+
+.primary-nav {
+  display: flex;
+  gap: 5px;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.primary-nav a {
+  flex: none;
+  border-radius: 999px;
+  padding: 10px 13px;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.primary-nav a:hover {
+  background: var(--header-hover);
+  color: var(--ink);
+}
+
+.icon-button {
+  display: inline-grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 0;
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.icon-button:hover {
+  background: var(--surface-2);
+  color: var(--accent-strong);
+}
+
+.page-shell {
+  width: min(1220px, calc(100% - 40px));
+  min-height: calc(100vh - 72px);
+  margin: 0 auto;
+}
+
+.page-shell-wide {
+  width: min(1500px, calc(100% - 32px));
+}
+
+.page-intro {
+  padding: 58px 0 38px;
+}
+
+.page-intro h1 {
+  max-width: 920px;
+  margin: 0;
+  font-size: clamp(40px, 6vw, 76px);
+  font-weight: 950;
+  line-height: 0.98;
+  letter-spacing: 0;
+}
+
+.page-intro > p {
+  max-width: 760px;
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.meta-row,
+.page-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 16px;
+}
+
+.page-meta {
+  margin: 22px 0 0;
+}
+
+.meta-row span,
+.page-meta span,
+.meta-chip {
+  border-radius: 999px;
+  background: var(--sun-soft);
+  padding: 7px 11px;
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.inline-navigation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 20px;
+  margin-block-start: 16px;
+}
+
+.inline-navigation a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+}

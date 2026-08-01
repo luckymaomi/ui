@@ -1,0 +1,28 @@
+---
+import DocumentHead from "@/components/site/DocumentHead.astro";
+import SiteHeader from "@/components/site/SiteHeader.astro";
+import { zh } from "@/content/i18n/zh";
+import "@/styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+  wide?: boolean;
+}
+
+const { title, description = zh.site.description, wide = false } = Astro.props;
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <DocumentHead title={title} description={description} />
+  </head>
+  <body class="site-page">
+    <a class="skip-link" href="#main">跳到主要内容</a>
+    <SiteHeader />
+    <main id="main" class:list={["page-shell", wide && "page-shell-wide"]}>
+      <slot />
+    </main>
+  </body>
+</html>

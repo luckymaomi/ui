@@ -1,0 +1,16 @@
+---
+import { CopyDownload } from "@/components/CopyDownload";
+import { prompts } from "@/content/catalog";
+import { withBase } from "@/lib/base";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+export function getStaticPaths() { return prompts.map((topic) => ({ params: { slug: topic.slug }, props: { topic } })); }
+const { topic } = Astro.props;
+---
+
+<BaseLayout title={topic.titleZh} description={topic.descriptionZh}>
+  <header class="page-intro"><a class="back-link" href={withBase("/ui-prompts/")}>返回提示词目录</a><h1>{topic.titleZh}</h1><p>{topic.introZh}</p></header>
+  <section class="prompt-list">
+    {topic.prompts.map((prompt, index) => <article><div class="meta-row"><span>{prompt.tool}</span></div><h2>{prompt.titleZh}</h2><pre><code id={`prompt-source-${index}`}>{prompt.promptZh}</code></pre><CopyDownload sourceId={`prompt-source-${index}`} filename={`${topic.slug}-${prompt.tool}-${index + 1}.md`} label="提示词" client:visible /></article>)}
+  </section>
+  <section class="detail-section faq-list"><div class="section-heading"><h2>常见问题</h2></div>{topic.faq.map((item) => <details><summary>{item.questionZh}</summary><p>{item.answerZh}</p></details>)}</section>
+</BaseLayout>

@@ -1,0 +1,100 @@
+---
+import { resources, styles } from "@/content/catalog";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const resourceConfig = {
+  colors: ["颜色系统", "143 种风格使用的主色、次色和强调色，可直接复制十六进制或 CSS 颜色值。"],
+  gradients: ["渐变", "按冷暖、深浅和氛围组织的渐变定义，包含 CSS 与 Tailwind 表达。"],
+  shadows: ["阴影", "覆盖柔和、中等、硬朗、发光和内阴影的层级规格。"],
+  backgrounds: ["背景纹理", "网格、点阵、条纹与有机纹理，可直接作为 CSS background-image。"],
+  typography: ["字体搭配", "真实字体组合、授权、适用场景与中文说明。"],
+  "type-scale": ["字号比例", "从紧凑数据界面到品牌展示的模块化字号比例。"],
+  spacing: ["间距与网格", "4pt/8pt 间距体系及响应式布局网格规格。"],
+  "design-principles": ["设计原则", "CRAP：对比、重复、对齐、亲密性及其检查清单。"],
+  "visual-hierarchy": ["视觉层级", "通过大小、字重、颜色与空间控制用户阅读顺序。"],
+} as const;
+
+export function getStaticPaths() {
+  return [
+    "colors",
+    "gradients",
+    "shadows",
+    "backgrounds",
+    "typography",
+    "type-scale",
+    "spacing",
+    "design-principles",
+    "visual-hierarchy",
+  ].map((resource) => ({ params: { resource } }));
+}
+
+const slug = Astro.params.resource as keyof typeof resourceConfig;
+const [title, description] = resourceConfig[slug];
+const data = resources as any;
+const gradients = data["gradients/index"]?.gradients ?? [];
+const shadows = data["shadows/index"]?.shadows ?? [];
+const backgrounds = data["backgrounds/index"]?.backgrounds ?? [];
+const fontPairings = data["typography/index"]?.fontPairings ?? [];
+const scaleRatios = data["type-scale/index"]?.SCALE_RATIOS ?? [];
+const spacingPresets = data["spacing/index"]?.SPACING_PRESETS ?? [];
+const gridPresets = data["spacing/index"]?.GRID_PRESETS ?? [];
+const principles = data["design-principles/index"]?.DESIGN_PRINCIPLES ?? [];
+const hierarchyLevers = data["visual-hierarchy/index"]?.HIERARCHY_LEVERS ?? [];
+const hierarchyElements = data["visual-hierarchy/index"]?.SAMPLE_ELEMENTS ?? [];
+---
+
+<BaseLayout title={title} description={description}>
+  <header class="page-intro"><h1>{title}</h1></header>
+
+  {slug === "colors" && <section class="resource-color-list">
+    {styles.map((style) => <article><div><h2>{style.name}</h2><p>{style.nameEn}</p></div><div class="resource-swatches">{[style.colors.primary, style.colors.secondary, ...style.colors.accent].map((color) => <button data-copy={color} style={`--swatch:${color}`} title={`复制 ${color}`}><i></i><code>{color}</code></button>)}</div></article>)}
+  </section>}
+
+  {slug === "gradients" && <section class="resource-specimen-grid">
+    {gradients.map((item: any) => <article><div class="gradient-sample" style={`background:${item.css}`}></div><div><div class="meta-row"><span>{item.category}</span></div><h2>{item.nameZh}</h2><p>{item.mood.join(" · ")}</p><code>{item.css}</code><button class="tool-button" data-copy={item.css}>复制 CSS</button></div></article>)}
+  </section>}
+
+  {slug === "shadows" && <section class="resource-specimen-grid">
+    {shadows.map((item: any) => <article><div class="shadow-sample" style={`box-shadow:${item.value}`}></div><div><div class="meta-row"><span>{item.category}</span></div><h2>{item.nameZh}</h2><code>{item.css}</code><button class="tool-button" data-copy={item.css}>复制 CSS</button></div></article>)}
+  </section>}
+
+  {slug === "backgrounds" && <section class="resource-specimen-grid">
+    {backgrounds.map((item: any) => <article><div class="background-sample" style={`background-image:${item.css}`}></div><div><div class="meta-row"><span>{item.category}</span></div><h2>{item.nameZh}</h2><p>{item.mood.join(" · ")}</p><code>{item.css}</code><button class="tool-button" data-copy={item.css}>复制 CSS</button></div></article>)}
+  </section>}
+
+  {slug === "typography" && <section class="type-pairing-list">
+    {fontPairings.map((item: any) => <article><div class="type-specimen" style={`font-family:${item.heading.family},serif`}><span>字形</span><strong>{item.previewWord ?? item.nameZh}</strong></div><div><div class="meta-row"><span>{item.category}</span><span>{item.license}</span></div><h2>{item.nameZh}</h2><p>{item.descriptionZh}</p><dl><dt>标题</dt><dd>{item.heading.family} {item.heading.weight}</dd><dt>正文</dt><dd>{item.body.family} {item.body.weight}</dd><dt>适用</dt><dd>{item.bestForZh}</dd></dl></div></article>)}
+  </section>}
+
+  {slug === "type-scale" && <section class="scale-list">
+    {scaleRatios.map((item: any) => <article><div><strong style={`font-size:${Math.min(42, 16 * item.value ** 3)}px`}>Aa</strong></div><h2>{item.name}</h2><code>{item.value}</code><p>{item.hint}</p></article>)}
+  </section>}
+
+  {slug === "spacing" && <section class="spacing-groups">
+    {spacingPresets.map((preset: any) => <article><div class="section-heading"><div class="meta-row"><span>{preset.base}px 基准</span></div><h2>{preset.name}</h2><p>{preset.hint}</p></div><div class="spacing-scale">{preset.values.map((value: any) => <div><span style={`width:${Math.max(2, value.px)}px`}></span><code>{value.key} · {value.px}px</code></div>)}</div></article>)}
+    <article><div class="section-heading"><h2>布局网格</h2></div><div class="grid-preset-list">{gridPresets.map((grid: any) => <div><strong>{grid.name}</strong><span>{grid.columns} 列 · {grid.gutter}px 沟槽 · {grid.margin}px 边距</span></div>)}</div></article>
+  </section>}
+
+  {slug === "design-principles" && <section class="principle-list">
+    {principles.map((item: any) => <article><span>{item.letter}</span><div><div class="meta-row"><span>{item.name}</span></div><h2>{item.nameZh}</h2><p>{item.definitionZh}</p><blockquote>{item.mnemonicZh}</blockquote><h3>检查清单</h3><ul>{item.checklist.map((check: any) => <li>{check.zh}</li>)}</ul><pre><code>{item.snippet.code}</code></pre><button class="tool-button" data-copy={item.snippet.code}>复制代码</button></div></article>)}
+  </section>}
+
+  {slug === "visual-hierarchy" && <section class="hierarchy-content">
+    <div class="hierarchy-levers">{hierarchyLevers.map((lever: any) => <article><div class="meta-row"><span>{lever.name}</span></div><h2>{lever.nameZh}</h2><p>{lever.descZh}</p></article>)}</div>
+    <div class="hierarchy-composition">{hierarchyElements.map((element: any) => <div class={`hierarchy-${element.id}`}><span>{element.roleZh}</span><strong>{element.labelZh}</strong></div>)}</div>
+  </section>}
+
+  <script>
+    document.addEventListener("click", async (event) => {
+      const button = (event.target as HTMLElement).closest<HTMLButtonElement>("[data-copy]");
+      if (!button?.dataset.copy) return;
+      try {
+        await navigator.clipboard.writeText(button.dataset.copy);
+        const original = button.textContent;
+        button.dataset.copied = "true";
+        if (button.classList.contains("tool-button")) button.textContent = "已复制";
+        window.setTimeout(() => { button.dataset.copied = "false"; if (original) button.textContent = original; }, 1400);
+      } catch { button.dataset.copied = "error"; }
+    });
+  </script>
+</BaseLayout>

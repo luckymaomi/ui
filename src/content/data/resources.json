@@ -1,0 +1,2470 @@
+{
+  "color/index": {
+    "HARMONY_TYPES": [
+      "complementary",
+      "splitComplementary",
+      "analogous",
+      "triadic",
+      "tetradic",
+      "monochromatic"
+    ]
+  },
+  "gradients/index": {
+    "gradients": [
+      {
+        "id": "sunrise-warmth",
+        "name": "Sunrise Warmth",
+        "nameZh": "暖日初升",
+        "colors": [
+          "#ffffc4",
+          "#ff6164",
+          "#b00012"
+        ],
+        "angle": 135,
+        "css": "linear-gradient(135deg, #ffffc4 0%, #ff6164 50%, #b00012 100%)",
+        "tailwind": "bg-gradient-to-br from-[#ffffc4] via-[#ff6164] to-[#b00012]",
+        "category": "warm",
+        "mood": [
+          "energetic",
+          "passionate",
+          "bold"
+        ]
+      },
+      {
+        "id": "peach-sunset",
+        "name": "Peach Sunset",
+        "nameZh": "蜜桃日落",
+        "colors": [
+          "#ffecd2",
+          "#fcb69f"
+        ],
+        "angle": 135,
+        "css": "linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)",
+        "tailwind": "bg-gradient-to-br from-[#ffecd2] to-[#fcb69f]",
+        "category": "warm",
+        "mood": [
+          "soft",
+          "friendly",
+          "approachable"
+        ]
+      },
+      {
+        "id": "orange-coral",
+        "name": "Orange Coral",
+        "nameZh": "橙珊瑚",
+        "colors": [
+          "#ff9966",
+          "#ff5e62"
+        ],
+        "angle": 90,
+        "css": "linear-gradient(90deg, #ff9966 0%, #ff5e62 100%)",
+        "tailwind": "bg-gradient-to-r from-[#ff9966] to-[#ff5e62]",
+        "category": "warm",
+        "mood": [
+          "creative",
+          "playful",
+          "energetic"
+        ]
+      },
+      {
+        "id": "ocean-blue",
+        "name": "Ocean Blue",
+        "nameZh": "深海蓝",
+        "colors": [
+          "#2193b0",
+          "#6dd5ed"
+        ],
+        "angle": 135,
+        "css": "linear-gradient(135deg, #2193b0 0%, #6dd5ed 100%)",
+        "tailwind": "bg-gradient-to-br from-[#2193b0] to-[#6dd5ed]",
+        "category": "cool",
+        "mood": [
+          "calm",
+          "trustworthy",
+          "professional"
+        ]
+      },
+      {
+        "id": "turquoise-flow",
+        "name": "Turquoise Flow",
+        "nameZh": "绿松石流",
+        "colors": [
+          "#07aeea",
+          "#2bf598"
+        ],
+        "angle": 90,
+        "css": "linear-gradient(90deg, #07aeea 0%, #2bf598 100%)",
+        "tailwind": "bg-gradient-to-r from-[#07aeea] to-[#2bf598]",
+        "category": "cool",
+        "mood": [
+          "fresh",
+          "modern",
+          "tech"
+        ]
+      },
+      {
+        "id": "midnight-city",
+        "name": "Midnight City",
+        "nameZh": "午夜都市",
+        "colors": [
+          "#232526",
+          "#414345"
+        ],
+        "angle": 180,
+        "css": "linear-gradient(180deg, #232526 0%, #414345 100%)",
+        "tailwind": "bg-gradient-to-b from-[#232526] to-[#414345]",
+        "category": "dark",
+        "mood": [
+          "sophisticated",
+          "elegant",
+          "premium"
+        ]
+      },
+      {
+        "id": "candy-pop",
+        "name": "Candy Pop",
+        "nameZh": "糖果波普",
+        "colors": [
+          "#fada61",
+          "#ff9188",
+          "#ff5acd"
+        ],
+        "angle": 45,
+        "css": "linear-gradient(45deg, #fada61 0%, #ff9188 50%, #ff5acd 100%)",
+        "tailwind": "bg-gradient-to-tr from-[#fada61] via-[#ff9188] to-[#ff5acd]",
+        "category": "vibrant",
+        "mood": [
+          "fun",
+          "playful",
+          "youthful"
+        ]
+      },
+      {
+        "id": "purple-dream",
+        "name": "Purple Dream",
+        "nameZh": "紫色梦境",
+        "colors": [
+          "#4159d0",
+          "#c84fc0",
+          "#ffcd70"
+        ],
+        "angle": 45,
+        "css": "linear-gradient(45deg, #4159d0 0%, #c84fc0 50%, #ffcd70 100%)",
+        "tailwind": "bg-gradient-to-tr from-[#4159d0] via-[#c84fc0] to-[#ffcd70]",
+        "category": "vibrant",
+        "mood": [
+          "creative",
+          "magical",
+          "inspiring"
+        ]
+      },
+      {
+        "id": "rainbow-mesh",
+        "name": "Rainbow Mesh",
+        "nameZh": "彩虹网格",
+        "colors": [
+          "#ff0080",
+          "#7928ca",
+          "#0070f3"
+        ],
+        "angle": 135,
+        "css": "linear-gradient(135deg, #ff0080 0%, #7928ca 50%, #0070f3 100%)",
+        "tailwind": "bg-gradient-to-br from-[#ff0080] via-[#7928ca] to-[#0070f3]",
+        "category": "vibrant",
+        "mood": [
+          "bold",
+          "innovative",
+          "dynamic"
+        ]
+      },
+      {
+        "id": "cotton-candy",
+        "name": "Cotton Candy",
+        "nameZh": "棉花糖",
+        "colors": [
+          "#fbc2eb",
+          "#a6c1ee"
+        ],
+        "angle": 135,
+        "css": "linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%)",
+        "tailwind": "bg-gradient-to-br from-[#fbc2eb] to-[#a6c1ee]",
+        "category": "pastel",
+        "mood": [
+          "gentle",
+          "feminine",
+          "dreamy"
+        ]
+      },
+      {
+        "id": "mint-breeze",
+        "name": "Mint Breeze",
+        "nameZh": "薄荷微风",
+        "colors": [
+          "#d4fc79",
+          "#96e6a1"
+        ],
+        "angle": 90,
+        "css": "linear-gradient(90deg, #d4fc79 0%, #96e6a1 100%)",
+        "tailwind": "bg-gradient-to-r from-[#d4fc79] to-[#96e6a1]",
+        "category": "pastel",
+        "mood": [
+          "fresh",
+          "natural",
+          "healthy"
+        ]
+      },
+      {
+        "id": "lavender-haze",
+        "name": "Lavender Haze",
+        "nameZh": "薰衣草雾",
+        "colors": [
+          "#e0c3fc",
+          "#8ec5fc"
+        ],
+        "angle": 135,
+        "css": "linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%)",
+        "tailwind": "bg-gradient-to-br from-[#e0c3fc] to-[#8ec5fc]",
+        "category": "pastel",
+        "mood": [
+          "calm",
+          "serene",
+          "relaxing"
+        ]
+      },
+      {
+        "id": "golden-hour",
+        "name": "Golden Hour",
+        "nameZh": "黄金时刻",
+        "colors": [
+          "#f6d365",
+          "#fda085"
+        ],
+        "angle": 135,
+        "css": "linear-gradient(135deg, #f6d365 0%, #fda085 100%)",
+        "tailwind": "bg-gradient-to-br from-[#f6d365] to-[#fda085]",
+        "category": "sunset",
+        "mood": [
+          "warm",
+          "optimistic",
+          "joyful"
+        ]
+      },
+      {
+        "id": "dusk-rose",
+        "name": "Dusk Rose",
+        "nameZh": "暮色玫瑰",
+        "colors": [
+          "#ff758c",
+          "#ff7eb3"
+        ],
+        "angle": 135,
+        "css": "linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%)",
+        "tailwind": "bg-gradient-to-br from-[#ff758c] to-[#ff7eb3]",
+        "category": "sunset",
+        "mood": [
+          "romantic",
+          "soft",
+          "inviting"
+        ]
+      },
+      {
+        "id": "twilight-purple",
+        "name": "Twilight Purple",
+        "nameZh": "暮光紫",
+        "colors": [
+          "#667eea",
+          "#764ba2"
+        ],
+        "angle": 135,
+        "css": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        "tailwind": "bg-gradient-to-br from-[#667eea] to-[#764ba2]",
+        "category": "sunset",
+        "mood": [
+          "mysterious",
+          "elegant",
+          "sophisticated"
+        ]
+      },
+      {
+        "id": "forest-canopy",
+        "name": "Forest Canopy",
+        "nameZh": "森林穹顶",
+        "colors": [
+          "#11998e",
+          "#38ef7d"
+        ],
+        "angle": 135,
+        "css": "linear-gradient(135deg, #11998e 0%, #38ef7d 100%)",
+        "tailwind": "bg-gradient-to-br from-[#11998e] to-[#38ef7d]",
+        "category": "nature",
+        "mood": [
+          "natural",
+          "growth",
+          "sustainable"
+        ]
+      },
+      {
+        "id": "earth-tones",
+        "name": "Earth Tones",
+        "nameZh": "大地色调",
+        "colors": [
+          "#a47451",
+          "#9c9881",
+          "#73a09d",
+          "#3b899a",
+          "#095b79",
+          "#002847"
+        ],
+        "angle": 90,
+        "css": "linear-gradient(90deg, #a47451 0%, #9c9881 20%, #73a09d 40%, #3b899a 60%, #095b79 80%, #002847 100%)",
+        "tailwind": "bg-gradient-to-r from-[#a47451] via-[#73a09d] to-[#002847]",
+        "category": "nature",
+        "mood": [
+          "grounded",
+          "organic",
+          "authentic"
+        ]
+      },
+      {
+        "id": "spring-meadow",
+        "name": "Spring Meadow",
+        "nameZh": "春日草甸",
+        "colors": [
+          "#00b09b",
+          "#96c93d"
+        ],
+        "angle": 135,
+        "css": "linear-gradient(135deg, #00b09b 0%, #96c93d 100%)",
+        "tailwind": "bg-gradient-to-br from-[#00b09b] to-[#96c93d]",
+        "category": "nature",
+        "mood": [
+          "fresh",
+          "lively",
+          "positive"
+        ]
+      },
+      {
+        "id": "cyber-punk",
+        "name": "Cyber Punk",
+        "nameZh": "赛博朋克",
+        "colors": [
+          "#f953c6",
+          "#b91d73"
+        ],
+        "angle": 135,
+        "css": "linear-gradient(135deg, #f953c6 0%, #b91d73 100%)",
+        "tailwind": "bg-gradient-to-br from-[#f953c6] to-[#b91d73]",
+        "category": "neon",
+        "mood": [
+          "futuristic",
+          "bold",
+          "edgy"
+        ]
+      },
+      {
+        "id": "electric-violet",
+        "name": "Electric Violet",
+        "nameZh": "电光紫",
+        "colors": [
+          "#4776e6",
+          "#8e54e9"
+        ],
+        "angle": 135,
+        "css": "linear-gradient(135deg, #4776e6 0%, #8e54e9 100%)",
+        "tailwind": "bg-gradient-to-br from-[#4776e6] to-[#8e54e9]",
+        "category": "neon",
+        "mood": [
+          "modern",
+          "tech",
+          "innovative"
+        ]
+      },
+      {
+        "id": "neon-life",
+        "name": "Neon Life",
+        "nameZh": "霓虹人生",
+        "colors": [
+          "#b3ffab",
+          "#12fff7"
+        ],
+        "angle": 135,
+        "css": "linear-gradient(135deg, #b3ffab 0%, #12fff7 100%)",
+        "tailwind": "bg-gradient-to-br from-[#b3ffab] to-[#12fff7]",
+        "category": "neon",
+        "mood": [
+          "vibrant",
+          "energetic",
+          "exciting"
+        ]
+      },
+      {
+        "id": "hyper-blue",
+        "name": "Hyper Blue",
+        "nameZh": "超级蓝",
+        "colors": [
+          "#00c6ff",
+          "#0072ff"
+        ],
+        "angle": 90,
+        "css": "linear-gradient(90deg, #00c6ff 0%, #0072ff 100%)",
+        "tailwind": "bg-gradient-to-r from-[#00c6ff] to-[#0072ff]",
+        "category": "neon",
+        "mood": [
+          "tech",
+          "professional",
+          "trustworthy"
+        ]
+      },
+      {
+        "id": "deep-space",
+        "name": "Deep Space",
+        "nameZh": "深空",
+        "colors": [
+          "#000428",
+          "#004e92"
+        ],
+        "angle": 135,
+        "css": "linear-gradient(135deg, #000428 0%, #004e92 100%)",
+        "tailwind": "bg-gradient-to-br from-[#000428] to-[#004e92]",
+        "category": "dark",
+        "mood": [
+          "mysterious",
+          "vast",
+          "professional"
+        ]
+      },
+      {
+        "id": "royal-black",
+        "name": "Royal Black",
+        "nameZh": "皇家黑",
+        "colors": [
+          "#141e30",
+          "#243b55"
+        ],
+        "angle": 135,
+        "css": "linear-gradient(135deg, #141e30 0%, #243b55 100%)",
+        "tailwind": "bg-gradient-to-br from-[#141e30] to-[#243b55]",
+        "category": "dark",
+        "mood": [
+          "luxurious",
+          "elegant",
+          "premium"
+        ]
+      },
+      {
+        "id": "dark-knight",
+        "name": "Dark Knight",
+        "nameZh": "暗黑骑士",
+        "colors": [
+          "#0f0c29",
+          "#302b63",
+          "#24243e"
+        ],
+        "angle": 135,
+        "css": "linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%)",
+        "tailwind": "bg-gradient-to-br from-[#0f0c29] via-[#302b63] to-[#24243e]",
+        "category": "dark",
+        "mood": [
+          "powerful",
+          "sleek",
+          "modern"
+        ]
+      },
+      {
+        "id": "aurora-mesh",
+        "name": "Aurora Mesh",
+        "nameZh": "极光网格",
+        "colors": [
+          "#7c3aed",
+          "#2563eb",
+          "#06b6d4"
+        ],
+        "angle": 0,
+        "type": "mesh",
+        "css": "radial-gradient(at 20% 25%, #7c3aed 0px, transparent 55%), radial-gradient(at 75% 20%, #2563eb 0px, transparent 55%), radial-gradient(at 50% 80%, #06b6d4 0px, transparent 55%), radial-gradient(at 50% 50%, #0a0e27 0px, #0a0e27 100%)",
+        "tailwind": "bg-[radial-gradient(at_20%_25%,#7c3aed_0px,transparent_55%),radial-gradient(at_75%_20%,#2563eb_0px,transparent_55%),radial-gradient(at_50%_80%,#06b6d4_0px,transparent_55%),radial-gradient(at_50%_50%,#0a0e27_0px,#0a0e27_100%)]",
+        "category": "cool",
+        "mood": [
+          "ethereal",
+          "dreamy",
+          "modern"
+        ]
+      },
+      {
+        "id": "sunset-mesh",
+        "name": "Sunset Mesh",
+        "nameZh": "日落网格",
+        "colors": [
+          "#fb923c",
+          "#f43f5e",
+          "#c026d3"
+        ],
+        "angle": 0,
+        "type": "mesh",
+        "css": "radial-gradient(at 15% 30%, #fb923c 0px, transparent 55%), radial-gradient(at 80% 25%, #f43f5e 0px, transparent 55%), radial-gradient(at 50% 85%, #c026d3 0px, transparent 55%), radial-gradient(at 50% 50%, #1a0a2e 0px, #1a0a2e 100%)",
+        "tailwind": "bg-[radial-gradient(at_15%_30%,#fb923c_0px,transparent_55%),radial-gradient(at_80%_25%,#f43f5e_0px,transparent_55%),radial-gradient(at_50%_85%,#c026d3_0px,transparent_55%),radial-gradient(at_50%_50%,#1a0a2e_0px,#1a0a2e_100%)]",
+        "category": "sunset",
+        "mood": [
+          "warm",
+          "vibrant",
+          "atmospheric"
+        ]
+      },
+      {
+        "id": "neon-mesh",
+        "name": "Neon Mesh",
+        "nameZh": "霓虹网格",
+        "colors": [
+          "#22d3ee",
+          "#ec4899",
+          "#a3e635"
+        ],
+        "angle": 0,
+        "type": "mesh",
+        "css": "radial-gradient(at 25% 25%, #22d3ee 0px, transparent 50%), radial-gradient(at 75% 30%, #ec4899 0px, transparent 50%), radial-gradient(at 50% 80%, #a3e635 0px, transparent 50%), radial-gradient(at 50% 50%, #0c0a1d 0px, #0c0a1d 100%)",
+        "tailwind": "bg-[radial-gradient(at_25%_25%,#22d3ee_0px,transparent_50%),radial-gradient(at_75%_30%,#ec4899_0px,transparent_50%),radial-gradient(at_50%_80%,#a3e635_0px,transparent_50%),radial-gradient(at_50%_50%,#0c0a1d_0px,#0c0a1d_100%)]",
+        "category": "neon",
+        "mood": [
+          "electric",
+          "bold",
+          "futuristic"
+        ]
+      },
+      {
+        "id": "pastel-dream-mesh",
+        "name": "Pastel Dream",
+        "nameZh": "柔梦网格",
+        "colors": [
+          "#fbcfe8",
+          "#bfdbfe",
+          "#fef08a"
+        ],
+        "angle": 0,
+        "type": "mesh",
+        "css": "radial-gradient(at 20% 30%, #fbcfe8 0px, transparent 55%), radial-gradient(at 80% 20%, #bfdbfe 0px, transparent 55%), radial-gradient(at 60% 80%, #fef08a 0px, transparent 55%), radial-gradient(at 50% 50%, #fdf4ff 0px, #fdf4ff 100%)",
+        "tailwind": "bg-[radial-gradient(at_20%_30%,#fbcfe8_0px,transparent_55%),radial-gradient(at_80%_20%,#bfdbfe_0px,transparent_55%),radial-gradient(at_60%_80%,#fef08a_0px,transparent_55%),radial-gradient(at_50%_50%,#fdf4ff_0px,#fdf4ff_100%)]",
+        "category": "pastel",
+        "mood": [
+          "soft",
+          "gentle",
+          "airy"
+        ]
+      },
+      {
+        "id": "ocean-depth-mesh",
+        "name": "Ocean Depth",
+        "nameZh": "深海网格",
+        "colors": [
+          "#0ea5e9",
+          "#14b8a6",
+          "#6366f1"
+        ],
+        "angle": 0,
+        "type": "mesh",
+        "css": "radial-gradient(at 30% 25%, #0ea5e9 0px, transparent 55%), radial-gradient(at 70% 35%, #14b8a6 0px, transparent 55%), radial-gradient(at 50% 85%, #6366f1 0px, transparent 55%), radial-gradient(at 50% 50%, #021526 0px, #021526 100%)",
+        "tailwind": "bg-[radial-gradient(at_30%_25%,#0ea5e9_0px,transparent_55%),radial-gradient(at_70%_35%,#14b8a6_0px,transparent_55%),radial-gradient(at_50%_85%,#6366f1_0px,transparent_55%),radial-gradient(at_50%_50%,#021526_0px,#021526_100%)]",
+        "category": "cool",
+        "mood": [
+          "deep",
+          "calm",
+          "immersive"
+        ]
+      },
+      {
+        "id": "ember-glow-mesh",
+        "name": "Ember Glow",
+        "nameZh": "余烬网格",
+        "colors": [
+          "#ef4444",
+          "#f97316",
+          "#eab308"
+        ],
+        "angle": 0,
+        "type": "mesh",
+        "css": "radial-gradient(at 25% 30%, #ef4444 0px, transparent 55%), radial-gradient(at 75% 25%, #f97316 0px, transparent 55%), radial-gradient(at 55% 80%, #eab308 0px, transparent 55%), radial-gradient(at 50% 50%, #170a05 0px, #170a05 100%)",
+        "tailwind": "bg-[radial-gradient(at_25%_30%,#ef4444_0px,transparent_55%),radial-gradient(at_75%_25%,#f97316_0px,transparent_55%),radial-gradient(at_55%_80%,#eab308_0px,transparent_55%),radial-gradient(at_50%_50%,#170a05_0px,#170a05_100%)]",
+        "category": "warm",
+        "mood": [
+          "fiery",
+          "intense",
+          "glowing"
+        ]
+      },
+      {
+        "id": "cotton-candy-mesh",
+        "name": "Cotton Candy",
+        "nameZh": "棉花糖网格",
+        "colors": [
+          "#f9a8d4",
+          "#d8b4fe",
+          "#a5b4fc"
+        ],
+        "angle": 0,
+        "type": "mesh",
+        "css": "radial-gradient(at 20% 25%, #f9a8d4 0px, transparent 55%), radial-gradient(at 80% 30%, #d8b4fe 0px, transparent 55%), radial-gradient(at 50% 80%, #a5b4fc 0px, transparent 55%), radial-gradient(at 50% 50%, #fdf2f8 0px, #fdf2f8 100%)",
+        "tailwind": "bg-[radial-gradient(at_20%_25%,#f9a8d4_0px,transparent_55%),radial-gradient(at_80%_30%,#d8b4fe_0px,transparent_55%),radial-gradient(at_50%_80%,#a5b4fc_0px,transparent_55%),radial-gradient(at_50%_50%,#fdf2f8_0px,#fdf2f8_100%)]",
+        "category": "pastel",
+        "mood": [
+          "sweet",
+          "playful",
+          "light"
+        ]
+      },
+      {
+        "id": "midnight-bloom-mesh",
+        "name": "Midnight Bloom",
+        "nameZh": "午夜绽放",
+        "colors": [
+          "#8b5cf6",
+          "#ec4899",
+          "#3b82f6"
+        ],
+        "angle": 0,
+        "type": "mesh",
+        "css": "radial-gradient(at 30% 20%, #8b5cf6 0px, transparent 55%), radial-gradient(at 70% 25%, #ec4899 0px, transparent 55%), radial-gradient(at 50% 75%, #3b82f6 0px, transparent 55%), radial-gradient(at 50% 50%, #0a0118 0px, #0a0118 100%)",
+        "tailwind": "bg-[radial-gradient(at_30%_20%,#8b5cf6_0px,transparent_55%),radial-gradient(at_70%_25%,#ec4899_0px,transparent_55%),radial-gradient(at_50%_75%,#3b82f6_0px,transparent_55%),radial-gradient(at_50%_50%,#0a0118_0px,#0a0118_100%)]",
+        "category": "dark",
+        "mood": [
+          "mysterious",
+          "rich",
+          "elegant"
+        ]
+      },
+      {
+        "id": "radial-sunburst",
+        "name": "Radial Sunburst",
+        "nameZh": "放射朝阳",
+        "colors": [
+          "#fde047",
+          "#f97316",
+          "#b91c1c"
+        ],
+        "angle": 0,
+        "type": "radial",
+        "css": "radial-gradient(circle at 50% 40%, #fde047 0%, #f97316 45%, #b91c1c 100%)",
+        "tailwind": "bg-[radial-gradient(circle_at_50%_40%,#fde047_0%,#f97316_45%,#b91c1c_100%)]",
+        "category": "warm",
+        "mood": [
+          "radiant",
+          "bold",
+          "energetic"
+        ]
+      },
+      {
+        "id": "radial-spotlight",
+        "name": "Radial Spotlight",
+        "nameZh": "聚光灯",
+        "colors": [
+          "#a5f3fc",
+          "#0891b2",
+          "#164e63"
+        ],
+        "angle": 0,
+        "type": "radial",
+        "css": "radial-gradient(circle at 50% 30%, #a5f3fc 0%, #0891b2 50%, #164e63 100%)",
+        "tailwind": "bg-[radial-gradient(circle_at_50%_30%,#a5f3fc_0%,#0891b2_50%,#164e63_100%)]",
+        "category": "cool",
+        "mood": [
+          "focused",
+          "clean",
+          "calm"
+        ]
+      },
+      {
+        "id": "conic-spectrum",
+        "name": "Conic Spectrum",
+        "nameZh": "锥形光谱",
+        "colors": [
+          "#ef4444",
+          "#f59e0b",
+          "#06b6d4",
+          "#d946ef"
+        ],
+        "angle": 0,
+        "type": "conic",
+        "css": "conic-gradient(from 0deg at 50% 50%, #ef4444, #f59e0b, #84cc16, #06b6d4, #6366f1, #d946ef, #ef4444)",
+        "tailwind": "bg-[conic-gradient(from_0deg_at_50%_50%,#ef4444,#f59e0b,#84cc16,#06b6d4,#6366f1,#d946ef,#ef4444)]",
+        "category": "vibrant",
+        "mood": [
+          "spectral",
+          "playful",
+          "vivid"
+        ]
+      },
+      {
+        "id": "conic-twilight",
+        "name": "Conic Twilight",
+        "nameZh": "锥形暮光",
+        "colors": [
+          "#1e3a8a",
+          "#3b82f6",
+          "#93c5fd"
+        ],
+        "angle": 180,
+        "type": "conic",
+        "css": "conic-gradient(from 180deg at 50% 50%, #1e3a8a, #6366f1, #3b82f6, #93c5fd, #3b82f6, #6366f1, #1e3a8a)",
+        "tailwind": "bg-[conic-gradient(from_180deg_at_50%_50%,#1e3a8a,#6366f1,#3b82f6,#93c5fd,#3b82f6,#6366f1,#1e3a8a)]",
+        "category": "cool",
+        "mood": [
+          "serene",
+          "twilight",
+          "smooth"
+        ]
+      }
+    ]
+  },
+  "shadows/index": {
+    "shadows": [
+      {
+        "id": "soft-sm",
+        "name": "Soft Small",
+        "nameZh": "柔和小",
+        "value": "0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06)",
+        "css": "box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);",
+        "tailwind": "shadow-[0_1px_3px_rgba(0,0,0,0.08),0_1px_2px_rgba(0,0,0,0.06)]",
+        "category": "soft",
+        "tags": [
+          "subtle",
+          "card",
+          "minimal"
+        ]
+      },
+      {
+        "id": "soft-md",
+        "name": "Soft Medium",
+        "nameZh": "柔和中",
+        "value": "0 4px 12px rgba(0,0,0,0.08)",
+        "css": "box-shadow: 0 4px 12px rgba(0,0,0,0.08);",
+        "tailwind": "shadow-[0_4px_12px_rgba(0,0,0,0.08)]",
+        "category": "soft",
+        "tags": [
+          "card",
+          "panel",
+          "clean"
+        ]
+      },
+      {
+        "id": "soft-lg",
+        "name": "Soft Large",
+        "nameZh": "柔和大",
+        "value": "0 8px 30px rgba(0,0,0,0.08)",
+        "css": "box-shadow: 0 8px 30px rgba(0,0,0,0.08);",
+        "tailwind": "shadow-[0_8px_30px_rgba(0,0,0,0.08)]",
+        "category": "soft",
+        "tags": [
+          "modal",
+          "dropdown",
+          "floating"
+        ]
+      },
+      {
+        "id": "soft-xl",
+        "name": "Soft Extra Large",
+        "nameZh": "柔和超大",
+        "value": "0 20px 60px rgba(0,0,0,0.1)",
+        "css": "box-shadow: 0 20px 60px rgba(0,0,0,0.1);",
+        "tailwind": "shadow-[0_20px_60px_rgba(0,0,0,0.1)]",
+        "category": "soft",
+        "tags": [
+          "hero",
+          "showcase",
+          "dramatic"
+        ]
+      },
+      {
+        "id": "medium-sm",
+        "name": "Medium Small",
+        "nameZh": "中等小",
+        "value": "0 2px 8px rgba(0,0,0,0.15)",
+        "css": "box-shadow: 0 2px 8px rgba(0,0,0,0.15);",
+        "tailwind": "shadow-[0_2px_8px_rgba(0,0,0,0.15)]",
+        "category": "medium",
+        "tags": [
+          "button",
+          "badge",
+          "chip"
+        ]
+      },
+      {
+        "id": "medium-md",
+        "name": "Medium",
+        "nameZh": "中等",
+        "value": "0 4px 16px rgba(0,0,0,0.15)",
+        "css": "box-shadow: 0 4px 16px rgba(0,0,0,0.15);",
+        "tailwind": "shadow-[0_4px_16px_rgba(0,0,0,0.15)]",
+        "category": "medium",
+        "tags": [
+          "card",
+          "panel",
+          "general"
+        ]
+      },
+      {
+        "id": "medium-lg",
+        "name": "Medium Large",
+        "nameZh": "中等大",
+        "value": "0 10px 40px rgba(0,0,0,0.15)",
+        "css": "box-shadow: 0 10px 40px rgba(0,0,0,0.15);",
+        "tailwind": "shadow-[0_10px_40px_rgba(0,0,0,0.15)]",
+        "category": "medium",
+        "tags": [
+          "modal",
+          "popover",
+          "overlay"
+        ]
+      },
+      {
+        "id": "hard-sm",
+        "name": "Hard Small",
+        "nameZh": "硬朗小",
+        "value": "2px 2px 0 rgba(0,0,0,1)",
+        "css": "box-shadow: 2px 2px 0 rgba(0,0,0,1);",
+        "tailwind": "shadow-[2px_2px_0_rgba(0,0,0,1)]",
+        "category": "hard",
+        "tags": [
+          "brutalist",
+          "retro",
+          "bold"
+        ]
+      },
+      {
+        "id": "hard-md",
+        "name": "Hard Medium",
+        "nameZh": "硬朗中",
+        "value": "4px 4px 0 rgba(0,0,0,1)",
+        "css": "box-shadow: 4px 4px 0 rgba(0,0,0,1);",
+        "tailwind": "shadow-[4px_4px_0_rgba(0,0,0,1)]",
+        "category": "hard",
+        "tags": [
+          "brutalist",
+          "neo-brutalist",
+          "graphic"
+        ]
+      },
+      {
+        "id": "hard-lg",
+        "name": "Hard Large",
+        "nameZh": "硬朗大",
+        "value": "8px 8px 0 rgba(0,0,0,1)",
+        "css": "box-shadow: 8px 8px 0 rgba(0,0,0,1);",
+        "tailwind": "shadow-[8px_8px_0_rgba(0,0,0,1)]",
+        "category": "hard",
+        "tags": [
+          "brutalist",
+          "poster",
+          "statement"
+        ]
+      },
+      {
+        "id": "hard-colored",
+        "name": "Hard Colored",
+        "nameZh": "硬朗彩色",
+        "value": "4px 4px 0 #5e6ad2",
+        "css": "box-shadow: 4px 4px 0 #5e6ad2;",
+        "tailwind": "shadow-[4px_4px_0_#5e6ad2]",
+        "category": "hard",
+        "tags": [
+          "brutalist",
+          "playful",
+          "accent"
+        ]
+      },
+      {
+        "id": "colored-pink",
+        "name": "Pink Glow",
+        "nameZh": "粉色光晕",
+        "value": "0 8px 30px rgba(255,0,110,0.35)",
+        "css": "box-shadow: 0 8px 30px rgba(255,0,110,0.35);",
+        "tailwind": "shadow-[0_8px_30px_rgba(255,0,110,0.35)]",
+        "category": "colored",
+        "tags": [
+          "dopamine",
+          "vibrant",
+          "cta"
+        ]
+      },
+      {
+        "id": "colored-purple",
+        "name": "Purple Glow",
+        "nameZh": "紫色光晕",
+        "value": "0 8px 30px rgba(131,56,236,0.35)",
+        "css": "box-shadow: 0 8px 30px rgba(131,56,236,0.35);",
+        "tailwind": "shadow-[0_8px_30px_rgba(131,56,236,0.35)]",
+        "category": "colored",
+        "tags": [
+          "creative",
+          "premium",
+          "cta"
+        ]
+      },
+      {
+        "id": "colored-blue",
+        "name": "Blue Glow",
+        "nameZh": "蓝色光晕",
+        "value": "0 8px 30px rgba(58,134,255,0.35)",
+        "css": "box-shadow: 0 8px 30px rgba(58,134,255,0.35);",
+        "tailwind": "shadow-[0_8px_30px_rgba(58,134,255,0.35)]",
+        "category": "colored",
+        "tags": [
+          "tech",
+          "trust",
+          "professional"
+        ]
+      },
+      {
+        "id": "colored-green",
+        "name": "Green Glow",
+        "nameZh": "绿色光晕",
+        "value": "0 8px 30px rgba(6,214,160,0.35)",
+        "css": "box-shadow: 0 8px 30px rgba(6,214,160,0.35);",
+        "tailwind": "shadow-[0_8px_30px_rgba(6,214,160,0.35)]",
+        "category": "colored",
+        "tags": [
+          "success",
+          "nature",
+          "fresh"
+        ]
+      },
+      {
+        "id": "colored-orange",
+        "name": "Orange Glow",
+        "nameZh": "橙色光晕",
+        "value": "0 8px 30px rgba(251,86,7,0.35)",
+        "css": "box-shadow: 0 8px 30px rgba(251,86,7,0.35);",
+        "tailwind": "shadow-[0_8px_30px_rgba(251,86,7,0.35)]",
+        "category": "colored",
+        "tags": [
+          "warm",
+          "energetic",
+          "attention"
+        ]
+      },
+      {
+        "id": "glow-cyan",
+        "name": "Neon Cyan",
+        "nameZh": "霓虹青",
+        "value": "0 0 15px rgba(0,255,255,0.4), 0 0 30px rgba(0,255,255,0.2)",
+        "css": "box-shadow: 0 0 15px rgba(0,255,255,0.4), 0 0 30px rgba(0,255,255,0.2);",
+        "tailwind": "shadow-[0_0_15px_rgba(0,255,255,0.4),0_0_30px_rgba(0,255,255,0.2)]",
+        "category": "glow",
+        "tags": [
+          "cyberpunk",
+          "neon",
+          "dark-mode"
+        ]
+      },
+      {
+        "id": "glow-magenta",
+        "name": "Neon Magenta",
+        "nameZh": "霓虹品红",
+        "value": "0 0 15px rgba(255,0,255,0.4), 0 0 30px rgba(255,0,255,0.2)",
+        "css": "box-shadow: 0 0 15px rgba(255,0,255,0.4), 0 0 30px rgba(255,0,255,0.2);",
+        "tailwind": "shadow-[0_0_15px_rgba(255,0,255,0.4),0_0_30px_rgba(255,0,255,0.2)]",
+        "category": "glow",
+        "tags": [
+          "cyberpunk",
+          "neon",
+          "synthwave"
+        ]
+      },
+      {
+        "id": "glow-white",
+        "name": "White Glow",
+        "nameZh": "白色辉光",
+        "value": "0 0 20px rgba(255,255,255,0.25), 0 0 40px rgba(255,255,255,0.1)",
+        "css": "box-shadow: 0 0 20px rgba(255,255,255,0.25), 0 0 40px rgba(255,255,255,0.1);",
+        "tailwind": "shadow-[0_0_20px_rgba(255,255,255,0.25),0_0_40px_rgba(255,255,255,0.1)]",
+        "category": "glow",
+        "tags": [
+          "ethereal",
+          "glass",
+          "dark-mode"
+        ]
+      },
+      {
+        "id": "glow-gold",
+        "name": "Gold Glow",
+        "nameZh": "金色辉光",
+        "value": "0 0 20px rgba(255,215,0,0.3), 0 0 40px rgba(255,215,0,0.15)",
+        "css": "box-shadow: 0 0 20px rgba(255,215,0,0.3), 0 0 40px rgba(255,215,0,0.15);",
+        "tailwind": "shadow-[0_0_20px_rgba(255,215,0,0.3),0_0_40px_rgba(255,215,0,0.15)]",
+        "category": "glow",
+        "tags": [
+          "luxury",
+          "premium",
+          "art-deco"
+        ]
+      },
+      {
+        "id": "inner-sm",
+        "name": "Inner Small",
+        "nameZh": "内阴影小",
+        "value": "inset 0 2px 4px rgba(0,0,0,0.1)",
+        "css": "box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);",
+        "tailwind": "shadow-[inset_0_2px_4px_rgba(0,0,0,0.1)]",
+        "category": "inner",
+        "tags": [
+          "input",
+          "pressed",
+          "recessed"
+        ]
+      },
+      {
+        "id": "inner-md",
+        "name": "Inner Medium",
+        "nameZh": "内阴影中",
+        "value": "inset 0 4px 8px rgba(0,0,0,0.15)",
+        "css": "box-shadow: inset 0 4px 8px rgba(0,0,0,0.15);",
+        "tailwind": "shadow-[inset_0_4px_8px_rgba(0,0,0,0.15)]",
+        "category": "inner",
+        "tags": [
+          "well",
+          "container",
+          "depth"
+        ]
+      },
+      {
+        "id": "inner-neumorphism",
+        "name": "Neumorphism Inner",
+        "nameZh": "新拟态内凹",
+        "value": "inset 5px 5px 10px rgba(0,0,0,0.08), inset -5px -5px 10px rgba(255,255,255,0.8)",
+        "css": "box-shadow: inset 5px 5px 10px rgba(0,0,0,0.08), inset -5px -5px 10px rgba(255,255,255,0.8);",
+        "tailwind": "shadow-[inset_5px_5px_10px_rgba(0,0,0,0.08),inset_-5px_-5px_10px_rgba(255,255,255,0.8)]",
+        "category": "inner",
+        "tags": [
+          "neumorphism",
+          "soft-ui",
+          "pressed"
+        ]
+      },
+      {
+        "id": "layered-realistic",
+        "name": "Realistic Layered",
+        "nameZh": "真实分层",
+        "value": "0 1px 1px rgba(0,0,0,0.08), 0 2px 2px rgba(0,0,0,0.06), 0 4px 4px rgba(0,0,0,0.04), 0 8px 8px rgba(0,0,0,0.02)",
+        "css": "box-shadow: 0 1px 1px rgba(0,0,0,0.08), 0 2px 2px rgba(0,0,0,0.06), 0 4px 4px rgba(0,0,0,0.04), 0 8px 8px rgba(0,0,0,0.02);",
+        "tailwind": "shadow-[0_1px_1px_rgba(0,0,0,0.08),0_2px_2px_rgba(0,0,0,0.06),0_4px_4px_rgba(0,0,0,0.04),0_8px_8px_rgba(0,0,0,0.02)]",
+        "category": "layered",
+        "tags": [
+          "realistic",
+          "material",
+          "depth"
+        ]
+      },
+      {
+        "id": "layered-elevation",
+        "name": "Material Elevation",
+        "nameZh": "Material 抬升",
+        "value": "0 3px 5px rgba(0,0,0,0.1), 0 6px 20px rgba(0,0,0,0.08)",
+        "css": "box-shadow: 0 3px 5px rgba(0,0,0,0.1), 0 6px 20px rgba(0,0,0,0.08);",
+        "tailwind": "shadow-[0_3px_5px_rgba(0,0,0,0.1),0_6px_20px_rgba(0,0,0,0.08)]",
+        "category": "layered",
+        "tags": [
+          "material",
+          "elevation",
+          "card"
+        ]
+      },
+      {
+        "id": "layered-dreamy",
+        "name": "Dreamy Float",
+        "nameZh": "梦幻悬浮",
+        "value": "0 2px 4px rgba(0,0,0,0.04), 0 8px 16px rgba(0,0,0,0.06), 0 24px 48px rgba(0,0,0,0.08)",
+        "css": "box-shadow: 0 2px 4px rgba(0,0,0,0.04), 0 8px 16px rgba(0,0,0,0.06), 0 24px 48px rgba(0,0,0,0.08);",
+        "tailwind": "shadow-[0_2px_4px_rgba(0,0,0,0.04),0_8px_16px_rgba(0,0,0,0.06),0_24px_48px_rgba(0,0,0,0.08)]",
+        "category": "layered",
+        "tags": [
+          "dreamy",
+          "floating",
+          "premium"
+        ]
+      },
+      {
+        "id": "layered-neumorphism",
+        "name": "Neumorphism",
+        "nameZh": "新拟态凸起",
+        "value": "8px 8px 16px rgba(0,0,0,0.08), -8px -8px 16px rgba(255,255,255,0.8)",
+        "css": "box-shadow: 8px 8px 16px rgba(0,0,0,0.08), -8px -8px 16px rgba(255,255,255,0.8);",
+        "tailwind": "shadow-[8px_8px_16px_rgba(0,0,0,0.08),-8px_-8px_16px_rgba(255,255,255,0.8)]",
+        "category": "layered",
+        "tags": [
+          "neumorphism",
+          "soft-ui",
+          "raised"
+        ]
+      },
+      {
+        "id": "smooth-low",
+        "name": "Smooth Low",
+        "nameZh": "平滑·低",
+        "value": "0 1px 1.5px rgba(28,25,60,0.07), 0 2.7px 4px rgba(28,25,60,0.05), 0 6.5px 10px rgba(28,25,60,0.04), 0 12px 18px rgba(28,25,60,0.03)",
+        "css": "box-shadow: 0 1px 1.5px rgba(28,25,60,0.07), 0 2.7px 4px rgba(28,25,60,0.05), 0 6.5px 10px rgba(28,25,60,0.04), 0 12px 18px rgba(28,25,60,0.03);",
+        "tailwind": "shadow-[0_1px_1.5px_rgba(28,25,60,0.07),0_2.7px_4px_rgba(28,25,60,0.05),0_6.5px_10px_rgba(28,25,60,0.04),0_12px_18px_rgba(28,25,60,0.03)]",
+        "category": "layered",
+        "tags": [
+          "smooth",
+          "natural",
+          "card"
+        ]
+      },
+      {
+        "id": "smooth-medium",
+        "name": "Smooth Medium",
+        "nameZh": "平滑·中",
+        "value": "0 1px 1.5px rgba(28,25,60,0.06), 0 3px 4px rgba(28,25,60,0.05), 0 7px 10px rgba(28,25,60,0.04), 0 14px 20px rgba(28,25,60,0.035), 0 24px 36px rgba(28,25,60,0.03)",
+        "css": "box-shadow: 0 1px 1.5px rgba(28,25,60,0.06), 0 3px 4px rgba(28,25,60,0.05), 0 7px 10px rgba(28,25,60,0.04), 0 14px 20px rgba(28,25,60,0.035), 0 24px 36px rgba(28,25,60,0.03);",
+        "tailwind": "shadow-[0_1px_1.5px_rgba(28,25,60,0.06),0_3px_4px_rgba(28,25,60,0.05),0_7px_10px_rgba(28,25,60,0.04),0_14px_20px_rgba(28,25,60,0.035),0_24px_36px_rgba(28,25,60,0.03)]",
+        "category": "layered",
+        "tags": [
+          "smooth",
+          "floating",
+          "modal"
+        ]
+      },
+      {
+        "id": "smooth-high",
+        "name": "Smooth High",
+        "nameZh": "平滑·高",
+        "value": "0 1.4px 2px rgba(28,25,60,0.06), 0 3.5px 5px rgba(28,25,60,0.05), 0 8px 11px rgba(28,25,60,0.045), 0 15px 22px rgba(28,25,60,0.04), 0 28px 40px rgba(28,25,60,0.035), 0 50px 70px rgba(28,25,60,0.03)",
+        "css": "box-shadow: 0 1.4px 2px rgba(28,25,60,0.06), 0 3.5px 5px rgba(28,25,60,0.05), 0 8px 11px rgba(28,25,60,0.045), 0 15px 22px rgba(28,25,60,0.04), 0 28px 40px rgba(28,25,60,0.035), 0 50px 70px rgba(28,25,60,0.03);",
+        "tailwind": "shadow-[0_1.4px_2px_rgba(28,25,60,0.06),0_3.5px_5px_rgba(28,25,60,0.05),0_8px_11px_rgba(28,25,60,0.045),0_15px_22px_rgba(28,25,60,0.04),0_28px_40px_rgba(28,25,60,0.035),0_50px_70px_rgba(28,25,60,0.03)]",
+        "category": "layered",
+        "tags": [
+          "smooth",
+          "dramatic",
+          "hero"
+        ]
+      },
+      {
+        "id": "elevation-1",
+        "name": "Elevation 1",
+        "nameZh": "层级 1",
+        "value": "0 2px 1px -1px rgba(0,0,0,0.2), 0 1px 1px 0 rgba(0,0,0,0.14), 0 1px 3px 0 rgba(0,0,0,0.12)",
+        "css": "box-shadow: 0 2px 1px -1px rgba(0,0,0,0.2), 0 1px 1px 0 rgba(0,0,0,0.14), 0 1px 3px 0 rgba(0,0,0,0.12);",
+        "tailwind": "shadow-[0_2px_1px_-1px_rgba(0,0,0,0.2),0_1px_1px_0_rgba(0,0,0,0.14),0_1px_3px_0_rgba(0,0,0,0.12)]",
+        "category": "elevation",
+        "tags": [
+          "material",
+          "card",
+          "resting"
+        ]
+      },
+      {
+        "id": "elevation-2",
+        "name": "Elevation 2",
+        "nameZh": "层级 2",
+        "value": "0 3px 1px -2px rgba(0,0,0,0.2), 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12)",
+        "css": "box-shadow: 0 3px 1px -2px rgba(0,0,0,0.2), 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12);",
+        "tailwind": "shadow-[0_3px_1px_-2px_rgba(0,0,0,0.2),0_2px_2px_0_rgba(0,0,0,0.14),0_1px_5px_0_rgba(0,0,0,0.12)]",
+        "category": "elevation",
+        "tags": [
+          "material",
+          "button",
+          "raised"
+        ]
+      },
+      {
+        "id": "elevation-3",
+        "name": "Elevation 3",
+        "nameZh": "层级 3",
+        "value": "0 3px 3px -2px rgba(0,0,0,0.2), 0 3px 4px 0 rgba(0,0,0,0.14), 0 1px 8px 0 rgba(0,0,0,0.12)",
+        "css": "box-shadow: 0 3px 3px -2px rgba(0,0,0,0.2), 0 3px 4px 0 rgba(0,0,0,0.14), 0 1px 8px 0 rgba(0,0,0,0.12);",
+        "tailwind": "shadow-[0_3px_3px_-2px_rgba(0,0,0,0.2),0_3px_4px_0_rgba(0,0,0,0.14),0_1px_8px_0_rgba(0,0,0,0.12)]",
+        "category": "elevation",
+        "tags": [
+          "material",
+          "card",
+          "active"
+        ]
+      },
+      {
+        "id": "elevation-4",
+        "name": "Elevation 4",
+        "nameZh": "层级 4",
+        "value": "0 2px 4px -1px rgba(0,0,0,0.2), 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12)",
+        "css": "box-shadow: 0 2px 4px -1px rgba(0,0,0,0.2), 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12);",
+        "tailwind": "shadow-[0_2px_4px_-1px_rgba(0,0,0,0.2),0_4px_5px_0_rgba(0,0,0,0.14),0_1px_10px_0_rgba(0,0,0,0.12)]",
+        "category": "elevation",
+        "tags": [
+          "material",
+          "appbar",
+          "snackbar"
+        ]
+      },
+      {
+        "id": "elevation-5",
+        "name": "Elevation 5",
+        "nameZh": "层级 5",
+        "value": "0 3px 5px -1px rgba(0,0,0,0.2), 0 6px 10px 0 rgba(0,0,0,0.14), 0 1px 18px 0 rgba(0,0,0,0.12)",
+        "css": "box-shadow: 0 3px 5px -1px rgba(0,0,0,0.2), 0 6px 10px 0 rgba(0,0,0,0.14), 0 1px 18px 0 rgba(0,0,0,0.12);",
+        "tailwind": "shadow-[0_3px_5px_-1px_rgba(0,0,0,0.2),0_6px_10px_0_rgba(0,0,0,0.14),0_1px_18px_0_rgba(0,0,0,0.12)]",
+        "category": "elevation",
+        "tags": [
+          "material",
+          "fab",
+          "dialog"
+        ]
+      },
+      {
+        "id": "colored-smooth-blue",
+        "name": "Smooth Blue",
+        "nameZh": "平滑·蓝",
+        "value": "0 2px 4px rgba(37,99,235,0.1), 0 6px 12px rgba(37,99,235,0.12), 0 12px 24px rgba(37,99,235,0.14)",
+        "css": "box-shadow: 0 2px 4px rgba(37,99,235,0.1), 0 6px 12px rgba(37,99,235,0.12), 0 12px 24px rgba(37,99,235,0.14);",
+        "tailwind": "shadow-[0_2px_4px_rgba(37,99,235,0.1),0_6px_12px_rgba(37,99,235,0.12),0_12px_24px_rgba(37,99,235,0.14)]",
+        "category": "colored",
+        "tags": [
+          "brand",
+          "smooth",
+          "primary"
+        ]
+      },
+      {
+        "id": "colored-smooth-purple",
+        "name": "Smooth Purple",
+        "nameZh": "平滑·紫",
+        "value": "0 2px 4px rgba(139,92,246,0.1), 0 6px 12px rgba(139,92,246,0.12), 0 12px 24px rgba(139,92,246,0.14)",
+        "css": "box-shadow: 0 2px 4px rgba(139,92,246,0.1), 0 6px 12px rgba(139,92,246,0.12), 0 12px 24px rgba(139,92,246,0.14);",
+        "tailwind": "shadow-[0_2px_4px_rgba(139,92,246,0.1),0_6px_12px_rgba(139,92,246,0.12),0_12px_24px_rgba(139,92,246,0.14)]",
+        "category": "colored",
+        "tags": [
+          "brand",
+          "smooth",
+          "accent"
+        ]
+      }
+    ]
+  },
+  "backgrounds/index": {
+    "backgrounds": [
+      {
+        "id": "dot-grid",
+        "name": "Dot Grid",
+        "nameZh": "点阵网格",
+        "css": "radial-gradient(circle, #00000020 1px, transparent 1px)",
+        "tailwind": "bg-[radial-gradient(circle,#00000020_1px,transparent_1px)] bg-[size:20px_20px]",
+        "category": "grid",
+        "tags": [
+          "minimal",
+          "clean",
+          "subtle"
+        ],
+        "mood": [
+          "professional",
+          "organized",
+          "structured"
+        ]
+      },
+      {
+        "id": "square-grid",
+        "name": "Square Grid",
+        "nameZh": "方格网格",
+        "css": "linear-gradient(#00000010 1px, transparent 1px), linear-gradient(90deg, #00000010 1px, transparent 1px)",
+        "tailwind": "bg-[linear-gradient(#00000010_1px,transparent_1px),linear-gradient(90deg,#00000010_1px,transparent_1px)] bg-[size:20px_20px]",
+        "category": "grid",
+        "tags": [
+          "blueprint",
+          "technical",
+          "precise"
+        ],
+        "mood": [
+          "structured",
+          "technical",
+          "clean"
+        ]
+      },
+      {
+        "id": "isometric-grid",
+        "name": "Isometric Grid",
+        "nameZh": "等距网格",
+        "css": "linear-gradient(30deg, #00000010 12%, transparent 12.5%, transparent 87%, #00000010 87.5%, #00000010), linear-gradient(150deg, #00000010 12%, transparent 12.5%, transparent 87%, #00000010 87.5%, #00000010), linear-gradient(30deg, #00000010 12%, transparent 12.5%, transparent 87%, #00000010 87.5%, #00000010), linear-gradient(150deg, #00000010 12%, transparent 12.5%, transparent 87%, #00000010 87.5%, #00000010), linear-gradient(60deg, #00000008 25%, transparent 25.5%, transparent 75%, #00000008 75%, #00000008), linear-gradient(60deg, #00000008 25%, transparent 25.5%, transparent 75%, #00000008 75%, #00000008)",
+        "tailwind": "bg-[linear-gradient(30deg,#00000010_12%,transparent_12.5%,transparent_87%,#00000010_87.5%)] bg-[size:80px_140px]",
+        "category": "grid",
+        "tags": [
+          "3d",
+          "isometric",
+          "technical"
+        ],
+        "mood": [
+          "technical",
+          "modern",
+          "architectural"
+        ]
+      },
+      {
+        "id": "cross-hatch",
+        "name": "Cross Hatch",
+        "nameZh": "交叉线",
+        "css": "repeating-linear-gradient(45deg, transparent, transparent 10px, #00000008 10px, #00000008 11px), repeating-linear-gradient(-45deg, transparent, transparent 10px, #00000008 10px, #00000008 11px)",
+        "tailwind": "bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,#00000008_10px,#00000008_11px),repeating-linear-gradient(-45deg,transparent,transparent_10px,#00000008_10px,#00000008_11px)]",
+        "category": "grid",
+        "tags": [
+          "sketch",
+          "artistic",
+          "textured"
+        ],
+        "mood": [
+          "artistic",
+          "handcrafted",
+          "organic"
+        ]
+      },
+      {
+        "id": "polka-dots",
+        "name": "Polka Dots",
+        "nameZh": "波点",
+        "css": "radial-gradient(circle, #00000020 25%, transparent 25%)",
+        "tailwind": "bg-[radial-gradient(circle,#00000020_25%,transparent_25%)] bg-[size:30px_30px]",
+        "category": "dots",
+        "tags": [
+          "playful",
+          "retro",
+          "fun"
+        ],
+        "mood": [
+          "playful",
+          "cheerful",
+          "vintage"
+        ]
+      },
+      {
+        "id": "scattered-dots",
+        "name": "Scattered Dots",
+        "nameZh": "散点",
+        "css": "radial-gradient(circle at 25% 25%, #00000015 2px, transparent 2px), radial-gradient(circle at 75% 75%, #00000015 2px, transparent 2px)",
+        "tailwind": "bg-[radial-gradient(circle_at_25%_25%,#00000015_2px,transparent_2px),radial-gradient(circle_at_75%_75%,#00000015_2px,transparent_2px)] bg-[size:40px_40px]",
+        "category": "dots",
+        "tags": [
+          "random",
+          "organic",
+          "subtle"
+        ],
+        "mood": [
+          "organic",
+          "natural",
+          "soft"
+        ]
+      },
+      {
+        "id": "honeycomb",
+        "name": "Honeycomb",
+        "nameZh": "蜂巢",
+        "css": "radial-gradient(circle farthest-side at 0% 50%, #00000000 23.5%, #00000020 0), radial-gradient(circle farthest-side at 0% 50%, #00000015 24%, #00000000 0) 21px 30px, linear-gradient(#00000020 14%, #00000000 0, #00000000 85%, #00000020 0) 0 0, linear-gradient(150deg, #00000020 24%, #00000015 0, #00000015 26%, #00000000 0, #00000000 74%, #00000015 0, #00000015 76%, #00000020 0) 0 0, linear-gradient(30deg, #00000020 24%, #00000015 0, #00000015 26%, #00000000 0, #00000000 74%, #00000015 0, #00000015 76%, #00000020 0) 0 0, linear-gradient(90deg, #00000015 2%, #00000020 0, #00000020 98%, #00000015 0%) 0 0 #ffffff",
+        "tailwind": "bg-[radial-gradient(circle_farthest-side_at_0%_50%,#00000000_23.5%,#00000020_0)] bg-[size:42px_60px]",
+        "category": "dots",
+        "tags": [
+          "geometric",
+          "nature",
+          "hexagon"
+        ],
+        "mood": [
+          "natural",
+          "structured",
+          "organic"
+        ]
+      },
+      {
+        "id": "diagonal-stripes",
+        "name": "Diagonal Stripes",
+        "nameZh": "斜条纹",
+        "css": "repeating-linear-gradient(45deg, transparent, transparent 10px, #00000008 10px, #00000008 20px)",
+        "tailwind": "bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,#00000008_10px,#00000008_20px)]",
+        "category": "stripes",
+        "tags": [
+          "classic",
+          "diagonal",
+          "simple"
+        ],
+        "mood": [
+          "classic",
+          "clean",
+          "structured"
+        ]
+      },
+      {
+        "id": "vertical-stripes",
+        "name": "Vertical Stripes",
+        "nameZh": "竖条纹",
+        "css": "repeating-linear-gradient(90deg, transparent, transparent 10px, #00000008 10px, #00000008 20px)",
+        "tailwind": "bg-[repeating-linear-gradient(90deg,transparent,transparent_10px,#00000008_10px,#00000008_20px)]",
+        "category": "stripes",
+        "tags": [
+          "vertical",
+          "simple",
+          "clean"
+        ],
+        "mood": [
+          "clean",
+          "modern",
+          "structured"
+        ]
+      },
+      {
+        "id": "horizontal-stripes",
+        "name": "Horizontal Stripes",
+        "nameZh": "横条纹",
+        "css": "repeating-linear-gradient(0deg, transparent, transparent 10px, #00000008 10px, #00000008 20px)",
+        "tailwind": "bg-[repeating-linear-gradient(0deg,transparent,transparent_10px,#00000008_10px,#00000008_20px)]",
+        "category": "stripes",
+        "tags": [
+          "horizontal",
+          "simple",
+          "clean"
+        ],
+        "mood": [
+          "calm",
+          "organized",
+          "clean"
+        ]
+      },
+      {
+        "id": "zigzag",
+        "name": "Zigzag",
+        "nameZh": "锯齿纹",
+        "css": "linear-gradient(135deg, #00000010 25%, transparent 25%), linear-gradient(225deg, #00000010 25%, transparent 25%), linear-gradient(45deg, #00000010 25%, transparent 25%), linear-gradient(315deg, #00000010 25%, #ffffff 25%)",
+        "tailwind": "bg-[linear-gradient(135deg,#00000010_25%,transparent_25%),linear-gradient(225deg,#00000010_25%,transparent_25%)] bg-[size:20px_20px] bg-[position:0_0,10px_0]",
+        "category": "stripes",
+        "tags": [
+          "zigzag",
+          "dynamic",
+          "energetic"
+        ],
+        "mood": [
+          "energetic",
+          "dynamic",
+          "playful"
+        ]
+      },
+      {
+        "id": "chevron",
+        "name": "Chevron",
+        "nameZh": "人字纹",
+        "css": "repeating-linear-gradient(45deg, transparent, transparent 10px, #00000010 10px, #00000010 20px), repeating-linear-gradient(-45deg, transparent, transparent 10px, #00000010 10px, #00000010 20px)",
+        "tailwind": "bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,#00000010_10px,#00000010_20px),repeating-linear-gradient(-45deg,transparent,transparent_10px,#00000010_10px,#00000010_20px)]",
+        "category": "stripes",
+        "tags": [
+          "chevron",
+          "arrow",
+          "directional"
+        ],
+        "mood": [
+          "directional",
+          "modern",
+          "dynamic"
+        ]
+      },
+      {
+        "id": "wave-simple",
+        "name": "Simple Wave",
+        "nameZh": "简单波浪",
+        "css": "repeating-radial-gradient(circle at 0 0, transparent 0, #ffffff 10px), repeating-linear-gradient(#00000010, #00000020)",
+        "tailwind": "bg-[repeating-radial-gradient(circle_at_0_0,transparent_0,#ffffff_10px),repeating-linear-gradient(#00000010,#00000020)]",
+        "category": "waves",
+        "tags": [
+          "wave",
+          "organic",
+          "flowing"
+        ],
+        "mood": [
+          "flowing",
+          "organic",
+          "calm"
+        ]
+      },
+      {
+        "id": "topographic",
+        "name": "Topographic Lines",
+        "nameZh": "等高线",
+        "css": "repeating-radial-gradient(circle at 50% 50%, transparent 0, transparent 10px, #00000008 10px, #00000008 11px)",
+        "tailwind": "bg-[repeating-radial-gradient(circle_at_50%_50%,transparent_0,transparent_10px,#00000008_10px,#00000008_11px)]",
+        "category": "waves",
+        "tags": [
+          "topographic",
+          "map",
+          "contour"
+        ],
+        "mood": [
+          "technical",
+          "natural",
+          "exploratory"
+        ]
+      },
+      {
+        "id": "checkerboard",
+        "name": "Checkerboard",
+        "nameZh": "棋盘格",
+        "css": "linear-gradient(45deg, #00000010 25%, transparent 25%, transparent 75%, #00000010 75%, #00000010), linear-gradient(45deg, #00000010 25%, transparent 25%, transparent 75%, #00000010 75%, #00000010)",
+        "tailwind": "bg-[linear-gradient(45deg,#00000010_25%,transparent_25%,transparent_75%,#00000010_75%),linear-gradient(45deg,#00000010_25%,transparent_25%,transparent_75%,#00000010_75%)] bg-[size:20px_20px] bg-[position:0_0,10px_10px]",
+        "category": "geometric",
+        "tags": [
+          "checkerboard",
+          "classic",
+          "grid"
+        ],
+        "mood": [
+          "classic",
+          "structured",
+          "playful"
+        ]
+      },
+      {
+        "id": "triangles",
+        "name": "Triangles",
+        "nameZh": "三角形",
+        "css": "linear-gradient(135deg, #00000010 25%, transparent 25%), linear-gradient(225deg, #00000010 25%, transparent 25%), linear-gradient(45deg, #00000010 25%, transparent 25%), linear-gradient(315deg, #00000010 25%, transparent 25%)",
+        "tailwind": "bg-[linear-gradient(135deg,#00000010_25%,transparent_25%),linear-gradient(225deg,#00000010_25%,transparent_25%)] bg-[size:40px_40px] bg-[position:0_0,20px_20px]",
+        "category": "geometric",
+        "tags": [
+          "triangles",
+          "geometric",
+          "modern"
+        ],
+        "mood": [
+          "modern",
+          "sharp",
+          "dynamic"
+        ]
+      },
+      {
+        "id": "diamonds",
+        "name": "Diamonds",
+        "nameZh": "菱形",
+        "css": "linear-gradient(45deg, #00000010 25%, transparent 25%, transparent 75%, #00000010 75%), linear-gradient(-45deg, #00000010 25%, transparent 25%, transparent 75%, #00000010 75%)",
+        "tailwind": "bg-[linear-gradient(45deg,#00000010_25%,transparent_25%,transparent_75%,#00000010_75%),linear-gradient(-45deg,#00000010_25%,transparent_25%,transparent_75%,#00000010_75%)] bg-[size:20px_20px]",
+        "category": "geometric",
+        "tags": [
+          "diamonds",
+          "geometric",
+          "elegant"
+        ],
+        "mood": [
+          "elegant",
+          "structured",
+          "sophisticated"
+        ]
+      },
+      {
+        "id": "circuit-board",
+        "name": "Circuit Board",
+        "nameZh": "电路板",
+        "css": "linear-gradient(90deg, #00000008 1px, transparent 1px), linear-gradient(#00000008 1px, transparent 1px), linear-gradient(90deg, #00000015 1px, transparent 1px) 10px 10px, linear-gradient(#00000015 1px, transparent 1px) 10px 10px",
+        "tailwind": "bg-[linear-gradient(90deg,#00000008_1px,transparent_1px),linear-gradient(#00000008_1px,transparent_1px)] bg-[size:20px_20px]",
+        "category": "geometric",
+        "tags": [
+          "tech",
+          "circuit",
+          "digital"
+        ],
+        "mood": [
+          "technical",
+          "digital",
+          "modern"
+        ]
+      },
+      {
+        "id": "gradient-mesh",
+        "name": "Gradient Mesh",
+        "nameZh": "渐变网格",
+        "css": "radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3), transparent 50%), radial-gradient(circle at 80% 80%, rgba(255, 119, 198, 0.3), transparent 50%), radial-gradient(circle at 40% 80%, rgba(119, 198, 255, 0.3), transparent 50%)",
+        "tailwind": "bg-[radial-gradient(circle_at_20%_50%,rgba(120,119,198,0.3),transparent_50%),radial-gradient(circle_at_80%_80%,rgba(255,119,198,0.3),transparent_50%)]",
+        "category": "gradient-pattern",
+        "tags": [
+          "gradient",
+          "mesh",
+          "modern"
+        ],
+        "mood": [
+          "modern",
+          "soft",
+          "colorful"
+        ]
+      },
+      {
+        "id": "gradient-rays",
+        "name": "Gradient Rays",
+        "nameZh": "渐变光线",
+        "css": "repeating-conic-gradient(from 0deg at 50% 50%, transparent 0deg, rgba(0, 0, 0, 0.05) 10deg, transparent 20deg)",
+        "tailwind": "bg-[repeating-conic-gradient(from_0deg_at_50%_50%,transparent_0deg,rgba(0,0,0,0.05)_10deg,transparent_20deg)]",
+        "category": "gradient-pattern",
+        "tags": [
+          "rays",
+          "radial",
+          "sunburst"
+        ],
+        "mood": [
+          "radiant",
+          "energetic",
+          "dynamic"
+        ]
+      }
+    ]
+  },
+  "typography/index": {
+    "fontPairings": [
+      {
+        "id": "gallery-gloock",
+        "name": "Gallery Gloock",
+        "nameZh": "画廊格洛克",
+        "heading": {
+          "family": "Gloock",
+          "weight": 400
+        },
+        "body": {
+          "family": "Manrope",
+          "weight": 400
+        },
+        "category": "elegant",
+        "tags": [
+          "gallery",
+          "culture",
+          "editorial"
+        ],
+        "mood": [
+          "quiet",
+          "artful",
+          "assured"
+        ],
+        "bestFor": "Art galleries, cultural institutions, architecture",
+        "bestForZh": "艺术画廊、文化机构与建筑网站",
+        "description": "A poised serif with unusual details, grounded by a neutral sans for navigation and prose.",
+        "descriptionZh": "带有独特细节的沉静衬线体，搭配中性无衬线体承载导航与正文。",
+        "sourceUrl": "https://fonts.google.com/specimen/Gloock",
+        "license": "OFL"
+      },
+      {
+        "id": "literary-alegreya",
+        "name": "Literary Archive",
+        "nameZh": "文学档案",
+        "heading": {
+          "family": "Alegreya",
+          "weight": 600
+        },
+        "body": {
+          "family": "Source Sans 3",
+          "weight": 400
+        },
+        "category": "classic",
+        "tags": [
+          "literary",
+          "reading",
+          "humanist"
+        ],
+        "mood": [
+          "warm",
+          "scholarly",
+          "readable"
+        ],
+        "bestFor": "Long-form essays, books, archives, education",
+        "bestForZh": "长文、书籍、档案与教育内容",
+        "description": "Calligraphic rhythm in the headings with a highly readable humanist sans for longer passages.",
+        "descriptionZh": "标题具有书写节奏，正文则使用适合长时间阅读的人文无衬线体。",
+        "sourceUrl": "https://fonts.google.com/specimen/Alegreya",
+        "license": "OFL"
+      },
+      {
+        "id": "retro-yeseva",
+        "name": "Yeseva Salon",
+        "nameZh": "叶塞娃沙龙",
+        "heading": {
+          "family": "Yeseva One",
+          "weight": 400
+        },
+        "body": {
+          "family": "Karla",
+          "weight": 400
+        },
+        "category": "classic",
+        "tags": [
+          "retro",
+          "signage",
+          "hospitality"
+        ],
+        "mood": [
+          "nostalgic",
+          "confident",
+          "welcoming"
+        ],
+        "bestFor": "Boutique hospitality, restaurants, retro identities",
+        "bestForZh": "精品酒店、餐饮与复古品牌",
+        "description": "A theatrical display face softened by a compact, friendly sans.",
+        "descriptionZh": "带舞台感的展示字体，搭配紧凑友好的无衬线正文。",
+        "sourceUrl": "https://fonts.google.com/specimen/Yeseva+One",
+        "license": "OFL"
+      },
+      {
+        "id": "atelier-bricolage",
+        "name": "Bricolage Studio",
+        "nameZh": "布里科工作室",
+        "heading": {
+          "family": "Bricolage Grotesque",
+          "weight": 700
+        },
+        "body": {
+          "family": "Albert Sans",
+          "weight": 400
+        },
+        "category": "modern",
+        "tags": [
+          "studio",
+          "expressive",
+          "contemporary"
+        ],
+        "mood": [
+          "inventive",
+          "direct",
+          "energetic"
+        ],
+        "bestFor": "Creative studios, design tools, expressive products",
+        "bestForZh": "创意工作室、设计工具与表现型产品",
+        "description": "A characterful grotesque that stays legible even when the hierarchy becomes bold.",
+        "descriptionZh": "字形个性鲜明，即使放大和加粗也能保持清晰。",
+        "sourceUrl": "https://fonts.google.com/specimen/Bricolage+Grotesque",
+        "license": "OFL"
+      },
+      {
+        "id": "swiss-archivo",
+        "name": "Archivo Poster",
+        "nameZh": "阿奇沃海报",
+        "heading": {
+          "family": "Archivo Black",
+          "weight": 400
+        },
+        "body": {
+          "family": "Archivo",
+          "weight": 400
+        },
+        "category": "modern",
+        "tags": [
+          "poster",
+          "swiss",
+          "signage"
+        ],
+        "mood": [
+          "structured",
+          "graphic",
+          "decisive"
+        ],
+        "bestFor": "Posters, wayfinding, portfolios, bold landing pages",
+        "bestForZh": "海报、导视、作品集与强视觉落地页",
+        "description": "A single-family system with enough width and weight contrast to feel deliberately graphic.",
+        "descriptionZh": "同一字体家族通过宽度与重量差异形成明确、图形化的层级。",
+        "previewWord": "FORM",
+        "sourceUrl": "https://fonts.google.com/specimen/Archivo+Black",
+        "license": "OFL"
+      },
+      {
+        "id": "anime-dela",
+        "name": "Dela Pop",
+        "nameZh": "德拉潮流",
+        "heading": {
+          "family": "Dela Gothic One",
+          "weight": 400
+        },
+        "body": {
+          "family": "Nunito Sans",
+          "weight": 400
+        },
+        "category": "playful",
+        "tags": [
+          "anime",
+          "pop",
+          "youth"
+        ],
+        "mood": [
+          "loud",
+          "friendly",
+          "kinetic"
+        ],
+        "bestFor": "Anime, gaming, youth culture, playful campaigns",
+        "bestForZh": "动漫、游戏、青年文化与趣味活动",
+        "description": "Dense display shapes create instant personality while the body remains open and approachable.",
+        "descriptionZh": "密度较高的展示字形迅速建立个性，正文依然开放易读。",
+        "previewWord": "TOKYO!",
+        "sourceUrl": "https://fonts.google.com/specimen/Dela+Gothic+One",
+        "license": "OFL"
+      },
+      {
+        "id": "artbook-young",
+        "name": "Young Art Book",
+        "nameZh": "青年艺术书",
+        "heading": {
+          "family": "Young Serif",
+          "weight": 400
+        },
+        "body": {
+          "family": "Work Sans",
+          "weight": 400
+        },
+        "category": "editorial",
+        "tags": [
+          "art-book",
+          "culture",
+          "independent"
+        ],
+        "mood": [
+          "fresh",
+          "literary",
+          "unconventional"
+        ],
+        "bestFor": "Independent publishing, art books, cultural essays",
+        "bestForZh": "独立出版、艺术书与文化文章",
+        "description": "Soft, irregular serif details give editorial pages personality without hurting readability.",
+        "descriptionZh": "柔和而略带不规则的衬线细节，为编辑页面增加个性。",
+        "sourceUrl": "https://fonts.google.com/specimen/Young+Serif",
+        "license": "OFL"
+      },
+      {
+        "id": "museum-kalnia",
+        "name": "Kalnia Museum",
+        "nameZh": "卡尔尼亚博物馆",
+        "heading": {
+          "family": "Kalnia",
+          "weight": 600
+        },
+        "body": {
+          "family": "Commissioner",
+          "weight": 400
+        },
+        "category": "editorial",
+        "tags": [
+          "museum",
+          "exhibition",
+          "variable"
+        ],
+        "mood": [
+          "curatorial",
+          "sculptural",
+          "measured"
+        ],
+        "bestFor": "Museum programs, exhibitions, artist portfolios",
+        "bestForZh": "博物馆项目、展览与艺术家作品集",
+        "description": "Sculptural terminals make short titles memorable; the body face keeps supporting information orderly.",
+        "descriptionZh": "雕塑感端点让短标题更具记忆点，正文则保持信息秩序。",
+        "previewWord": "FORM / 26",
+        "sourceUrl": "https://fonts.google.com/specimen/Kalnia",
+        "license": "OFL"
+      },
+      {
+        "id": "signal-fragment",
+        "name": "Fragment Signal",
+        "nameZh": "片段信号",
+        "heading": {
+          "family": "Fragment Mono",
+          "weight": 400
+        },
+        "body": {
+          "family": "Albert Sans",
+          "weight": 400
+        },
+        "category": "technical",
+        "tags": [
+          "mono",
+          "interface",
+          "code"
+        ],
+        "mood": [
+          "precise",
+          "quiet",
+          "digital"
+        ],
+        "bestFor": "Developer tools, documentation, technical portfolios",
+        "bestForZh": "开发者工具、文档与技术作品集",
+        "description": "A restrained monospace for labels and headlines, paired with a more comfortable prose face.",
+        "descriptionZh": "克制的等宽体用于标签与标题，更舒适的无衬线体承载正文。",
+        "previewWord": "0x26",
+        "sourceUrl": "https://fonts.google.com/specimen/Fragment+Mono",
+        "license": "OFL"
+      },
+      {
+        "id": "systems-azeret",
+        "name": "Azeret Systems",
+        "nameZh": "阿泽雷特系统",
+        "heading": {
+          "family": "Azeret Mono",
+          "weight": 600
+        },
+        "body": {
+          "family": "Public Sans",
+          "weight": 400
+        },
+        "category": "technical",
+        "tags": [
+          "systems",
+          "data",
+          "industrial"
+        ],
+        "mood": [
+          "systematic",
+          "dense",
+          "reliable"
+        ],
+        "bestFor": "Data products, industrial interfaces, system documentation",
+        "bestForZh": "数据产品、工业界面与系统文档",
+        "description": "More mechanical than a typical code font, with a public-service sans that handles dense information.",
+        "descriptionZh": "比常见代码字体更具机械感，正文无衬线体适合高密度信息。",
+        "sourceUrl": "https://fonts.google.com/specimen/Azeret+Mono",
+        "license": "OFL"
+      },
+      {
+        "id": "future-unbounded",
+        "name": "Unbounded Future",
+        "nameZh": "无界未来",
+        "heading": {
+          "family": "Unbounded",
+          "weight": 700
+        },
+        "body": {
+          "family": "Manrope",
+          "weight": 400
+        },
+        "category": "display",
+        "tags": [
+          "future",
+          "wide",
+          "experimental"
+        ],
+        "mood": [
+          "futuristic",
+          "expansive",
+          "bold"
+        ],
+        "bestFor": "Sci-fi, mobility, technology campaigns, games",
+        "bestForZh": "科幻、出行、科技活动与游戏",
+        "description": "Wide geometric forms create a cinematic future-facing voice; use them only for short statements.",
+        "descriptionZh": "宽阔几何字形营造电影化未来感，仅用于短句和主标题。",
+        "previewWord": "BEYOND",
+        "sourceUrl": "https://fonts.google.com/specimen/Unbounded",
+        "license": "OFL"
+      },
+      {
+        "id": "poster-bungee",
+        "name": "Bungee Street",
+        "nameZh": "蹦极街头",
+        "heading": {
+          "family": "Bungee",
+          "weight": 400
+        },
+        "body": {
+          "family": "Archivo",
+          "weight": 400
+        },
+        "category": "display",
+        "tags": [
+          "street",
+          "poster",
+          "festival"
+        ],
+        "mood": [
+          "urban",
+          "graphic",
+          "celebratory"
+        ],
+        "bestFor": "Street culture, festivals, sports, bold announcements",
+        "bestForZh": "街头文化、节庆、体育与强势公告",
+        "description": "Stacked letterforms behave like signage, balanced by a practical grotesque for details.",
+        "descriptionZh": "堆叠式字形像街头招牌，搭配实用无衬线体处理细节。",
+        "previewWord": "BLOCK PARTY",
+        "sourceUrl": "https://fonts.google.com/specimen/Bungee",
+        "license": "OFL"
+      },
+      {
+        "id": "deco-limelight",
+        "name": "Limelight Deco",
+        "nameZh": "聚光灯装饰",
+        "heading": {
+          "family": "Limelight",
+          "weight": 400
+        },
+        "body": {
+          "family": "Karla",
+          "weight": 400
+        },
+        "category": "display",
+        "tags": [
+          "art-deco",
+          "cinema",
+          "hospitality"
+        ],
+        "mood": [
+          "cinematic",
+          "ornamental",
+          "polished"
+        ],
+        "bestFor": "Art Deco, cinema, hotels, event identities",
+        "bestForZh": "装饰艺术、电影、酒店与活动视觉",
+        "description": "A geometric display face with period character, kept usable through a compact sans companion.",
+        "descriptionZh": "具有时代特征的几何展示字体，搭配紧凑无衬线体保持实用性。",
+        "previewWord": "CINEMA",
+        "sourceUrl": "https://fonts.google.com/specimen/Limelight",
+        "license": "OFL"
+      },
+      {
+        "id": "gothic-grenze",
+        "name": "Grenze Nocturne",
+        "nameZh": "格伦策夜曲",
+        "heading": {
+          "family": "Grenze Gotisch",
+          "weight": 700
+        },
+        "body": {
+          "family": "Manrope",
+          "weight": 400
+        },
+        "category": "display",
+        "tags": [
+          "gothic",
+          "fantasy",
+          "music"
+        ],
+        "mood": [
+          "dark",
+          "ornate",
+          "theatrical"
+        ],
+        "bestFor": "Gothic, fantasy, music, dark editorial",
+        "bestForZh": "哥特、幻想、音乐与暗黑编辑风格",
+        "description": "Blackletter energy for short display text, paired with a neutral body to prevent visual fatigue.",
+        "descriptionZh": "黑体书写感用于短标题，中性正文避免长时间阅读疲劳。",
+        "previewWord": "NOCTURNE",
+        "sourceUrl": "https://fonts.google.com/specimen/Grenze+Gotisch",
+        "license": "OFL"
+      },
+      {
+        "id": "handmade-shantell",
+        "name": "Shantell Workshop",
+        "nameZh": "香特尔手作",
+        "heading": {
+          "family": "Shantell Sans",
+          "weight": 700
+        },
+        "body": {
+          "family": "Atkinson Hyperlegible",
+          "weight": 400
+        },
+        "category": "handwritten",
+        "tags": [
+          "handmade",
+          "illustration",
+          "friendly"
+        ],
+        "mood": [
+          "human",
+          "playful",
+          "accessible"
+        ],
+        "bestFor": "Illustration, workshops, learning, handmade brands",
+        "bestForZh": "插画、工作坊、学习与手作品牌",
+        "description": "A genuinely drawn display face paired with an accessibility-led body font.",
+        "descriptionZh": "真实手绘感展示字体，搭配以易读性为核心设计的正文字体。",
+        "previewWord": "Made by hand",
+        "sourceUrl": "https://fonts.google.com/specimen/Shantell+Sans",
+        "license": "OFL"
+      }
+    ]
+  },
+  "type-scale/index": {
+    "SCALE_RATIOS": [
+      {
+        "value": 1.067,
+        "name": "Minor Second",
+        "hint": "Very tight — dense data UIs"
+      },
+      {
+        "value": 1.125,
+        "name": "Major Second",
+        "hint": "Tight — SaaS dashboards (Vercel/Geist)"
+      },
+      {
+        "value": 1.2,
+        "name": "Minor Third",
+        "hint": "Compact — Tailwind default"
+      },
+      {
+        "value": 1.25,
+        "name": "Major Third",
+        "hint": "Standard — most products (Stripe/Material)"
+      },
+      {
+        "value": 1.333,
+        "name": "Perfect Fourth",
+        "hint": "Generous — editorial, marketing"
+      },
+      {
+        "value": 1.414,
+        "name": "Augmented Fourth",
+        "hint": "Wide — expressive, display-heavy"
+      },
+      {
+        "value": 1.5,
+        "name": "Perfect Fifth",
+        "hint": "Dramatic — landing & brand sites"
+      },
+      {
+        "value": 1.618,
+        "name": "Golden Ratio",
+        "hint": "Maximum — display only"
+      }
+    ]
+  },
+  "spacing/index": {
+    "GRID_PRESETS": [
+      {
+        "id": "mobile",
+        "label": "Mobile",
+        "columns": 4,
+        "gutter": 16,
+        "margin": 16,
+        "maxWidth": 480
+      },
+      {
+        "id": "tablet",
+        "label": "Tablet",
+        "columns": 8,
+        "gutter": 24,
+        "margin": 24,
+        "maxWidth": 768
+      },
+      {
+        "id": "desktop",
+        "label": "Desktop",
+        "columns": 12,
+        "gutter": 32,
+        "margin": 24,
+        "maxWidth": 1280
+      }
+    ],
+    "SPACING_PRESETS": [
+      {
+        "id": "8pt",
+        "name": "8-point",
+        "base": 8,
+        "hint": "Industry standard (Material, Carbon) — pixel-perfect across densities",
+        "values": [
+          {
+            "key": "0",
+            "px": 0
+          },
+          {
+            "key": "xs",
+            "px": 4
+          },
+          {
+            "key": "sm",
+            "px": 8
+          },
+          {
+            "key": "md",
+            "px": 16
+          },
+          {
+            "key": "lg",
+            "px": 24
+          },
+          {
+            "key": "xl",
+            "px": 32
+          },
+          {
+            "key": "2xl",
+            "px": 48
+          },
+          {
+            "key": "3xl",
+            "px": 64
+          },
+          {
+            "key": "4xl",
+            "px": 96
+          },
+          {
+            "key": "5xl",
+            "px": 128
+          }
+        ]
+      },
+      {
+        "id": "4pt",
+        "name": "4-point",
+        "base": 4,
+        "hint": "Finer control for dense UIs — dashboards, data tables, IDEs",
+        "values": [
+          {
+            "key": "0",
+            "px": 0
+          },
+          {
+            "key": "xs",
+            "px": 4
+          },
+          {
+            "key": "sm",
+            "px": 8
+          },
+          {
+            "key": "md",
+            "px": 12
+          },
+          {
+            "key": "lg",
+            "px": 16
+          },
+          {
+            "key": "xl",
+            "px": 24
+          },
+          {
+            "key": "2xl",
+            "px": 32
+          },
+          {
+            "key": "3xl",
+            "px": 48
+          },
+          {
+            "key": "4xl",
+            "px": 64
+          },
+          {
+            "key": "5xl",
+            "px": 96
+          }
+        ]
+      }
+    ]
+  },
+  "design-principles/index": {
+    "DESIGN_PRINCIPLES": [
+      {
+        "id": "contrast",
+        "letter": "C",
+        "name": "Contrast",
+        "nameZh": "对比",
+        "definition": "If two elements are not the same, make them clearly different — never almost the same. Contrast creates hierarchy and pulls the eye to what matters.",
+        "definitionZh": "如果两个元素不一样，就让它们明显不一样，绝不似是而非。对比建立层次，把视线引向最重要的东西。",
+        "mnemonic": "Don't be timid — if elements differ, make them differ boldly.",
+        "mnemonicZh": "别犹豫——元素要有别，就让差异够大。",
+        "checklist": [
+          {
+            "en": "Headings and body text have an obvious jump in size and weight, not a subtle one.",
+            "zh": "标题和正文在字号、字重上有明显的跳变，而不是细微差别。"
+          },
+          {
+            "en": "Primary and secondary actions carry clearly different visual weight.",
+            "zh": "主次操作的视觉重量明显不同。"
+          },
+          {
+            "en": "Key information stands out by size, color, or weight — not by italics alone.",
+            "zh": "关键信息靠大小、颜色或字重跳出，而不是只靠斜体。"
+          }
+        ],
+        "snippet": {
+          "lang": "css",
+          "code": ".title {\n  font-size: 2.5rem;\n  font-weight: 700;\n}\n.body {\n  font-size: 1rem;\n  font-weight: 400;\n  color: var(--muted);\n}"
+        }
+      },
+      {
+        "id": "repetition",
+        "letter": "R",
+        "name": "Repetition",
+        "nameZh": "重复",
+        "definition": "Repeat visual elements — color, shape, type, spacing — throughout the design. Repetition builds unity and makes a layout feel like one system instead of scattered parts.",
+        "definitionZh": "在整个设计中重复视觉元素——颜色、形状、字体、间距。重复建立统一感，让布局像一个系统，而不是零散的拼凑。",
+        "mnemonic": "Reuse the same tokens everywhere — consistency reads as intention.",
+        "mnemonicZh": "到处复用同一套 token——一致会被读成「刻意」。",
+        "checklist": [
+          {
+            "en": "Radius, shadow, and spacing all come from one shared token set.",
+            "zh": "圆角、阴影、间距都取自同一套共享 token。"
+          },
+          {
+            "en": "Elements of the same kind share the same style — every card looks like a card.",
+            "zh": "同类元素样式一致——每张卡片都像卡片。"
+          },
+          {
+            "en": "Brand color and type recur across sections to tie the page together.",
+            "zh": "品牌色和字体在各区块反复出现，把页面串成一体。"
+          }
+        ],
+        "snippet": {
+          "lang": "css",
+          "code": ":root {\n  --radius: 8px;\n  --shadow: 0 1px 3px rgb(0 0 0 / 0.1);\n}\n.card {\n  border-radius: var(--radius);\n  box-shadow: var(--shadow);\n}"
+        }
+      },
+      {
+        "id": "alignment",
+        "letter": "A",
+        "name": "Alignment",
+        "nameZh": "对齐",
+        "definition": "Every element should have a visual connection to something else on the page. Nothing is placed arbitrarily — shared edges and baselines create an invisible order the eye trusts.",
+        "definitionZh": "页面上每个元素都该和别的元素有视觉连接。没有东西是随手一放的——共享的边线和基线建立起一种眼睛信赖的隐形秩序。",
+        "mnemonic": "Nothing floats — put everything on a shared edge or baseline.",
+        "mnemonicZh": "没有东西该飘着——一切都落在共享的边线或基线上。",
+        "checklist": [
+          {
+            "en": "Elements share alignment edges instead of each sitting on its own.",
+            "zh": "元素共享对齐边，而不是各自为政。"
+          },
+          {
+            "en": "Avoid mixing centered and left-aligned text in the same block.",
+            "zh": "同一区块里避免居中与左对齐混用。"
+          },
+          {
+            "en": "A grid or shared left edge constrains where things land.",
+            "zh": "用网格或共享左边线约束元素的落点。"
+          }
+        ],
+        "snippet": {
+          "lang": "css",
+          "code": ".form {\n  display: grid;\n  gap: 12px;\n}\n.form > * {\n  text-align: left;\n}"
+        }
+      },
+      {
+        "id": "proximity",
+        "letter": "P",
+        "name": "Proximity",
+        "nameZh": "亲密性",
+        "definition": "Group related items close together and push unrelated ones apart. Proximity turns scattered elements into a few clear units, cutting the work the reader's eye has to do.",
+        "definitionZh": "把相关的东西聚拢、把无关的推远。亲密性把零散元素归并成几个清晰的单元，减少读者眼睛要做的功。",
+        "mnemonic": "Closeness equals relationship — group by meaning, not by gut.",
+        "mnemonicZh": "靠近 = 相关——按含义分组，而不是凭手感。",
+        "checklist": [
+          {
+            "en": "A label sits tight against the input it describes, not floating between two.",
+            "zh": "标签紧贴它所描述的输入框，而不是漂在两者之间。"
+          },
+          {
+            "en": "Related items form a group with more whitespace between groups than within.",
+            "zh": "相关项成组，组与组之间的留白大于组内留白。"
+          },
+          {
+            "en": "Lonely, ungrouped elements are pulled into the unit they belong to.",
+            "zh": "孤立、未分组的元素被归入它所属的单元。"
+          }
+        ],
+        "snippet": {
+          "lang": "css",
+          "code": ".field {\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n}\n.form {\n  display: flex;\n  flex-direction: column;\n  gap: 24px;\n}"
+        }
+      }
+    ]
+  },
+  "visual-hierarchy/index": {
+    "HIERARCHY_LEVERS": [
+      {
+        "id": "size",
+        "name": "Size",
+        "nameZh": "大小",
+        "desc": "Bigger elements are seen first — size is the loudest signal in the room.",
+        "descZh": "更大的元素先被看到——大小是房间里最响亮的信号。"
+      },
+      {
+        "id": "weight",
+        "name": "Weight",
+        "nameZh": "字重",
+        "desc": "Heavier strokes carry more visual mass and hold the eye longer.",
+        "descZh": "更重的笔画有更大的视觉质量，留住视线更久。"
+      },
+      {
+        "id": "color",
+        "name": "Color",
+        "nameZh": "颜色对比",
+        "desc": "High contrast against the background jumps forward; muted tones recede.",
+        "descZh": "与背景高对比的跳到前面，灰暗的色调后退。"
+      },
+      {
+        "id": "space",
+        "name": "Space",
+        "nameZh": "留白",
+        "desc": "Whitespace and isolation give an element room to command attention.",
+        "descZh": "留白与隔离给元素空间去掌控注意力。"
+      }
+    ],
+    "SAMPLE_ELEMENTS": [
+      {
+        "id": "eyebrow",
+        "role": "Eyebrow",
+        "roleZh": "眉标",
+        "label": "NEW RELEASE",
+        "labelZh": "新版发布",
+        "levers": {
+          "size": 0.2,
+          "weight": 0.5,
+          "color": 0.7,
+          "space": 0.3
+        }
+      },
+      {
+        "id": "title",
+        "role": "Title",
+        "roleZh": "标题",
+        "label": "Design that ships itself",
+        "labelZh": "会自己上线的设计",
+        "levers": {
+          "size": 1,
+          "weight": 1,
+          "color": 0.8,
+          "space": 0.6
+        }
+      },
+      {
+        "id": "body",
+        "role": "Body",
+        "roleZh": "正文",
+        "label": "A short paragraph that supports the headline without competing with it.",
+        "labelZh": "一段支撑标题、又不与它争抢的简短说明。",
+        "levers": {
+          "size": 0.3,
+          "weight": 0.2,
+          "color": 0.3,
+          "space": 0.2
+        }
+      },
+      {
+        "id": "cta",
+        "role": "Button",
+        "roleZh": "按钮",
+        "label": "Get started",
+        "labelZh": "开始使用",
+        "levers": {
+          "size": 0.5,
+          "weight": 0.6,
+          "color": 1,
+          "space": 0.7
+        }
+      },
+      {
+        "id": "meta",
+        "role": "Meta",
+        "roleZh": "元信息",
+        "label": "Updated 2 days ago",
+        "labelZh": "2 天前更新",
+        "levers": {
+          "size": 0.1,
+          "weight": 0.1,
+          "color": 0.15,
+          "space": 0.1
+        }
+      }
+    ],
+    "TEXT_LEVELS": [
+      {
+        "name": "primary",
+        "size": "1.5rem",
+        "weight": 700,
+        "opacity": 1
+      },
+      {
+        "name": "secondary",
+        "size": "1rem",
+        "weight": 500,
+        "opacity": 0.9
+      },
+      {
+        "name": "tertiary",
+        "size": "0.875rem",
+        "weight": 400,
+        "opacity": 0.6
+      }
+    ]
+  }
+}

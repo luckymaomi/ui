@@ -1,0 +1,23 @@
+---
+import { ThemeToggle } from "@/components/ThemeToggle";
+import { zh } from "@/content/i18n/zh";
+import { withBase } from "@/lib/base";
+
+const navigation = [
+  ["/styles/", zh.nav.styles],
+  ["/animations/", zh.nav.animations],
+  ["/recipes/", zh.nav.recipes],
+  ["/templates/", zh.nav.templates],
+  ["/resources/", zh.nav.resources],
+  ["/ui-prompts/", zh.nav.prompts],
+] as const;
+---
+
+<header class="site-header">
+  <div class="header-inner">
+    <nav class="primary-nav" aria-label="主要导航">
+      {navigation.map(([href, label]) => <a href={withBase(href)}>{label}</a>)}
+    </nav>
+    <ThemeToggle client:load />
+  </div>
+</header>

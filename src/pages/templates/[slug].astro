@@ -1,0 +1,23 @@
+---
+import { CopyDownload } from "@/components/CopyDownload";
+import { TemplateCanvas } from "@/components/templates/TemplateCanvas";
+import { styles, templates, templateSource } from "@/content/catalog";
+import { withBase } from "@/lib/base";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+export function getStaticPaths() { return templates.map((template) => ({ params: { slug: template.id }, props: { template } })); }
+const { template } = Astro.props;
+const relatedStyle = styles.find((style) => style.slug === template.styleSlug);
+const previewUrl = withBase(`/templates/${template.id}/preview/`);
+const source = templateSource(template.id);
+---
+
+<BaseLayout title={template.name.zh} description={template.description.zh} wide>
+  <header class="page-intro template-intro"><a class="back-link" href={withBase("/templates/")}>返回模板目录</a><div class="meta-row"><span>{template.type}</span><span>{template.styleSlug}</span></div><h1>{template.name.zh}</h1><p>{template.description.zh}</p></header>
+  <TemplateCanvas src={previewUrl} title={template.name.zh} client:load />
+  <section class="detail-section code-panel">
+    <div class="section-heading"><h2>完整模板源代码</h2></div>
+    <details><summary>查看 {source.split("\n").length} 行代码</summary><pre><code id="template-source">{source}</code></pre></details>
+    <CopyDownload sourceId="template-source" filename={`${template.id}.tsx`} label="完整模板" client:visible />
+  </section>
+  {relatedStyle && <p><a class="back-link" href={withBase(`/styles/${relatedStyle.slug}/`)}>查看关联风格</a></p>}
+</BaseLayout>

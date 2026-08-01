@@ -1,0 +1,15 @@
+---
+import { withBase } from "@/lib/base";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+const steps = [
+  ["01", "从场景找到风格", "先在风格库搜索产品类型、气质或视觉关键词，再用类别与视觉/布局类型缩小范围。", "/styles/"],
+  ["02", "核对规则并看真实展示", "详情页给出颜色、tokens、正反规则、组件代码和提示词；展示页运行该风格独立交互实现。", "/styles/"],
+  ["03", "组合组件与页面", "在配方工作台切换组件变体，或直接打开完整模板检验信息结构和响应式行为。", "/recipes/"],
+  ["04", "带走可执行内容", "复制代码、tokens、UI 提示词，或下载确定性静态文件继续开发。", "/ui-prompts/"],
+];
+---
+
+<BaseLayout title="使用指南">
+  <header class="page-intro"><h1>从视觉方向到可执行界面</h1></header>
+  <section class="workflow-list">{steps.map(([id, title, description, href]) => <article><span>{id}</span><div><h2>{title}</h2><p>{description}</p><a href={withBase(href)}>进入</a></div></article>)}</section>
+</BaseLayout>

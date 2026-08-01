@@ -2,23 +2,28 @@
 
 ## Before You Start
 
-- Read `AGENTS.md` and `spec.md`. Read `plan.md` as the current task contract only when the owner explicitly enables professional mode.
-- Target the `master` branch unless the owner explicitly names another branch.
-- Open an issue or discussion before changing product boundaries.
-- Never include secrets, private data, generated artifacts, or unrelated changes.
+- Read `AGENTS.md` and `spec.md`. Read `plan.md` when the owner explicitly enables professional mode.
+- Target `master` unless the owner names another branch.
+- Keep secrets, private data, local output, and unrelated changes outside the repository.
+- Treat `src/content`, `src/components`, `src/pages`, and `public` as directly owned product source.
 
 ## Changes
 
 - Keep each change focused on one current objective.
 - Update implementation, tests, documentation, and configuration together.
-- Do not add compatibility aliases or preserve behavior that is no longer current.
+- Keep one owner for each content item and runtime implementation.
+- Preserve complete interactive pages and verify their real browser path.
 
 ## Verification
 
-- [待仓库确认，不是当前事实] 项目完整验证命令。
+Run the complete verification command before delivery:
 
-Run all applicable checks and report anything that could not be verified.
+```powershell
+npm.cmd run verify
+```
+
+Report the commands run, passed results, unverified items, and remaining risk.
 
 ## Security
 
-Do not disclose vulnerabilities in public issues. Follow `SECURITY.md`.
+Report vulnerabilities through the private channel described in `SECURITY.md`.

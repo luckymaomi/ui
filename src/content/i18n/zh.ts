@@ -1,0 +1,65 @@
+export const zh = {
+  site: {
+    name: "UI",
+    description: "风格规则、真实展示、动效、组件配方与前端提示词",
+  },
+  nav: {
+    styles: "风格库",
+    animations: "动效",
+    recipes: "配方",
+    templates: "模板",
+    resources: "设计资源",
+    prompts: "提示词",
+    guide: "使用指南",
+  },
+  actions: {
+    copy: "复制",
+    copied: "已复制",
+    download: "下载",
+    viewDetail: "查看详情",
+    viewShowcase: "打开真实展示",
+    clear: "清除筛选",
+  },
+  animation: {
+    categories: {
+      entrance: "入场",
+      hover: "悬停",
+      text: "文字",
+      loading: "加载",
+      scroll: "滚动",
+      background: "背景",
+      "micro-interaction": "微交互",
+      transition: "转场",
+      pointer: "指针",
+      exit: "离场",
+    },
+    triggers: {
+      "on-mount": "加载时",
+      "on-hover": "悬停时",
+      continuous: "持续播放",
+      "on-scroll": "滚动时",
+      "on-click": "点击时",
+      manual: "手动触发",
+    },
+    difficulties: {
+      beginner: "入门",
+      intermediate: "进阶",
+      advanced: "高级",
+    },
+  },
+  scenarios: {
+    all: "全部场景",
+    saas: "SaaS / B2B",
+    dashboard: "数据看板",
+    admin: "后台管理",
+    portfolio: "作品集",
+    blog: "博客内容",
+    editorial: "编辑杂志",
+    docs: "文档知识库",
+    ecommerce: "电商零售",
+    marketing: "品牌营销",
+    creative: "创意表达",
+  },
+} as const;
+
+export type Messages = typeof zh;

@@ -1,0 +1,10 @@
+---
+import { PatternExplorer } from "@/components/PatternExplorer";
+import { componentPatterns } from "@/content/catalog";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="组件样式" wide>
+  <header class="page-intro"><h1>组件样式</h1></header>
+  <PatternExplorer items={componentPatterns} client:idle />
+</BaseLayout>

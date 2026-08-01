@@ -1,0 +1,17 @@
+---
+import { templates } from "@/content/catalog";
+import { withBase } from "@/lib/base";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="完整页面模板" wide>
+  <header class="page-intro"><h1>完整页面模板</h1></header>
+  <section class="template-grid">
+    {templates.map((template) => (
+      <article class="template-card">
+        <a href={withBase(`/templates/${template.id}/`)} class="template-cover"><img src={withBase(`/templates/covers/${template.id}.webp`)} alt={`${template.name.zh}完整页面预览`} loading="lazy" /></a>
+        <div><div class="meta-row"><span>{template.type}</span><span>{template.styleSlug}</span></div><h2><a href={withBase(`/templates/${template.id}/`)}>{template.name.zh}</a></h2><p>{template.description.zh}</p><a class="text-link" href={withBase(`/templates/${template.id}/`)}>打开完整模板</a></div>
+      </article>
+    ))}
+  </section>
+</BaseLayout>

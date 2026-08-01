@@ -1,0 +1,158 @@
+---
+import { CopyDownload } from "@/components/CopyDownload";
+import { RecipeWorkbench } from "@/components/RecipeWorkbench";
+import { styles } from "@/content/catalog";
+import { withBase } from "@/lib/base";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+export function getStaticPaths() {
+  return styles.map((style) => ({ params: { slug: style.slug }, props: { style } }));
+}
+
+const { style } = Astro.props;
+const components = Object.entries(style.components ?? {});
+const tokens = JSON.stringify(style.tokens, null, 2);
+const allColors = [style.colors.primary, style.colors.secondary, ...style.colors.accent];
+const showcaseUrl = withBase(`/styles/${style.slug}/showcase/`);
+---
+
+<BaseLayout title={style.name} description={style.description} wide>
+  <header class="style-detail-hero" id="overview">
+    <div class="style-detail-copy">
+      <a class="back-link" href={withBase("/styles/")}>返回风格库</a>
+      <div class="meta-row">
+        <span>{style.styleType === "layout" ? "布局风格" : "视觉风格"}</span>
+        <span>{style.category}</span>
+      </div>
+      <h1>{style.name}</h1>
+      <p class="english-name">{style.nameEn}</p>
+      <p>{style.description}</p>
+      <div class="detail-actions">
+        <a class="primary-command" href={showcaseUrl}>打开交互展示</a>
+        <a class="secondary-command" href="#ai-implementation">查看实现规则</a>
+      </div>
+    </div>
+    <div class="style-detail-media">
+      <img src={withBase(style.cover)} alt={`${style.name}视觉预览`} />
+      <div class="hero-palette" aria-label={`${style.name}色板`}>
+        {allColors.map((color: string, index: number) => (
+          <div style={`--swatch:${color}`}>
+            <span>{index === 0 ? "主色" : index === 1 ? "次色" : `强调色 ${index - 1}`}</span>
+            <code>{color}</code>
+          </div>
+        ))}
+      </div>
+    </div>
+  </header>
+
+  <div class="detail-layout">
+    <aside class="detail-toc" aria-label="本页目录">
+      <strong>本页目录</strong>
+      <a href="#ai-implementation">AI 实现</a>
+      <a href="#components">组件预览</a>
+      <a href="#interaction">交互展示</a>
+      <a href="#coverage">适用范围</a>
+      <a href="#css">CSS</a>
+      <a href="#layout">布局与规则</a>
+      <a href="#export">示例提示词</a>
+    </aside>
+
+    <div class="detail-content">
+      <section class="detail-section" id="ai-implementation">
+        <div class="section-heading">
+          <h2>AI 实现规则</h2>
+        </div>
+        <div class="code-panel">
+          <pre><code id="ai-rules-source">{style.aiRules}</code></pre>
+          <CopyDownload sourceId="ai-rules-source" filename={`${style.slug}-ui-prompt.md`} label="实现规则" client:visible />
+        </div>
+      </section>
+
+      <section class="detail-section" id="components">
+        <div class="section-heading">
+          <h2>组件预览与实现</h2>
+        </div>
+        <RecipeWorkbench recipes={style.recipe.recipes} client:visible />
+        <div class="code-list">
+          {components.map(([id, component]: [string, any], index: number) => (
+            <article class="code-panel">
+              <div><div class="meta-row"><span>{id}</span></div><h3>{component.name}</h3><p>{component.description}</p></div>
+              <pre><code id={`component-source-${index}`}>{component.code}</code></pre>
+              <CopyDownload sourceId={`component-source-${index}`} filename={`${style.slug}-${id}.tsx`} label="组件代码" client:visible />
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="detail-section" id="interaction">
+        <div class="section-heading">
+          <h2>交互展示</h2>
+        </div>
+        <div class="detail-actions">
+          <a class="secondary-command" href={showcaseUrl} target="_blank" rel="noreferrer">独立打开展示</a>
+        </div>
+        <div class="showcase-frame">
+          <iframe src={showcaseUrl} title={`${style.name}交互展示`} loading="lazy"></iframe>
+        </div>
+      </section>
+
+      <section class="detail-section" id="coverage">
+        <div class="section-heading">
+          <h2>适用范围与设计理念</h2>
+        </div>
+        <div class="coverage-grid">
+          <article class="coverage-panel">
+            <h3>应用场景</h3>
+            <div class="tag-list">{style.scenarios.map((scenario: string) => <span>{scenario}</span>)}</div>
+          </article>
+          <article class="coverage-panel">
+            <h3>视觉关键词</h3>
+            <div class="tag-list">{[...style.tags, ...style.keywords].map((keyword: string) => <span>{keyword}</span>)}</div>
+          </article>
+        </div>
+        <div class="prose-block">{style.philosophy.split("\n").map((line: string) => <p>{line}</p>)}</div>
+        <div class="rules-columns">
+          <div class="rule-list do"><h3>应该这样做</h3><ul>{style.doList.map((item: string) => <li>{item}</li>)}</ul></div>
+          <div class="rule-list dont"><h3>避免这样做</h3><ul>{style.dontList.map((item: string) => <li>{item}</li>)}</ul></div>
+        </div>
+      </section>
+
+      <section class="detail-section" id="css">
+        <div class="section-heading">
+          <h2>全局 CSS</h2>
+        </div>
+        <div class="code-panel">
+          <pre><code id="global-css-source">{style.globalCss}</code></pre>
+          <CopyDownload sourceId="global-css-source" filename={`${style.slug}.css`} label="CSS" client:visible />
+        </div>
+      </section>
+
+      <section class="detail-section" id="layout">
+        <div class="section-heading">
+          <h2>布局、色板与 Tokens</h2>
+        </div>
+        <div class="color-specimens">
+          {allColors.map((color: string, index: number) => (
+            <div style={`--swatch:${color}`}><span>{index === 0 ? "主色" : index === 1 ? "次色" : `强调色 ${index - 1}`}</span><code>{color}</code></div>
+          ))}
+        </div>
+        <div class="code-panel">
+          <pre><code id="tokens-source">{tokens}</code></pre>
+          <CopyDownload sourceId="tokens-source" filename={`${style.slug}-tokens.json`} label="Tokens" client:visible />
+        </div>
+      </section>
+
+      <section class="detail-section" id="export">
+        <div class="section-heading">
+          <h2>示例提示词</h2>
+        </div>
+        <div class="prompt-list">
+          {style.examplePrompts.map((prompt: any, index: number) => (
+            <article><h3>{prompt.title}</h3><p>{prompt.description}</p><pre><code id={`example-prompt-source-${index}`}>{prompt.prompt}</code></pre><CopyDownload sourceId={`example-prompt-source-${index}`} filename={`${style.slug}-prompt-${index + 1}.md`} label="提示词" client:visible /></article>
+          ))}
+        </div>
+      </section>
+    </div>
+  </div>
+
+</BaseLayout>

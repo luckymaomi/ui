@@ -1,0 +1,31 @@
+# UI
+
+面向前端设计师、产品设计师和前端开发者的中文 UI 风格与设计规则资料库。
+
+Canonical site: https://luckymaomi.github.io/ui/
+Language: zh-CN
+Runtime: static HTML with React interactions
+
+## Primary collections
+
+- Styles: https://luckymaomi.github.io/ui/styles/
+- Animations: https://luckymaomi.github.io/ui/animations/
+- Component recipes: https://luckymaomi.github.io/ui/recipes/
+- Full-page templates: https://luckymaomi.github.io/ui/templates/
+- Design resources: https://luckymaomi.github.io/ui/resources/
+- UI prompts: https://luckymaomi.github.io/ui/ui-prompts/
+- Guides: https://luckymaomi.github.io/ui/guides/
+
+## Content contracts
+
+- Style details expose identity, palette, AI implementation rules, component implementations, interactive showcase, usage coverage, CSS, design tokens, and exports.
+- Interactive showcases are published at `/ui/styles/{slug}/showcase/`.
+- Template details and their standalone React pages share the source published at `/ui/templates/{id}/preview/`.
+- Code, prompts, CSS, and tokens are readable in published HTML and available through page actions.
+- The canonical URL inventory is published at https://luckymaomi.github.io/ui/sitemap.xml.
+
+## Crawling guidance
+
+- Crawl public pages and static assets under `/ui/`.
+- Prefer canonical URLs from the sitemap.
+- Use static HTML for descriptive content and source text; execute JavaScript for interactive state.

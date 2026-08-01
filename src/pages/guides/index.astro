@@ -1,0 +1,11 @@
+---
+import { guides } from "@/content/catalog";
+import { withBase } from "@/lib/base";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+const entries = Object.values(guides);
+---
+
+<BaseLayout title="设计风格指南">
+  <header class="page-intro"><h1>设计风格指南</h1></header>
+  <section class="guide-grid">{entries.map((guide) => <a href={withBase(`/guides/${guide.slug}/`)}><div class="meta-row"><span>{guide.useCases.length} 个场景</span></div><h2>{guide.name}</h2><p>{guide.description}</p><span>{guide.influencedBy?.join(" · ")}</span></a>)}</section>
+</BaseLayout>

@@ -1,0 +1,153 @@
+@media (max-width: 960px) {
+  .header-inner {
+    grid-template-columns: 1fr auto;
+    gap: 8px;
+    padding: 8px 16px;
+  }
+
+  .style-grid,
+  .template-grid,
+  .compact-grid,
+  .resource-specimen-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .style-detail-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .style-detail-media {
+    max-width: 760px;
+  }
+
+  .detail-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-toc {
+    position: static;
+    display: flex;
+    overflow-x: auto;
+  }
+
+  .detail-toc strong,
+  .detail-toc a {
+    flex: none;
+  }
+
+  .resource-swatches {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .scale-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .page-shell,
+  .page-shell-wide {
+    width: min(100% - 24px, 1220px);
+  }
+
+  .page-intro {
+    padding: 34px 0 24px;
+  }
+
+  .page-intro h1,
+  .style-detail-copy h1 {
+    overflow-wrap: anywhere;
+  }
+
+  .catalog-toolbar,
+  .style-grid,
+  .split-detail,
+  .rules-columns,
+  .compact-grid,
+  .template-grid,
+  .resource-specimen-grid,
+  .pattern-grid,
+  .prompt-topic-grid,
+  .guide-grid,
+  .hierarchy-content,
+  .coverage-grid,
+  .export-grid,
+  .recipe-definitions article,
+  .type-pairing-list article,
+  .resource-color-list article,
+  .guide-detail > section {
+    grid-template-columns: 1fr;
+  }
+
+  .segmented {
+    overflow-x: auto;
+  }
+
+  .category-row {
+    margin-inline-end: -12px;
+    padding-inline-end: 12px;
+  }
+
+  .resource-swatches {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .resource-index > a {
+    grid-template-columns: 34px minmax(0, 1fr);
+  }
+
+  .resource-index b {
+    display: none;
+  }
+
+  .guide-detail > section > h2,
+  .guide-detail > section > p,
+  .guide-detail > section > div,
+  .guide-detail > section > ul {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .guide-use-cases {
+    grid-template-columns: 1fr;
+  }
+
+  .principle-list article,
+  .workflow-list article {
+    grid-template-columns: 54px minmax(0, 1fr);
+    padding: 16px;
+  }
+
+  .principle-list article > span {
+    font-size: 42px;
+  }
+
+  .template-canvas-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .canvas-segmented {
+    justify-content: space-between;
+  }
+
+  .canvas-segmented button {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .canvas-segmented button span {
+    display: none;
+  }
+
+  .template-viewport {
+    min-height: 680px;
+    padding: 5px;
+  }
+
+  .template-viewport iframe {
+    width: 100% !important;
+    height: 680px;
+  }
+
+}

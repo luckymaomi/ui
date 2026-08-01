@@ -1,0 +1,24 @@
+---
+import { withBase } from "@/lib/base";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+const entries = [
+  ["colors", "颜色系统", "汇总 143 种风格的主色、次色与强调色"],
+  ["gradients", "渐变", "按氛围与用途组织的可复制渐变"],
+  ["shadows", "阴影", "从柔和层级到硬朗边界的阴影规格"],
+  ["backgrounds", "背景纹理", "网格、点阵、条纹与材质背景"],
+  ["typography", "字体搭配", "标题与正文字体组合及使用场景"],
+  ["type-scale", "字号比例", "模块化字号比例与适用密度"],
+  ["spacing", "间距与网格", "4pt/8pt 间距体系和布局网格"],
+  ["design-principles", "设计原则", "对比、重复、对齐、亲密性"],
+  ["visual-hierarchy", "视觉层级", "大小、字重、颜色和空间的阅读顺序"],
+];
+---
+
+<BaseLayout title="设计资源">
+  <header class="page-intro"><h1>设计资源</h1></header>
+  <section class="resource-index">
+    {entries.map(([slug, title, description], index) => (
+      <a href={withBase(`/${slug}/`)}><span>{String(index + 1).padStart(2, "0")}</span><div><h2>{title}</h2><p>{description}</p></div><b>打开</b></a>
+    ))}
+  </section>
+</BaseLayout>

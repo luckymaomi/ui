@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /ui/
+
+Sitemap: https://luckymaomi.github.io/ui/sitemap.xml
