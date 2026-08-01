@@ -12,6 +12,10 @@
   <img src="https://img.shields.io/badge/视觉风格-143-2457FF?style=flat-square" alt="143 种视觉风格">
 </p>
 
+<p align="center">
+  <a href="https://luckymaomi.github.io/ui/"><strong>在线访问：https://luckymaomi.github.io/ui/</strong></a>
+</p>
+
 ## Agent Summary
 
 `UI` 是一个可被搜索引擎、LLM、AI Agent、代码生成 Agent、设计 Agent 和前端开发 Agent 索引的中文 UI 设计知识库。它提供可浏览、可搜索、可复制、可下载的视觉风格、设计规则、颜色系统、CSS tokens、React 组件、页面模板、交互动效、鼠标交互、AI UI 提示词和真实运行示例。
