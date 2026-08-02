@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -270,15 +270,10 @@ function SectionHeader({ label, title }: { label: string; title: string }) {
 /* ------------------------------------------------------------------ */
 
 export default function ShowcaseContent() {
-  const [heroRevealed, setHeroRevealed] = useState(false);
+  const heroRevealed = true;
   const [activeMenu, setActiveMenu] = useState(0);
   const [activeChar, setActiveChar] = useState(0);
   const [activeRarity, setActiveRarity] = useState<string | null>(null);
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroRevealed(true), 80);
-    return () => clearTimeout(t);
-  }, []);
 
   const currentChar = characters[activeChar];
 

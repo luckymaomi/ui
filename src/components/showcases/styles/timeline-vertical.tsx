@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -207,7 +207,7 @@ function XIcon({ className = "" }: { className?: string }) {
 /* ------------------------------------------------------------------ */
 
 export default function ShowcaseContent() {
-  const [heroReady, setHeroReady] = useState(false);
+  const heroReady = true;
   const [activeFilter, setActiveFilter] = useState<"All" | EventCategory>(
     "All",
   );
@@ -220,11 +220,6 @@ export default function ShowcaseContent() {
   const [speedDemoActive, setSpeedDemoActive] = useState<
     "slow" | "fast" | null
   >(null);
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroReady(true), 90);
-    return () => clearTimeout(t);
-  }, []);
 
   const filtered =
     activeFilter === "All"

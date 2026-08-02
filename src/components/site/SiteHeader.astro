@@ -1,5 +1,5 @@
 ---
-import { ThemeToggle } from "@/components/ThemeToggle";
+import ThemeToggle from "@/components/ThemeToggle.astro";
 import { zh } from "@/content/i18n/zh";
 import { withBase } from "@/lib/base";
 
@@ -18,6 +18,6 @@ const navigation = [
     <nav class="primary-nav" aria-label="主要导航">
       {navigation.map(([href, label]) => <a href={withBase(href)}>{label}</a>)}
     </nav>
-    <ThemeToggle client:load />
+    <ThemeToggle />
   </div>
 </header>

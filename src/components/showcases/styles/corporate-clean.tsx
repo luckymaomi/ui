@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -333,17 +333,12 @@ type TabView = (typeof tabViews)[number];
 // ─── Main Component ───────────────────────────────────────────────────────────
 
 export default function ShowcaseContent() {
-  const [heroRevealed, setHeroRevealed] = useState(false);
+  const heroRevealed = true;
   const [activeTab, setActiveTab] = useState<TabView>("Components");
   const [inputFocused, setInputFocused] = useState(false);
   const [inputError, setInputError] = useState(false);
   const [inputSuccess, setInputSuccess] = useState(false);
   const [inputValue, setInputValue] = useState("");
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroRevealed(true), 100);
-    return () => clearTimeout(t);
-  }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);

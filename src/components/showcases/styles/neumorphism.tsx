@@ -589,16 +589,11 @@ function DashboardCard() {
 /* ------------------------------------------------------------------ */
 
 export default function ShowcaseContent() {
-  const [heroRevealed, setHeroRevealed] = useState(false);
+  const heroRevealed = true;
   const [activeNav, setActiveNav] = useState<NavItem>("Design");
   const [toggleState, setToggleState] = useState(false);
   const [progressValue, setProgressValue] = useState(62);
   const [activeTab, setActiveTab] = useState(0);
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroRevealed(true), 80);
-    return () => clearTimeout(t);
-  }, []);
 
   return (
     <div className="min-h-screen bg-[#e0e5ec] text-gray-600 overflow-x-hidden">

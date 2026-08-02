@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -343,16 +343,11 @@ function RuneDivider() {
 /* ------------------------------------------------------------------ */
 
 export default function ShowcaseContent() {
-  const [heroRevealed, setHeroRevealed] = useState(false);
+  const heroRevealed = true;
   const [componentTab, setComponentTab] = useState<"button" | "card" | "input">(
     "button",
   );
   const [activeCardIndex, setActiveCardIndex] = useState(0);
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroRevealed(true), 120);
-    return () => clearTimeout(t);
-  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#4a1942] to-[#0d0b14] text-[#c9a74e]/80 font-serif overflow-x-hidden">

@@ -1,0 +1,70 @@
+---
+import { Search } from "lucide-react";
+import type { ComponentPattern } from "@/content/types";
+import { PatternPreview } from "@/components/patterns/PatternPreviews";
+import { withBase } from "@/lib/base";
+
+interface Props {
+  items: ComponentPattern[];
+}
+
+const { items } = Astro.props;
+const families = Array.from(new Set(items.map((item) => item.family)));
+---
+
+<section class="pattern-workspace" data-pattern-explorer>
+  <div class="catalog-toolbar">
+    <label class="search-field">
+      <Search aria-hidden="true" size={18} />
+      <input name="pattern-query" placeholder="搜索组件样式..." autocomplete="off" />
+    </label>
+    <select name="pattern-family" aria-label="组件家族">
+      <option value="all">全部家族</option>
+      {families.map((family) => <option value={family}>{family}</option>)}
+    </select>
+  </div>
+  <p class="result-line" aria-live="polite" data-pattern-count>显示 {items.length} / {items.length} 个真实组件模式</p>
+  <div class="pattern-grid">
+    {items.map((pattern) => (
+      <article
+        class="pattern-item"
+        data-family={pattern.family}
+        data-search={[pattern.nameZh, pattern.summaryZh, pattern.useCaseZh, ...pattern.tagsZh].join(" ").toLocaleLowerCase("zh-CN")}
+      >
+        <div class="pattern-preview"><PatternPreview previewId={pattern.previewId} /></div>
+        <div class="pattern-copy">
+          <div class="meta-row"><span>{pattern.family}</span><span>{pattern.category}</span></div>
+          <h2>{pattern.nameZh}</h2>
+          <p>{pattern.summaryZh}</p>
+          <dl><dt>适用场景</dt><dd>{pattern.useCaseZh}</dd></dl>
+          <a href={withBase(`/styles/${pattern.sourceStyleSlug}/showcase/`)}>查看来源风格实现</a>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>
+
+<script>
+  for (const root of document.querySelectorAll<HTMLElement>("[data-pattern-explorer]")) {
+    const input = root.querySelector<HTMLInputElement>('input[name="pattern-query"]');
+    const family = root.querySelector<HTMLSelectElement>('select[name="pattern-family"]');
+    const count = root.querySelector<HTMLElement>("[data-pattern-count]");
+    const cards = [...root.querySelectorAll<HTMLElement>(".pattern-item")];
+    if (!input || !family || !count) continue;
+
+    const apply = () => {
+      const query = input.value.trim().toLocaleLowerCase("zh-CN");
+      let visible = 0;
+      for (const card of cards) {
+        const matches =
+          (family.value === "all" || card.dataset.family === family.value) &&
+          (!query || card.dataset.search?.includes(query));
+        card.hidden = !matches;
+        if (matches) visible += 1;
+      }
+      count.textContent = `显示 ${visible} / ${cards.length} 个真实组件模式`;
+    };
+    input.addEventListener("input", apply);
+    family.addEventListener("change", apply);
+  }
+</script>

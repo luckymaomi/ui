@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -456,13 +456,8 @@ export default function ShowcaseContent() {
   const [activeNode, setActiveNode] = useState<number | null>(null);
   const [activeTab, setActiveTab] = useState(0);
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
-  const [heroRevealed, setHeroRevealed] = useState(false);
+  const heroRevealed = true;
   const [focusedInput, setFocusedInput] = useState(false);
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroRevealed(true), 60);
-    return () => clearTimeout(t);
-  }, []);
 
   const handleNodeClick = (id: number) => {
     setActiveNode((prev) => (prev === id ? null : id));

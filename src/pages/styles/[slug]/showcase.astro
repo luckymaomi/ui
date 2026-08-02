@@ -1,5 +1,6 @@
 ---
 import { ShowcaseLoader } from "@/components/showcases/ShowcaseLoader";
+import DeferredStylesheet from "@/components/site/DeferredStylesheet.astro";
 import { showcaseTypography, styles } from "@/content/catalog";
 import { withBase } from "@/lib/base";
 import "@/styles/runtime.css";
@@ -21,8 +22,9 @@ const bodyStyle = typography
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={`${style.name}真实交互展示`} />
     <link rel="icon" type="image/svg+xml" href={withBase("/icon.svg")} />
+    <link rel="stylesheet" href={withBase(`/_route-css/showcase/${style.slug}.css`)} />
     <title>{style.name}真实展示 | UI</title>
-    {typography && <link rel="stylesheet" href={typography.stylesheetUrl} data-showcase-font-profile={typography.id} />}
+    {typography && <DeferredStylesheet href={typography.stylesheetUrl} profileId={typography.id} />}
   </head>
   <body class="showcase-page" data-showcase-font={typography?.id} style={bodyStyle}>
     <ShowcaseLoader slug={style.slug} client:only="react" />

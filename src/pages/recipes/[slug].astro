@@ -7,7 +7,10 @@ export function getStaticPaths() { return styles.map((style) => ({ params: { slu
 const { style } = Astro.props;
 ---
 
-<BaseLayout title={`${style.name}组件配方`}>
+<BaseLayout
+  title={`${style.name}组件配方`}
+  routeStyles={[withBase(`/_route-css/recipe/${style.slug}.css`)]}
+>
   <header class="page-intro"><a class="back-link" href={withBase("/recipes/")}>返回配方目录</a><div class="meta-row"><span>{style.nameEn}</span></div><h1>{style.name}组件配方</h1><div class="detail-actions"><a class="primary-command" href={withBase(`/styles/${style.slug}/`)}>查看风格规则</a></div></header>
   <section class="detail-section"><RecipeWorkbench recipes={style.recipe.recipes} client:visible /></section>
   <section class="detail-section recipe-definitions">

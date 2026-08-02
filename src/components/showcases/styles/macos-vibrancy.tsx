@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -55,12 +55,7 @@ type Tab = "buttons" | "cards" | "inputs" | "nav";
 export default function ShowcaseContent() {
   const [activeTab, setActiveTab] = useState<Tab>("buttons");
   const [activeSidebar, setActiveSidebar] = useState(0);
-  const [heroVisible, setHeroVisible] = useState(false);
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroVisible(true), 80);
-    return () => clearTimeout(t);
-  }, []);
+  const heroVisible = true;
 
   const sidebarItems = [
     "Dashboard",

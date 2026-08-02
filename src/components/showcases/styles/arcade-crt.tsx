@@ -98,11 +98,7 @@ function NeonBar({ value, color }: { value: number; color: string }) {
 
 export default function ArcadeCrtShowcase() {
   // Hero entrance
-  const [heroRevealed, setHeroRevealed] = useState(false);
-  useEffect(() => {
-    const t = setTimeout(() => setHeroRevealed(true), 80);
-    return () => clearTimeout(t);
-  }, []);
+  const heroRevealed = true;
 
   // INSERT COIN credits counter (interactive)
   const [credits, setCredits] = useState(0);

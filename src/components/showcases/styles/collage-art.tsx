@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -311,7 +311,7 @@ function TornEdgeBottom({ fill = "#2d2d2d" }: { fill?: string }) {
 /* ------------------------------------------------------------------ */
 
 export default function ShowcaseContent() {
-  const [heroRevealed, setHeroRevealed] = useState(false);
+  const heroRevealed = true;
   const [activeStyle, setActiveStyle] = useState(0);
   const [pinnedItems, setPinnedItems] = useState<number[]>([]);
   const [collageMode, setCollageMode] = useState<
@@ -319,11 +319,6 @@ export default function ShowcaseContent() {
   >("scatter");
 
   const { ref: heroRef, inView: heroInView } = useInView();
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroRevealed(true), 120);
-    return () => clearTimeout(t);
-  }, []);
 
   void heroInView;
 

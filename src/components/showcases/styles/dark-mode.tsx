@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -289,12 +289,7 @@ export default function DarkModeShowcase() {
   const [activeTab, setActiveTab] = useState(0);
   const [activeSidebarItem, setActiveSidebarItem] = useState(0);
   const [toggleStates, setToggleStates] = useState([true, false, true]);
-  const [heroVisible, setHeroVisible] = useState(false);
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroVisible(true), 80);
-    return () => clearTimeout(t);
-  }, []);
+  const heroVisible = true;
 
   const toggleSwitch = (i: number) => {
     setToggleStates((prev) => prev.map((v, idx) => (idx === i ? !v : v)));

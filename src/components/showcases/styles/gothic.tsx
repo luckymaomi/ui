@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -252,7 +252,7 @@ function SectionHeader({ eyebrow, title }: { eyebrow: string; title: string }) {
 // ─────────────────────────────────────────────────────────────
 
 export default function GothicShowcase() {
-  const [heroRevealed, setHeroRevealed] = useState(false);
+  const heroRevealed = true;
   const [activeVariant, setActiveVariant] = useState<
     "Cathedral" | "Manuscript"
   >("Cathedral");
@@ -260,11 +260,6 @@ export default function GothicShowcase() {
   const [openAccordion, setOpenAccordion] = useState<number | null>(0);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroRevealed(true), 100);
-    return () => clearTimeout(t);
-  }, []);
 
   const cathedralCards = [
     {

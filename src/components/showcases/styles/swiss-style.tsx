@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -408,12 +408,7 @@ export default function SwissStyleShowcase() {
     "Buttons",
   );
   const [activePrinciple, setActivePrinciple] = useState(0);
-  const [heroRevealed, setHeroRevealed] = useState(false);
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroRevealed(true), 80);
-    return () => clearTimeout(t);
-  }, []);
+  const heroRevealed = true;
 
   return (
     <div className="min-h-screen bg-white text-black font-sans">

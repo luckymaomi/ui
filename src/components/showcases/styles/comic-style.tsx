@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -301,16 +301,11 @@ const dontRules = [
 ───────────────────────────────────────── */
 
 export default function ShowcaseContent() {
-  const [heroRevealed, setHeroRevealed] = useState(false);
+  const heroRevealed = true;
   const [activeTab, setActiveTab] = useState<"buttons" | "cards" | "bubbles">(
     "buttons",
   );
   const [pressedLabel, setPressedLabel] = useState<string | null>(null);
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroRevealed(true), 100);
-    return () => clearTimeout(t);
-  }, []);
 
   function handlePress(label: string) {
     setPressedLabel(label);

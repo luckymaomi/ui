@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -209,7 +209,7 @@ const accentPalette = [
 /* ------------------------------------------------------------------ */
 
 export default function MaterialDesignShowcase() {
-  const [heroVisible, setHeroVisible] = useState(false);
+  const heroVisible = true;
   const [activeTab, setActiveTab] = useState<ComponentTab>("Buttons");
   const [selectedDp, setSelectedDp] = useState<number>(4);
   const [fabExpanded, setFabExpanded] = useState(false);
@@ -219,11 +219,6 @@ export default function MaterialDesignShowcase() {
     email: "",
     password: "",
   });
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroVisible(true), 80);
-    return () => clearTimeout(t);
-  }, []);
 
   const heroT = (delay: number) => ({
     opacity: heroVisible ? 1 : 0,

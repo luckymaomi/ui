@@ -1,0 +1,58 @@
+---
+import { ExternalLink, Monitor, Smartphone, Tablet } from "lucide-react";
+
+interface Props {
+  src: string;
+  title: string;
+}
+
+const { src, title } = Astro.props;
+const canvasModes = [
+  { id: "desktop", label: "桌面画布", shortLabel: "桌面", icon: Monitor },
+  { id: "tablet", label: "平板画布", shortLabel: "平板", icon: Tablet },
+  { id: "mobile", label: "移动画布", shortLabel: "移动", icon: Smartphone },
+] as const;
+---
+
+<section class="template-canvas" aria-label={`${title}交互画布`} data-template-canvas>
+  <div class="template-canvas-toolbar">
+    <div class="canvas-segmented" aria-label="预览画布尺寸">
+      {canvasModes.map(({ id, label, shortLabel, icon: Icon }, index) => (
+        <button
+          type="button"
+          aria-label={label}
+          aria-pressed={index === 0 ? "true" : "false"}
+          title={label}
+          data-canvas-size={id}
+        >
+          <Icon aria-hidden="true" size={17} />
+          <span>{shortLabel}</span>
+        </button>
+      ))}
+    </div>
+    <a class="canvas-open" href={src} target="_blank" rel="noreferrer">
+      <ExternalLink aria-hidden="true" size={17} />
+      独立打开
+    </a>
+  </div>
+  <div class="template-viewport" data-size="desktop">
+    <iframe src={src} title={`${title}完整交互预览`} loading="eager"></iframe>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLElement>("[data-template-canvas]").forEach((canvas) => {
+    const viewport = canvas.querySelector<HTMLElement>(".template-viewport");
+    const buttons = canvas.querySelectorAll<HTMLButtonElement>("[data-canvas-size]");
+    if (!viewport) return;
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        viewport.dataset.size = button.dataset.canvasSize;
+        buttons.forEach((candidate) => {
+          candidate.setAttribute("aria-pressed", String(candidate === button));
+        });
+      });
+    });
+  });
+</script>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -338,7 +338,7 @@ type ComponentTab = "buttons" | "cards" | "forms" | "badges";
 /* ------------------------------------------------------------------ */
 
 export default function ShowcaseContent() {
-  const [heroVisible, setHeroVisible] = useState(false);
+  const heroVisible = true;
   const [billing, setBilling] = useState<"monthly" | "annual">("monthly");
   const [activeTab, setActiveTab] = useState<ComponentTab>("buttons");
   const [cardFlipped, setCardFlipped] = useState(false);
@@ -348,11 +348,6 @@ export default function ShowcaseContent() {
   const [easeDemo, setEaseDemo] = useState<"ease-out" | "ease-in-out" | null>(
     null,
   );
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroVisible(true), 80);
-    return () => clearTimeout(t);
-  }, []);
 
   return (
     <div className="min-h-screen bg-[#f6f9fc] font-sans text-[#0a2540] overflow-x-hidden">

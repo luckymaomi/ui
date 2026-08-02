@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -289,7 +289,7 @@ type ComponentTab = "Buttons" | "Cards" | "Forms";
 /* ------------------------------------------------------------------ */
 
 export default function ZenGardenShowcase() {
-  const [heroVisible, setHeroVisible] = useState(false);
+  const heroVisible = true;
   const [activeTab, setActiveTab] = useState<ComponentTab>("Buttons");
   const [tabVisible, setTabVisible] = useState(true);
 
@@ -299,11 +299,6 @@ export default function ZenGardenShowcase() {
   const [ephemeralHovered, setEphemeralHovered] = useState(false);
   const [quietFocusHovered, setQuietFocusHovered] = useState(false);
   const [quietFocusActive, setQuietFocusActive] = useState(false);
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroVisible(true), 80);
-    return () => clearTimeout(t);
-  }, []);
 
   function handleTabChange(tab: ComponentTab) {
     if (tab === activeTab) return;

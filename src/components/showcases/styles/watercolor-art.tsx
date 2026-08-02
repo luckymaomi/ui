@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -264,18 +264,13 @@ function BotanicalLeaf({
 /* ------------------------------------------------------------------ */
 
 export default function ShowcaseContent() {
-  const [heroRevealed, setHeroRevealed] = useState(false);
+  const heroRevealed = true;
   const [activeTab, setActiveTab] = useState<
     "Wet-on-Wet" | "Wet-on-Dry" | "Botanical"
   >("Wet-on-Wet");
   const [componentTab, setComponentTab] = useState<"button" | "card" | "input">(
     "button",
   );
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroRevealed(true), 100);
-    return () => clearTimeout(t);
-  }, []);
 
   const activeTechnique = paintingTechniques.find(
     (t) => t.label === activeTab,

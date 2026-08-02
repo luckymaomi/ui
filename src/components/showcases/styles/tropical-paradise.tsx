@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -435,18 +435,13 @@ function FeatureIcon({ icon }: { icon: string }) {
 /* ------------------------------------------------------------------ */
 
 export default function ShowcaseContent() {
-  const [heroRevealed, setHeroRevealed] = useState(false);
+  const heroRevealed = true;
   const [componentTab, setComponentTab] = useState<
     "buttons" | "cards" | "inputs"
   >("buttons");
   const [destination, setDestination] = useState("Bali");
 
   const { ref: heroRef } = useInView();
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroRevealed(true), 120);
-    return () => clearTimeout(t);
-  }, []);
 
   return (
     <div className="min-h-screen bg-[#fffde7] text-gray-800 overflow-x-hidden">

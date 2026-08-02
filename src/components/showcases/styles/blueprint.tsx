@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -993,18 +993,13 @@ function SchematicSVG() {
 /* ------------------------------------------------------------------ */
 
 export default function ShowcaseContent() {
-  const [heroRevealed, setHeroRevealed] = useState(false);
+  const heroRevealed = true;
   const [componentTab, setComponentTab] = useState<"button" | "card" | "input">(
     "button",
   );
   const [activeSpec, setActiveSpec] = useState(0);
 
   const { ref: heroRef, inView: heroInView } = useInView();
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroRevealed(true), 120);
-    return () => clearTimeout(t);
-  }, []);
 
   // Suppress unused warning — heroInView used implicitly via heroRevealed pattern
   void heroInView;

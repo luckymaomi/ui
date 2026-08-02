@@ -1,0 +1,210 @@
+---
+import { Search, X } from "lucide-react";
+import type { StyleSummary } from "@/content/types";
+import { withBase } from "@/lib/base";
+import { zh } from "@/content/i18n/zh";
+
+interface Props {
+  items: StyleSummary[];
+}
+
+const { items } = Astro.props;
+const categories = [
+  ["all", "全部"],
+  ["modern", "现代"],
+  ["minimal", "极简"],
+  ["expressive", "表现力"],
+  ["retro", "复古"],
+] as const;
+const scenarioEntries = Object.entries(zh.scenarios);
+const scenarioBits = new Map(
+  scenarioEntries
+    .filter(([value]) => value !== "all")
+    .map(([value], index) => [value, 1 << index]),
+);
+---
+
+<section class="catalog-workspace" aria-label="风格目录" data-style-explorer>
+  <div class="catalog-toolbar">
+    <label class="search-field">
+      <Search aria-hidden="true" size={18} />
+      <span class="sr-only">搜索风格</span>
+      <input name="q" placeholder="搜索名称、场景、关键词..." autocomplete="off" />
+      <button type="button" aria-label="清空搜索" title="清空搜索" data-clear-search hidden>
+        <X aria-hidden="true" size={16} />
+      </button>
+    </label>
+    <div class="segmented" aria-label="风格类型" data-filter-group="type">
+      {[["all", "全部类型"], ["visual", "视觉"], ["layout", "布局"]].map(([value, label]) => (
+        <button type="button" data-filter-value={value} aria-pressed={value === "all"}>{label}</button>
+      ))}
+    </div>
+    <label class="scenario-select">
+      <span class="sr-only">应用场景</span>
+      <select name="scenario">
+        {scenarioEntries.map(([value, label]) => (
+          <option value={value} data-bit={scenarioBits.get(value) ?? 0}>{label}</option>
+        ))}
+      </select>
+    </label>
+  </div>
+
+  <div class="category-row" aria-label="风格分类" data-filter-group="category">
+    {categories.map(([value, label]) => (
+      <button type="button" data-filter-value={value} aria-pressed={value === "all"}>{label}</button>
+    ))}
+    <span class="result-count" aria-live="polite" data-result-count>{items.length} / {items.length}</span>
+  </div>
+
+  <div class="style-grid" data-style-grid>
+    {items.map((style, index) => (
+      <article
+        class="style-card"
+        data-k={[...style.keywords, ...style.tags].join(" ").toLocaleLowerCase("zh-CN")}
+        data-c={style.category}
+        data-t={style.styleType[0]}
+        data-s={style.scenarios.reduce((mask, value) => mask | (scenarioBits.get(value) ?? 0), 0).toString(36)}
+      >
+        <a href={withBase(`/styles/${style.slug}/`)} class="style-cover">
+          <img
+            src={withBase(style.cover)}
+            alt=""
+            loading={index < 3 ? "eager" : "lazy"}
+            fetchpriority={index === 0 ? "high" : undefined}
+            decoding="async"
+            width="640"
+            height="360"
+          />
+        </a>
+        <div class="style-card-body">
+          <div class="style-heading">
+            <div>
+              <h2><a href={withBase(`/styles/${style.slug}/`)}>{style.name}</a></h2>
+              <p>{style.nameEn}</p>
+            </div>
+            <span>{style.styleType === "layout" ? "布局" : "视觉"}</span>
+          </div>
+          <p class="style-description">{style.description}</p>
+          <div class="palette" aria-label={`${style.name} 配色`}>
+            {[style.colors.primary, style.colors.secondary, ...style.colors.accent.slice(0, 3)].map((color) => (
+              <i style={`background:${color}`} title={color}></i>
+            ))}
+          </div>
+          <div class="style-card-actions">
+            <a href={withBase(`/styles/${style.slug}/`)}>规则详情</a>
+            <a href={withBase(`/styles/${style.slug}/showcase/`)}>真实展示</a>
+          </div>
+        </div>
+      </article>
+    ))}
+  </div>
+
+  <div class="empty-state" data-empty-state hidden>
+    <p>当前筛选没有匹配风格。</p>
+    <button class="tool-button" type="button" data-clear-filters>清除筛选</button>
+  </div>
+</section>
+
+<script>
+  type FilterKey = "category" | "type";
+
+  for (const root of document.querySelectorAll<HTMLElement>("[data-style-explorer]")) {
+    const input = root.querySelector<HTMLInputElement>('input[name="q"]');
+    const scenario = root.querySelector<HTMLSelectElement>('select[name="scenario"]');
+    const count = root.querySelector<HTMLElement>("[data-result-count]");
+    const grid = root.querySelector<HTMLElement>("[data-style-grid]");
+    const empty = root.querySelector<HTMLElement>("[data-empty-state]");
+    const clearSearch = root.querySelector<HTMLButtonElement>("[data-clear-search]");
+    const cards = [...root.querySelectorAll<HTMLElement>(".style-card")];
+    const searchText = new Map(cards.map((card) => [
+      card,
+      `${card.querySelector(".style-heading")?.textContent ?? ""} ${card.querySelector(".style-description")?.textContent ?? ""} ${card.dataset.k ?? ""}`.toLocaleLowerCase("zh-CN"),
+    ]));
+    if (!input || !scenario || !count || !grid || !empty || !clearSearch) continue;
+
+    const selected = (key: FilterKey) =>
+      root.querySelector<HTMLButtonElement>(`[data-filter-group="${key}"] [aria-pressed="true"]`)?.dataset.filterValue ?? "all";
+
+    const setSelected = (key: FilterKey, value: string) => {
+      const buttons = root.querySelectorAll<HTMLButtonElement>(`[data-filter-group="${key}"] [data-filter-value]`);
+      const exists = [...buttons].some((button) => button.dataset.filterValue === value);
+      for (const button of buttons) {
+        button.setAttribute("aria-pressed", String(button.dataset.filterValue === (exists ? value : "all")));
+      }
+    };
+
+    const replaceUrl = () => {
+      const url = new URL(window.location.href);
+      const values = {
+        q: input.value,
+        category: selected("category"),
+        type: selected("type"),
+        scenario: scenario.value,
+      };
+      for (const [key, value] of Object.entries(values)) {
+        if (!value || value === "all") url.searchParams.delete(key);
+        else url.searchParams.set(key, value);
+      }
+      window.history.replaceState({}, "", url);
+    };
+
+    const apply = (updateUrl = true) => {
+      const query = input.value.trim().toLocaleLowerCase("zh-CN");
+      const category = selected("category");
+      const type = selected("type");
+      const scenarioValue = scenario.value;
+      const scenarioBit = Number(scenario.selectedOptions[0]?.dataset.bit ?? 0);
+      let visible = 0;
+      for (const card of cards) {
+        const matches =
+          (!query || searchText.get(card)?.includes(query)) &&
+          (category === "all" || card.dataset.c === category) &&
+          (type === "all" || card.dataset.t === type[0]) &&
+          (scenarioValue === "all" || (Number.parseInt(card.dataset.s ?? "0", 36) & scenarioBit) !== 0);
+        card.hidden = !matches;
+        if (matches) visible += 1;
+      }
+      count.textContent = `${visible} / ${cards.length}`;
+      grid.hidden = visible === 0;
+      empty.hidden = visible !== 0;
+      clearSearch.hidden = input.value.length === 0;
+      if (updateUrl) replaceUrl();
+    };
+
+    const restoreUrl = () => {
+      const params = new URLSearchParams(window.location.search);
+      input.value = params.get("q") ?? "";
+      scenario.value = params.get("scenario") ?? "all";
+      if (!scenario.value) scenario.value = "all";
+      setSelected("category", params.get("category") ?? "all");
+      setSelected("type", params.get("type") ?? "all");
+      apply(false);
+    };
+
+    input.addEventListener("input", () => apply());
+    scenario.addEventListener("change", () => apply());
+    for (const group of root.querySelectorAll<HTMLElement>("[data-filter-group]")) {
+      group.addEventListener("click", (event) => {
+        const button = (event.target as Element).closest<HTMLButtonElement>("[data-filter-value]");
+        const key = group.dataset.filterGroup as FilterKey | undefined;
+        if (!button || !key) return;
+        setSelected(key, button.dataset.filterValue ?? "all");
+        apply();
+      });
+    }
+    clearSearch.addEventListener("click", () => {
+      input.value = "";
+      input.focus();
+      apply();
+    });
+    root.querySelector<HTMLButtonElement>("[data-clear-filters]")?.addEventListener("click", () => {
+      input.value = "";
+      scenario.value = "all";
+      setSelected("category", "all");
+      setSelected("type", "all");
+      apply();
+    });
+    window.addEventListener("popstate", restoreUrl);
+    restoreUrl();
+  }
+</script>

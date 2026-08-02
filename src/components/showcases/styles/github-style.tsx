@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -506,7 +506,7 @@ const tokenCodeLines = [
 /* ------------------------------------------------------------------ */
 
 export default function GitHubStyleShowcase() {
-  const [heroVisible, setHeroVisible] = useState(false);
+  const heroVisible = true;
   const [activeRepoTab, setActiveRepoTab] = useState<
     "code" | "issues" | "pulls"
   >("code");
@@ -526,11 +526,6 @@ export default function GitHubStyleShowcase() {
   const [transitionCompareDuration, setTransitionCompareDuration] = useState<
     "slow" | "fast" | null
   >(null);
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroVisible(true), 80);
-    return () => clearTimeout(t);
-  }, []);
 
   const handleCopy = () => {
     setCopied(true);

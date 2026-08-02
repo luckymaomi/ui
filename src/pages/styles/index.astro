@@ -1,5 +1,5 @@
 ---
-import { StyleExplorer } from "@/components/StyleExplorer";
+import StyleExplorer from "@/components/StyleExplorer.astro";
 import { styleSummaries } from "@/content/catalog";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 ---
@@ -8,5 +8,5 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
   <header class="page-intro">
     <h1>风格库</h1>
   </header>
-  <StyleExplorer items={styleSummaries} client:idle />
+  <StyleExplorer items={styleSummaries} />
 </BaseLayout>

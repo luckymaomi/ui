@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -280,7 +280,7 @@ const scenes: Record<
 /*  Main export                                                        */
 /* ================================================================== */
 export default function FilmNoirShowcaseContent() {
-  const [heroRevealed, setHeroRevealed] = useState(false);
+  const heroRevealed = true;
   const [activeTab, setActiveTab] = useState<ComponentTab>("buttons");
   const [activeScene, setActiveScene] = useState<SceneTab>("interrogation");
 
@@ -292,11 +292,6 @@ export default function FilmNoirShowcaseContent() {
   const [venetianHovered, setVenetianHovered] = useState(false);
   /* Crimson bleed demo hover state */
   const [crimsonBleedHovered, setCrimsonBleedHovered] = useState(false);
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroRevealed(true), 80);
-    return () => clearTimeout(t);
-  }, []);
 
   const statusColor = (s: "Active" | "Cold" | "Closed") =>
     s === "Active"

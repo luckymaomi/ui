@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -249,7 +249,7 @@ const patternDots = `radial-gradient(#000 1.5px, transparent 1.5px)`;
 /* ------------------------------------------------------------------ */
 
 export default function ShowcaseContent() {
-  const [heroVisible, setHeroVisible] = useState(false);
+  const heroVisible = true;
   const [activeTab, setActiveTab] = useState<ComponentTab>("buttons");
   const [hoveredSwatch, setHoveredSwatch] = useState<number | null>(null);
   const [pressedBtn, setPressedBtn] = useState<string | null>(null);
@@ -268,11 +268,6 @@ export default function ShowcaseContent() {
 
   // Playful Chaos demo grid
   const [chaosHovered, setChaosHovered] = useState(false);
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroVisible(true), 80);
-    return () => clearTimeout(t);
-  }, []);
 
   return (
     <div

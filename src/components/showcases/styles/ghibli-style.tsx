@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -79,16 +79,11 @@ function LeafShape({
 }
 
 export default function GhibliStyleShowcase() {
-  const [heroRevealed, setHeroRevealed] = useState(false);
+  const heroRevealed = true;
   const [activeTab, setActiveTab] = useState(0);
   const [progress, setProgress] = useState(65);
   const [openAccordion, setOpenAccordion] = useState<number | null>(0);
   const [toggleStates, setToggleStates] = useState([true, false, true]);
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroRevealed(true), 80);
-    return () => clearTimeout(t);
-  }, []);
 
   const palette = [
     {

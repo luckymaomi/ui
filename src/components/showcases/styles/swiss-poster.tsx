@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -375,15 +375,10 @@ function PosterInput() {
 
 export default function SwissPosterShowcase() {
   const { ref: heroRef } = useInView();
-  const [heroRevealed, setHeroRevealed] = useState(false);
+  const heroRevealed = true;
   const [activeTab, setActiveTab] = useState<"BUTTONS" | "CARDS" | "INPUTS">(
     "BUTTONS",
   );
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroRevealed(true), 80);
-    return () => clearTimeout(t);
-  }, []);
 
   return (
     <div className="min-h-screen bg-[#ffffff] text-[#000000]">

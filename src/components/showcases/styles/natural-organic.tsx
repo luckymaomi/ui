@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -309,7 +309,7 @@ type ComponentTab = "buttons" | "cards" | "inputs" | "badges";
 /* ------------------------------------------------------------------ */
 
 export default function ShowcaseContent() {
-  const [heroVisible, setHeroVisible] = useState(false);
+  const heroVisible = true;
   const [activeTab, setActiveTab] = useState<ComponentTab>("buttons");
   const [hoveredSwatch, setHoveredSwatch] = useState<number | null>(null);
 
@@ -345,11 +345,6 @@ export default function ShowcaseContent() {
     false,
     false,
   ]);
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroVisible(true), 100);
-    return () => clearTimeout(t);
-  }, []);
 
   function toggleValue(i: number) {
     setCheckedValues((prev) => {

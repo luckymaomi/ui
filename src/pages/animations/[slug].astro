@@ -23,7 +23,11 @@ const trigger = zh.animation.triggers[animation.trigger as keyof typeof zh.anima
 const difficulty = zh.animation.difficulties[animation.difficulty as keyof typeof zh.animation.difficulties] ?? animation.difficulty;
 ---
 
-<BaseLayout title={animation.name} description={animation.description}>
+<BaseLayout
+  title={animation.name}
+  description={animation.description}
+  routeStyles={[withBase(`/_route-css/animation/${animation.slug}.css`)]}
+>
   <header class="page-intro">
     <a class="back-link" href={withBase("/animations/")}>返回动效库</a>
     <div class="meta-row"><span>{category}</span><span>{difficulty}</span></div>

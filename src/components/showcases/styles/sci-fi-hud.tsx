@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -508,7 +508,7 @@ function RadarDisplay({
 
 export default function ShowcaseContent() {
   /* Hero mount animation */
-  const [heroRevealed, setHeroRevealed] = useState(false);
+  const heroRevealed = true;
   /* Radar active / paused */
   const [radarActive, setRadarActive] = useState(true);
   /* Locked radar blip */
@@ -517,11 +517,6 @@ export default function ShowcaseContent() {
   const [activeSystem, setActiveSystem] = useState<number>(0);
   /* HUD input focus state */
   const [inputFocused, setInputFocused] = useState(false);
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroRevealed(true), 100);
-    return () => clearTimeout(t);
-  }, []);
 
   const lockedBlip =
     lockTarget !== null ? BLIPS.find((b) => b.id === lockTarget) : null;

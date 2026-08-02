@@ -493,17 +493,12 @@ function PriorityBadge({ priority }: { priority: IssuePriority }) {
 /* ------------------------------------------------------------------ */
 
 export default function ShowcaseContent() {
-  const [heroVisible, setHeroVisible] = useState(false);
+  const heroVisible = true;
   const [cmdOpen, setCmdOpen] = useState(false);
   const [cmdQuery, setCmdQuery] = useState("");
   const [activeTab, setActiveTab] = useState<
     "buttons" | "cards" | "inputs" | "badges"
   >("buttons");
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroVisible(true), 80);
-    return () => clearTimeout(t);
-  }, []);
 
   useEffect(() => {
     function handleKey(e: KeyboardEvent) {

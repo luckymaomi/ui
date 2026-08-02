@@ -1,8 +1,9 @@
 ---
 import { MouseInteractions } from "@/components/mouse/MouseInteractions";
+import { withBase } from "@/lib/base";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="鼠标交互实验室" wide>
+<BaseLayout title="鼠标交互实验室" routeStyles={[withBase("/_route-css/workspace/mouse.css")]} wide>
   <MouseInteractions client:only="react" />
 </BaseLayout>

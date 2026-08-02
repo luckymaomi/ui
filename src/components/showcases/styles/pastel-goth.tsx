@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -424,16 +424,11 @@ const typeScaleItems = [
 /* ------------------------------------------------------------------ */
 
 export default function ShowcaseContent() {
-  const [heroRevealed, setHeroRevealed] = useState(false);
+  const heroRevealed = true;
   const [componentTab, setComponentTab] = useState<"button" | "card" | "input">(
     "button",
   );
   const [activeCard, setActiveCard] = useState<number | null>(null);
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroRevealed(true), 80);
-    return () => clearTimeout(t);
-  }, []);
 
   return (
     <div className="min-h-screen bg-[#1a1225] text-[#d4a5e3] font-sans overflow-x-hidden">

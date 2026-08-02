@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -217,12 +217,7 @@ export default function SkeuomorphismShowcase() {
   const [activeTab, setActiveTab] = useState(0);
 
   // Hero reveal
-  const [heroVisible, setHeroVisible] = useState(false);
-  useEffect(() => {
-    const t = setTimeout(() => setHeroVisible(true), 80);
-    return () => clearTimeout(t);
-  }, []);
-
+  const heroVisible = true;
   const handleToggle = (key: keyof typeof toggleStates) => {
     setToggleStates((prev) => ({ ...prev, [key]: !prev[key] }));
   };

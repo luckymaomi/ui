@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -222,7 +222,7 @@ type CanvasTab = "sketchbook" | "anatomy" | "palette";
 /* ------------------------------------------------------------------ */
 
 export default function ShowcaseContent() {
-  const [heroVisible, setHeroVisible] = useState(false);
+  const heroVisible = true;
   const [activeTab, setActiveTab] = useState<ComponentTab>("buttons");
   const [canvasTab, setCanvasTab] = useState<CanvasTab>("sketchbook");
   const [pencilShadeHovered, setPencilShadeHovered] = useState(false);
@@ -241,11 +241,6 @@ export default function ShowcaseContent() {
   const [drawingLines, setDrawingLines] = useState<number[]>([
     30, 55, 42, 70, 20, 60, 35,
   ]);
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroVisible(true), 80);
-    return () => clearTimeout(t);
-  }, []);
 
   function toggleCheck(i: number) {
     setCheckedItems((prev) => {

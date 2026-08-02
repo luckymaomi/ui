@@ -1,0 +1,27 @@
+---
+interface Props {
+  href: string;
+  profileId: string;
+}
+
+const { href, profileId } = Astro.props;
+---
+
+<link
+  rel="preload"
+  as="style"
+  href={href}
+  data-showcase-font-profile={profileId}
+  data-deferred-stylesheet
+/>
+<script is:inline>
+  (() => {
+    const script = document.currentScript;
+    const link = script?.previousElementSibling;
+    if (!(link instanceof HTMLLinkElement)) return;
+    link.addEventListener("load", () => {
+      link.rel = "stylesheet";
+      link.removeAttribute("as");
+    }, { once: true });
+  })();
+</script>

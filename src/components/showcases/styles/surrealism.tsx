@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -559,17 +559,12 @@ export default function ShowcaseContent() {
 }
 
 export function SurrealismShowcase() {
-  const [heroRevealed, setHeroRevealed] = useState(false);
+  const heroRevealed = true;
   const [activeDreamTab, setActiveDreamTab] = useState<DreamTab>("Dream I");
   const [activeComponentTab, setActiveComponentTab] = useState<
     "button" | "input" | "card"
   >("button");
   const [activeQuote, setActiveQuote] = useState(0);
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroRevealed(true), 80);
-    return () => clearTimeout(t);
-  }, []);
 
   return (
     <div className="min-h-screen bg-[#1a1a3e] text-[#f0ece4]">

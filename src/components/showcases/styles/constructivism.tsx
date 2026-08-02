@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -48,7 +48,7 @@ const BROWN = "#8b4513";
 /* ------------------------------------------------------------------ */
 
 export default function ShowcaseContent() {
-  const [heroVisible, setHeroVisible] = useState(false);
+  const heroVisible = true;
   const [activeTab, setActiveTab] = useState<
     "buttons" | "cards" | "inputs" | "hero"
   >("buttons");
@@ -65,11 +65,6 @@ export default function ShowcaseContent() {
 
   /* aiRule 4 — Line Snap demo */
   const [snapCards, setSnapCards] = useState([false, false, false]);
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroVisible(true), 80);
-    return () => clearTimeout(t);
-  }, []);
 
   function toggleSnapCard(i: number) {
     setSnapCards((prev) => {

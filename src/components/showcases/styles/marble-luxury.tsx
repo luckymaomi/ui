@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -52,7 +52,7 @@ type ComponentTab = "buttons" | "cards" | "inputs" | "typography";
 /* ------------------------------------------------------------------ */
 
 export default function ShowcaseContent() {
-  const [heroVisible, setHeroVisible] = useState(false);
+  const heroVisible = true;
   const [activeTab, setActiveTab] = useState<ComponentTab>("buttons");
   const [hoveredSwatch, setHoveredSwatch] = useState<number | null>(null);
 
@@ -70,11 +70,6 @@ export default function ShowcaseContent() {
 
   // aiRule 4 — Polish Gleam: card brightness demo
   const [gleamHovered, setGleamHovered] = useState<number | null>(null);
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroVisible(true), 80);
-    return () => clearTimeout(t);
-  }, []);
 
   return (
     <div

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -214,7 +214,7 @@ const SFX_WORDS = [
 /* ------------------------------------------------------------------ */
 
 export default function PopArtShowcaseContent() {
-  const [heroVisible, setHeroVisible] = useState(false);
+  const heroVisible = true;
   const [activeTab, setActiveTab] = useState<ComponentTab>("buttons");
   const [hoveredSwatch, setHoveredSwatch] = useState<number | null>(null);
   const [warholSet, setWarholSet] = useState(0);
@@ -226,11 +226,6 @@ export default function PopArtShowcaseContent() {
   const [powClicked, setPowClicked] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [inputFocused, setInputFocused] = useState(false);
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroVisible(true), 80);
-    return () => clearTimeout(t);
-  }, []);
 
   function handlePunchyFire() {
     if (punchyFired) return;

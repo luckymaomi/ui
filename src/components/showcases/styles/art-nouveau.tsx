@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -394,14 +394,9 @@ function WatermarkFloral() {
 type ComponentTab = "Button" | "Card" | "Input";
 
 export default function ShowcaseContent() {
-  const [heroRevealed, setHeroRevealed] = useState(false);
+  const heroRevealed = true;
   const [activeTab, setActiveTab] = useState<ComponentTab>("Button");
   const [toggleStates, setToggleStates] = useState([true, false, true]);
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroRevealed(true), 100);
-    return () => clearTimeout(t);
-  }, []);
 
   function handleToggle(index: number) {
     setToggleStates((prev) => prev.map((v, i) => (i === index ? !v : v)));

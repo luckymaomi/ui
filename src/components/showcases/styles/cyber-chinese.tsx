@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -482,17 +482,12 @@ const verticalChars = ["龙", "数", "字", "未", "来", "赛", "博", "科", "
 /* === Main Component === */
 
 export default function CyberChineseShowcase() {
-  const [heroRevealed, setHeroRevealed] = useState(false);
+  const heroRevealed = true;
   const [activeTab, setActiveTab] = useState<"button" | "card" | "input">(
     "button",
   );
   const [hoveredSwatch, setHoveredSwatch] = useState<number | null>(null);
   const [activeTypo, setActiveTypo] = useState(0);
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroRevealed(true), 100);
-    return () => clearTimeout(t);
-  }, []);
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-[#e5e5e5]">

@@ -291,7 +291,6 @@ function CassetteVisual({ isPlaying }: { isPlaying: boolean }) {
 // ─── Main Component ────────────────────────────────────────────────────────────
 
 export default function SynthwaveShowcase() {
-  const [, setHeroVisible] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTrack, setCurrentTrack] = useState(0);
   const [volume, setVolume] = useState(72);
@@ -299,11 +298,6 @@ export default function SynthwaveShowcase() {
   const [activeTab, setActiveTab] = useState(0);
   const [toggleStates, setToggleStates] = useState([true, false, true]);
   const [openAccordion, setOpenAccordion] = useState<number | null>(0);
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroVisible(true), 80);
-    return () => clearTimeout(t);
-  }, []);
 
   // Simulate playback progress when playing
   useEffect(() => {

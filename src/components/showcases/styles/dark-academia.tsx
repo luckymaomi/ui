@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -239,12 +239,7 @@ const INSCRIPTIONS = [
 // ---------------------------------------------------------------------------
 export default function DarkAcademiaShowcase() {
   // Hero entrance animation
-  const [heroRevealed, setHeroRevealed] = useState(false);
-  useEffect(() => {
-    const t = setTimeout(() => setHeroRevealed(true), 100);
-    return () => clearTimeout(t);
-  }, []);
-
+  const heroRevealed = true;
   // Reading Room chapter switcher
   const [activeChapter, setActiveChapter] = useState(0);
 

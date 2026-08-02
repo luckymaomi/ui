@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -240,7 +240,7 @@ type TabKey = "buttons" | "cards" | "inputs" | "badges";
 /* ------------------------------------------------------------------ */
 
 export default function KoreanMinimalShowcase() {
-  const [heroVisible, setHeroVisible] = useState(false);
+  const heroVisible = true;
   const [activeTab, setActiveTab] = useState<TabKey>("buttons");
   const [inputValue, setInputValue] = useState("");
   const [searchValue, setSearchValue] = useState("");
@@ -248,11 +248,6 @@ export default function KoreanMinimalShowcase() {
   const [microLiftHovered, setMicroLiftHovered] = useState(false);
   const [mutedWhisperHovered, setMutedWhisperHovered] = useState(false);
   const [softPressActive, setSoftPressActive] = useState(false);
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroVisible(true), 80);
-    return () => clearTimeout(t);
-  }, []);
 
   function toggleWishlist(i: number) {
     setWishlist((prev) => {

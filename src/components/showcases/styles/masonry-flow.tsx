@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -358,7 +358,7 @@ type ComponentTab = "photo" | "article" | "product" | "profile";
 /* ------------------------------------------------------------------ */
 
 export default function ShowcaseContent() {
-  const [heroVisible, setHeroVisible] = useState(false);
+  const heroVisible = true;
   const [activeFilter, setActiveFilter] = useState<FilterCategory>("All");
   const [activeTab, setActiveTab] = useState<ComponentTab>("photo");
   const [savedCards, setSavedCards] = useState<Set<number>>(new Set());
@@ -369,11 +369,6 @@ export default function ShowcaseContent() {
   const [elevationHovered, setElevationHovered] = useState(false);
   const [overlayHovered, setOverlayHovered] = useState(false);
   const [snappyActive, setSnappyActive] = useState<string>("All");
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroVisible(true), 80);
-    return () => clearTimeout(t);
-  }, []);
 
   function toggleSave(id: number) {
     setSavedCards((prev) => {

@@ -8,15 +8,17 @@ interface Props {
   title: string;
   description?: string;
   wide?: boolean;
+  routeStyles?: string[];
 }
 
-const { title, description = zh.site.description, wide = false } = Astro.props;
+const { title, description = zh.site.description, wide = false, routeStyles = [] } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="zh-CN">
   <head>
     <DocumentHead title={title} description={description} />
+    {routeStyles.map((href) => <link rel="stylesheet" href={href} />)}
   </head>
   <body class="site-page">
     <a class="skip-link" href="#main">跳到主要内容</a>

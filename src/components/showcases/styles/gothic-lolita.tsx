@@ -335,17 +335,12 @@ const poetryQuotes = [
    ============================================================ */
 
 export default function GothicLolitaShowcase() {
-  const [heroRevealed, setHeroRevealed] = useState(false);
+  const heroRevealed = true;
   const [activeTab, setActiveTab] = useState<"button" | "card" | "input">(
     "button",
   );
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   const [activeQuote, setActiveQuote] = useState(0);
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroRevealed(true), 100);
-    return () => clearTimeout(t);
-  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {

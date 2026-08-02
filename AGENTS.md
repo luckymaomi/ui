@@ -61,7 +61,7 @@
 ## 完整验证
 
 - 完整验证命令：`npm.cmd run verify`。
-- `verify` 串联 Astro 检查、ESLint、Vitest、生产构建、`start.py --check`、595 页静态发布链接/深层路径 smoke 和桌面/移动 Playwright 正向验证。
+- `verify` 串联 Astro 检查、ESLint、Vitest、生产构建、构建产物性能预算、`start.py --check`、595 页静态发布链接/深层路径 smoke 和桌面/移动 Playwright 正向验证。
 
 快速模式先运行最接近改动、最有证明力的短验证；专业模式按计划和风险扩大验证。无法运行时说明具体命令、原因和剩余风险。
 

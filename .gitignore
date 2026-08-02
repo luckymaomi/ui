@@ -1,6 +1,7 @@
 # Dependencies and build output
 node_modules/
 dist/
+public/_route-css/
 .astro/
 coverage/
 playwright-report/

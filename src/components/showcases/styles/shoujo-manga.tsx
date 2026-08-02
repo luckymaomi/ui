@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -187,17 +187,12 @@ function SakuraPetal({
 /* ------------------------------------------------------------------ */
 
 export default function ShowcaseContent() {
-  const [heroVisible, setHeroVisible] = useState(false);
+  const heroVisible = true;
   const [activeChapter, setActiveChapter] = useState(0);
   const [activeComponent, setActiveComponent] = useState<
     "buttons" | "cards" | "inputs"
   >("buttons");
   const [likedPanels, setLikedPanels] = useState<Set<string>>(new Set());
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroVisible(true), 80);
-    return () => clearTimeout(t);
-  }, []);
 
   const toggleLike = (id: string) => {
     setLikedPanels((prev) => {

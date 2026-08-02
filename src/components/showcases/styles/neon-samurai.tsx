@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -174,17 +174,12 @@ const slashCards = [
 /* ------------------------------------------------------------------ */
 
 export default function ShowcaseContent() {
-  const [heroRevealed, setHeroRevealed] = useState(false);
+  const heroRevealed = true;
   const [activeBushido, setActiveBushido] = useState(0);
   const [slashActive, setSlashActive] = useState(false);
   const [activeTab, setActiveTab] = useState<"button" | "card" | "input">(
     "button",
   );
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroRevealed(true), 120);
-    return () => clearTimeout(t);
-  }, []);
 
   const activeVirtue = bushidoVirtues[activeBushido];
 

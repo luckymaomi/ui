@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 import {
@@ -364,7 +364,7 @@ const STATS = [
 // Main component
 // ---------------------------------------------------------------------------
 export default function HolographicShowcase() {
-  const [heroRevealed, setHeroRevealed] = useState(false);
+  const heroRevealed = true;
   const [activeSpectrumTab, setActiveSpectrumTab] = useState(0);
   const [activeComponentTab, setActiveComponentTab] =
     useState<ComponentTab>("Buttons");
@@ -373,11 +373,6 @@ export default function HolographicShowcase() {
   const [activeHoloVariant, setActiveHoloVariant] = useState(0);
 
   // Hero entrance — fires after 120ms to allow paint
-  useEffect(() => {
-    const t = setTimeout(() => setHeroRevealed(true), 120);
-    return () => clearTimeout(t);
-  }, []);
-
   function handleCopyColor(hex: string) {
     navigator.clipboard.writeText(hex).catch(() => {});
     setCopiedColor(hex);

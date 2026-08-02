@@ -8,15 +8,19 @@
     "npm": ">=10.0.0"
   },
   "scripts": {
+    "predev": "npm run css:routes",
     "dev": "astro dev",
+    "prebuild": "npm run css:routes",
     "build": "astro build",
+    "css:routes": "node tools/route-tailwind.mjs",
+    "perf:budget": "node tools/performance-budget.mjs",
     "preview": "astro preview",
     "check": "astro check",
     "lint": "eslint .",
     "test": "vitest run",
     "test:e2e": "playwright test",
     "smoke": "node tools/smoke.mjs",
-    "verify": "npm run check && npm run lint && npm test && npm run build && python start.py --check && npm run smoke && npm run test:e2e"
+    "verify": "npm run check && npm run lint && npm test && npm run build && npm run perf:budget && python start.py --check && npm run smoke && npm run test:e2e"
   },
   "dependencies": {
     "@astrojs/react": "6.0.2",
@@ -35,6 +39,8 @@
     "@astrojs/check": "0.9.6",
     "@eslint/js": "9.39.5",
     "@playwright/test": "1.62.1",
+    "@tailwindcss/node": "4.3.3",
+    "@tailwindcss/oxide": "4.3.3",
     "@types/node": "26.1.2",
     "@types/react": "19.2.18",
     "@types/react-dom": "19.2.4",
@@ -42,6 +48,7 @@
     "eslint-plugin-jsx-a11y": "6.10.2",
     "eslint-plugin-react-hooks": "7.1.1",
     "globals": "16.4.0",
+    "parse5": "8.0.0",
     "typescript": "5.9.3",
     "typescript-eslint": "8.65.0",
     "vitest": "4.1.10"

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -140,7 +140,7 @@ const projectRows = [
 /* ------------------------------------------------------------------ */
 
 export default function ShowcaseContent() {
-  const [heroVisible, setHeroVisible] = useState(false);
+  const heroVisible = true;
   const [activeTab, setActiveTab] = useState<ComponentTab>("buttons");
   const [hoveredSwatch, setHoveredSwatch] = useState<number | null>(null);
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
@@ -161,11 +161,6 @@ export default function ShowcaseContent() {
   // Animation rule 4: Linear & Fast
   const [linearBallActive, setLinearBallActive] = useState(false);
   const [springBallActive, setSpringBallActive] = useState(false);
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroVisible(true), 80);
-    return () => clearTimeout(t);
-  }, []);
 
   const isPressed = (id: string) => pressedBtn === id;
 

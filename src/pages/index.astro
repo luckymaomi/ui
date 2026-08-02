@@ -1,9 +1,9 @@
 ---
-import { StyleExplorer } from "@/components/StyleExplorer";
+import StyleExplorer from "@/components/StyleExplorer.astro";
 import { styleSummaries } from "@/content/catalog";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="UI" wide>
-  <StyleExplorer items={styleSummaries} client:idle />
+  <StyleExplorer items={styleSummaries} />
 </BaseLayout>

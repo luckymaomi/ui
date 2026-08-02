@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -716,7 +716,7 @@ function LedgerStatus({ status }: { status: LedgerRow["status"] }) {
 /* ------------------------------------------------------------------ */
 
 export default function StudioBoldShowcase() {
-  const [heroIn, setHeroIn] = useState(false);
+  const heroIn = true;
   const [workFilter, setWorkFilter] = useState<WorkFilter>("ALL");
   const [activeService, setActiveService] = useState<string>(services[0].id);
   const [openStep, setOpenStep] = useState<string | null>("01");
@@ -724,11 +724,6 @@ export default function StudioBoldShowcase() {
   const [dismissed, setDismissed] = useState<string[]>([]);
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   const [projectType, setProjectType] = useState<string>("BRANDING");
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroIn(true), 80);
-    return () => clearTimeout(t);
-  }, []);
 
   const visibleProjects =
     workFilter === "ALL"

@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -480,17 +480,12 @@ const typographyExamples = [
 // ─── Main Component ────────────────────────────────────────────────────────────
 
 export default function CottagecoreShowcase() {
-  const [heroRevealed, setHeroRevealed] = useState(false);
+  const heroRevealed = true;
   const [activeSeason, setActiveSeason] = useState(0);
   const [activeComponentTab, setActiveComponentTab] =
     useState<ComponentTab>("Buttons");
   const [hoveredColor, setHoveredColor] = useState<string | null>(null);
   const [craftHovered, setCraftHovered] = useState<number | null>(null);
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroRevealed(true), 100);
-    return () => clearTimeout(t);
-  }, []);
 
   const season = seasons[activeSeason];
 

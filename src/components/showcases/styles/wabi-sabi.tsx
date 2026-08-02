@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -470,7 +470,7 @@ const wabiBreathCSS = `
 /* ------------------------------------------------------------------ */
 
 export default function ShowcaseContent() {
-  const [heroVisible, setHeroVisible] = useState(false);
+  const heroVisible = true;
   const [activeTab, setActiveTab] = useState<"button" | "card" | "input">(
     "button",
   );
@@ -486,11 +486,6 @@ export default function ShowcaseContent() {
 
   // Ma demo
   const [maExpanded, setMaExpanded] = useState(false);
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroVisible(true), 100);
-    return () => clearTimeout(t);
-  }, []);
 
   function triggerDust() {
     setDustActive(false);

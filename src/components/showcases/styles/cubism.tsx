@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -64,7 +64,7 @@ type ComponentTab = "buttons" | "cards" | "inputs" | "badges";
 /* ------------------------------------------------------------------ */
 
 export default function ShowcaseContent() {
-  const [heroVisible, setHeroVisible] = useState(false);
+  const heroVisible = true;
   const [activeTab, setActiveTab] = useState<ComponentTab>("buttons");
   const [hoveredSwatch, setHoveredSwatch] = useState<number | null>(null);
 
@@ -83,11 +83,6 @@ export default function ShowcaseContent() {
   // aiRule 4: Animation timing demo — compare 150ms vs 400ms
   const [timingMode, setTimingMode] = useState<"cubism" | "slow">("cubism");
   const [animTriggered, setAnimTriggered] = useState(false);
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroVisible(true), 80);
-    return () => clearTimeout(t);
-  }, []);
 
   const earthModeConfig = {
     sienna: {

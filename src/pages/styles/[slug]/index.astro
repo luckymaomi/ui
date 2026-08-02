@@ -16,7 +16,12 @@ const allColors = [style.colors.primary, style.colors.secondary, ...style.colors
 const showcaseUrl = withBase(`/styles/${style.slug}/showcase/`);
 ---
 
-<BaseLayout title={style.name} description={style.description} wide>
+<BaseLayout
+  title={style.name}
+  description={style.description}
+  routeStyles={[withBase(`/_route-css/recipe/${style.slug}.css`)]}
+  wide
+>
   <header class="style-detail-hero" id="overview">
     <div class="style-detail-copy">
       <a class="back-link" href={withBase("/styles/")}>返回风格库</a>

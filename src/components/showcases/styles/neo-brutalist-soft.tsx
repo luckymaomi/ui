@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -501,7 +501,7 @@ function DontCard({ rule }: { rule: (typeof DONT_RULES)[0] }) {
 /* ------------------------------------------------------------------ */
 
 export default function ShowcaseContent() {
-  const [heroRevealed, setHeroRevealed] = useState(false);
+  const heroRevealed = true;
   const [componentTab, setComponentTab] = useState<
     "Buttons" | "Cards" | "Inputs" | "Alerts"
   >("Buttons");
@@ -510,11 +510,6 @@ export default function ShowcaseContent() {
   const [selectedOption, setSelectedOption] = useState("Select accent color");
 
   const { ref: heroRef } = useInView();
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroRevealed(true), 80);
-    return () => clearTimeout(t);
-  }, []);
 
   const tabAccents: Record<string, string> = {
     Buttons: "#f472b6",

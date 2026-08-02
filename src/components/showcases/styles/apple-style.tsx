@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -380,18 +380,13 @@ type ComponentTab = "buttons" | "cards" | "inputs" | "nav";
 /* ------------------------------------------------------------------ */
 
 export default function ShowcaseContent() {
-  const [heroVisible, setHeroVisible] = useState(false);
+  const heroVisible = true;
   const [activeTab, setActiveTab] = useState<ComponentTab>("buttons");
   const [hoveredSwatch, setHoveredSwatch] = useState<number | null>(null);
   const [activeRuleIdx, setActiveRuleIdx] = useState<number>(0);
   const [blurPanelActive, setBlurPanelActive] = useState(false);
   const [springBallPos, setSpringBallPos] = useState<"left" | "right">("left");
   const [hapticPressed, setHapticPressed] = useState(false);
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroVisible(true), 80);
-    return () => clearTimeout(t);
-  }, []);
 
   return (
     <div

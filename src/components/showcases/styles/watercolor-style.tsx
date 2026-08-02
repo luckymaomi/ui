@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -325,7 +325,7 @@ function RevealBlock({
 // ─── Main component ────────────────────────────────────────────────────────────
 
 export default function WatercolorStyleShowcase() {
-  const [heroRevealed, setHeroRevealed] = useState(false);
+  const heroRevealed = true;
   const [activeMood, setActiveMood] = useState(0);
   const [activeTab, setActiveTab] = useState<"buttons" | "cards" | "inputs">(
     "buttons",
@@ -333,11 +333,6 @@ export default function WatercolorStyleShowcase() {
   const [submitted, setSubmitted] = useState(false);
   const [msgValue, setMsgValue] = useState("");
   const [activeGallery, setActiveGallery] = useState<number | null>(null);
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroRevealed(true), 100);
-    return () => clearTimeout(t);
-  }, []);
 
   const mood = paletteMoods[activeMood];
 

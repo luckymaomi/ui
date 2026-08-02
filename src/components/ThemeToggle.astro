@@ -1,0 +1,32 @@
+---
+import { Moon, Sun } from "lucide-react";
+---
+
+<button
+  class="icon-button"
+  type="button"
+  aria-label="切换到深色主题"
+  title="深色主题"
+  data-theme-toggle
+>
+  <Moon className="theme-icon theme-icon-moon" aria-hidden="true" size={18} />
+  <Sun className="theme-icon theme-icon-sun" aria-hidden="true" size={18} />
+</button>
+
+<script>
+  const button = document.querySelector<HTMLButtonElement>("[data-theme-toggle]");
+  if (button) {
+    const syncLabel = () => {
+      const dark = document.documentElement.dataset.theme === "dark";
+      button.setAttribute("aria-label", dark ? "切换到浅色主题" : "切换到深色主题");
+      button.title = dark ? "浅色主题" : "深色主题";
+    };
+    syncLabel();
+    button.addEventListener("click", () => {
+      const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+      document.documentElement.dataset.theme = next;
+      localStorage.setItem("ui-theme", next);
+      syncLabel();
+    });
+  }
+</script>

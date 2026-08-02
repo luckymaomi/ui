@@ -136,18 +136,35 @@ function VelocityStretch({
       return;
     }
     let last = window.scrollY;
-    let vel = 0;
+    let velocity = 0;
     let raf = 0;
+    let lastWidth = 100;
     const tick = () => {
-      const y = window.scrollY;
-      vel = vel * 0.88 + Math.abs(y - last) * 0.12;
-      last = y;
-      const wdth = Math.min(150, 100 + vel * 1.6);
-      el.style.fontVariationSettings = `"wght" 800, "wdth" ${wdth.toFixed(1)}`;
-      raf = requestAnimationFrame(tick);
+      velocity *= 0.78;
+      const width = Math.min(150, 100 + velocity * 1.6);
+      if (Math.abs(width - lastWidth) >= 0.1) {
+        el.style.fontVariationSettings = `"wght" 800, "wdth" ${width.toFixed(1)}`;
+        lastWidth = width;
+      }
+      if (velocity > 0.08) {
+        raf = requestAnimationFrame(tick);
+      } else {
+        el.style.fontVariationSettings = '"wght" 800, "wdth" 100';
+        lastWidth = 100;
+        raf = 0;
+      }
     };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
+    const onScroll = () => {
+      const current = window.scrollY;
+      velocity = Math.max(velocity, Math.abs(current - last));
+      last = current;
+      if (!raf) raf = requestAnimationFrame(tick);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
   }, []);
 
   return (
@@ -386,7 +403,7 @@ const cardRows = [
 
 export default function ShowcaseContent() {
   const [heroKey, setHeroKey] = useState(0);
-  const [heroActive, setHeroActive] = useState(false);
+  const heroActive = true;
   const [motionTab, setMotionTab] = useState<MotionTab>("entrance");
   const [entranceKey, setEntranceKey] = useState(0);
   const [componentTab, setComponentTab] = useState<ComponentTab>("buttons");
@@ -394,11 +411,6 @@ export default function ShowcaseContent() {
   const [pgDuration, setPgDuration] = useState(0.9);
   const [pgWeight, setPgWeight] = useState(800);
   const [pgReplay, setPgReplay] = useState(0);
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroActive(true), 60);
-    return () => clearTimeout(t);
-  }, []);
 
   return (
     <div

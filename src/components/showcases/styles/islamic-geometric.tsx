@@ -260,7 +260,7 @@ const tessellationStyle: React.CSSProperties = {
 /* ------------------------------------------------------------------ */
 
 export default function ShowcaseContent() {
-  const [heroVisible, setHeroVisible] = useState(false);
+  const heroVisible = true;
   const [activeTab, setActiveTab] = useState<ComponentTab>("buttons");
   const [hoveredSwatch, setHoveredSwatch] = useState<number | null>(null);
 
@@ -282,11 +282,6 @@ export default function ShowcaseContent() {
   const [easingDemo, setEasingDemo] = useState<"ease-out" | "linear" | null>(
     null,
   );
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroVisible(true), 80);
-    return () => clearTimeout(t);
-  }, []);
 
   useEffect(() => {
     if (!glowActive) return;

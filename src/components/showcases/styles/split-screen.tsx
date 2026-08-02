@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -158,7 +158,7 @@ type Tab = (typeof tabOptions)[number];
 
 // ─── Main ─────────────────────────────────────────────────────────────────────
 export default function SplitScreenShowcase() {
-  const [heroRevealed, setHeroRevealed] = useState(false);
+  const heroRevealed = true;
   const [activeTab, setActiveTab] = useState<Tab>("BUTTONS");
   const [selectedPanel, setSelectedPanel] = useState<"dark" | "light" | null>(
     null,
@@ -166,11 +166,6 @@ export default function SplitScreenShowcase() {
   const [activeVariant, setActiveVariant] = useState(0);
   const [activePattern, setActivePattern] = useState(0);
   const [formSide, setFormSide] = useState<"left" | "right">("left");
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroRevealed(true), 100);
-    return () => clearTimeout(t);
-  }, []);
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white font-mono">

@@ -270,7 +270,7 @@ const sectionColors = [
 /* ------------------------------------------------------------------ */
 
 export default function ShowcaseContent() {
-  const [heroVisible, setHeroVisible] = useState(false);
+  const heroVisible = true;
   const [activeSection, setActiveSection] = useState(0);
   const [hoveredSwatch, setHoveredSwatch] = useState<number | null>(null);
 
@@ -302,11 +302,6 @@ export default function ShowcaseContent() {
 
   // Scroll container ref for live demo
   const scrollContainerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroVisible(true), 80);
-    return () => clearTimeout(t);
-  }, []);
 
   // Breathing auto-cycle accent
   useEffect(() => {

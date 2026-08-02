@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -389,18 +389,13 @@ function statusBadgeClass(status: string): string {
 /* ------------------------------------------------------------------ */
 
 export default function ShowcaseContent() {
-  const [heroVisible, setHeroVisible] = useState(false);
+  const heroVisible = true;
   const [activeNav, setActiveNav] = useState(0);
   const [galleryTab, setGalleryTab] = useState<GalleryTab>("kpi");
   const [viewport, setViewport] = useState<ViewportMode>("desktop");
   const [hoveredRow, setHoveredRow] = useState<number | null>(null);
   const [buttonPressed, setButtonPressed] = useState(false);
   const [notifCount, setNotifCount] = useState(3);
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroVisible(true), 80);
-    return () => clearTimeout(t);
-  }, []);
 
   return (
     <div className="min-h-screen bg-gray-50 font-sans text-gray-800 overflow-x-hidden">

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -474,7 +474,7 @@ function LeafAccent({
 /* ------------------------------------------------------------------ */
 
 export default function ShowcaseContent() {
-  const [heroRevealed, setHeroRevealed] = useState(false);
+  const heroRevealed = true;
   const [componentTab, setComponentTab] = useState<
     "Seeds" | "Sprouts" | "Bloom"
   >("Seeds");
@@ -483,11 +483,6 @@ export default function ShowcaseContent() {
   >("ecology");
 
   const { ref: heroRef, inView: heroInView } = useInView();
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroRevealed(true), 80);
-    return () => clearTimeout(t);
-  }, []);
 
   // heroInView is declared for potential future use with the hero section
   void heroInView;

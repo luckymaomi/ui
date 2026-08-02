@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -467,18 +467,13 @@ function SectionHead({
 /* ------------------------------------------------------------------ */
 
 export default function ShowcaseContent() {
-  const [heroVisible, setHeroVisible] = useState(false);
+  const heroVisible = true;
   const [activeTab, setActiveTab] = useState<ComponentTab>("buttons");
   const [hoveredSwatch, setHoveredSwatch] = useState<number | null>(null);
   const [activeScene, setActiveScene] = useState(0);
   const [activeLayer, setActiveLayer] = useState(0);
   const [glassOpacity, setGlassOpacity] = useState(8);
   const [glassBlur, setGlassBlur] = useState(60);
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroVisible(true), 80);
-    return () => clearTimeout(t);
-  }, []);
 
   const currentScene = nightScenes[activeScene];
   const spring = "cubic-bezier(0.16,1,0.3,1)";

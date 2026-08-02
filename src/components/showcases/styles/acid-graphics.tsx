@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -164,7 +164,7 @@ function GlitchDot({
 /* ------------------------------------------------------------------ */
 
 export default function ShowcaseContent() {
-  const [heroRevealed, setHeroRevealed] = useState(false);
+  const heroRevealed = true;
   const [activeColor, setActiveColor] = useState<number>(0);
   const [posterPlaying, setPosterPlaying] = useState(false);
   const [activeType, setActiveType] = useState<number>(0);
@@ -172,11 +172,6 @@ export default function ShowcaseContent() {
     useState<ComponentTab>("BUTTONS");
 
   const { ref: heroRef, inView: heroInView } = useInView();
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroRevealed(true), 120);
-    return () => clearTimeout(t);
-  }, []);
 
   // Suppress unused variable warning — heroInView is used implicitly via heroRef
   void heroInView;

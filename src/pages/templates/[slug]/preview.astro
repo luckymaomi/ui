@@ -23,6 +23,7 @@ const canonical = new URL(withBase(`/templates/${template.id}/preview/`), Astro.
     <meta name="description" content={`${template.name.zh}完整交互页面`} />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="icon" type="image/svg+xml" href={withBase("/icon.svg")} />
+    <link rel="stylesheet" href={withBase(`/_route-css/template/${template.id}.css`)} />
     <link rel="canonical" href={canonical} />
     <title>{template.name.zh}交互预览 | UI</title>
   </head>

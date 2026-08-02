@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -280,15 +280,10 @@ const featureCards = [
 
 // ─────────────────────────────────────────────────────────────────────────────
 export default function FrutigerAeroShowcase() {
-  const [heroRevealed, setHeroRevealed] = useState(false);
+  const heroRevealed = true;
   const [activeTab, setActiveTab] = useState<"primary" | "glass" | "input">(
     "primary",
   );
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroRevealed(true), 100);
-    return () => clearTimeout(t);
-  }, []);
 
   // useInView with aliased destructure for hero stats
   const { ref: statsRef, inView: statsInView } = useInView({ threshold: 0.2 });

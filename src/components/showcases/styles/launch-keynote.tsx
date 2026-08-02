@@ -15,6 +15,8 @@ const BLUE = "#2997FF";
 const GRAY = "#86868B";
 
 const FRAME_COUNT = 96;
+const FRAME_CONCURRENCY = 4;
+const INITIAL_READY_COUNT = 8;
 const FRAME_BASE = "/ui/images/styles/launch-keynote/frames/frame-";
 const POSTER = "/ui/images/styles/launch-keynote/poster.webp";
 
@@ -81,21 +83,22 @@ function ScrubStage() {
   const wrapRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const frames = useRef<HTMLImageElement[]>([]);
+  const requestFrames = useRef<(indices: number[], prioritize?: boolean) => void>(
+    () => undefined,
+  );
   const drawn = useRef(-1);
   const rafId = useRef(0);
 
   const [loaded, setLoaded] = useState(0);
-  const [reduced, setReduced] = useState(false);
+  const [reduced] = useState(() =>
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+  );
   const [milestone, setMilestone] = useState(0);
 
-  // Detect reduced motion, paint the poster immediately as the first frame.
+  // Paint the poster immediately so frame availability never gates the stage.
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const wantsReduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-    setReduced(wantsReduced);
 
     const poster = new Image();
     poster.onload = () => {
@@ -104,41 +107,75 @@ function ScrubStage() {
     poster.src = POSTER;
   }, []);
 
-  // Lazy-load the 96 frames only when the section nears the viewport.
+  // Keep network concurrency bounded. The first pass fetches milestone frames;
+  // scroll input promotes only the target frame and its nearest neighbours.
   useEffect(() => {
     const wrap = wrapRef.current;
     if (!wrap) return;
     let cancelled = false;
+    let active = 0;
+    const queue: number[] = [];
+
+    const pump = () => {
+      while (!cancelled && active < FRAME_CONCURRENCY && queue.length) {
+        const index = queue.shift();
+        if (index === undefined || frames.current[index]) continue;
+
+        active += 1;
+        const img = new Image();
+        img.decoding = "async";
+        frames.current[index] = img;
+
+        const finish = () => {
+          active -= 1;
+          if (!cancelled) setLoaded((count) => count + 1);
+          pump();
+        };
+        img.onload = finish;
+        img.onerror = finish;
+        img.src = frameSrc(index);
+      }
+    };
+
+    const enqueue = (indices: number[], prioritize = false) => {
+      const pending: number[] = [];
+      for (const index of indices) {
+        if (index < 0 || index >= FRAME_COUNT || frames.current[index]) continue;
+        const queuedAt = queue.indexOf(index);
+        if (queuedAt >= 0) {
+          if (!prioritize) continue;
+          queue.splice(queuedAt, 1);
+        }
+        if (!pending.includes(index)) pending.push(index);
+      }
+      if (prioritize) queue.unshift(...pending);
+      else queue.push(...pending);
+      pump();
+    };
+
+    requestFrames.current = enqueue;
 
     const io = new IntersectionObserver(
       ([entry]) => {
         if (!entry.isIntersecting) return;
         io.disconnect();
-        for (let i = 0; i < FRAME_COUNT; i++) {
-          const img = new Image();
-          img.decoding = "async";
-          img.onload = () => {
-            if (cancelled) return;
-            setLoaded((n) => n + 1);
-          };
-          // A failed frame still advances the gate so the loading
-          // overlay clears; the scrub keeps the last good frame it drew.
-          img.onerror = () => {
-            if (cancelled) return;
-            setLoaded((n) => n + 1);
-          };
-          img.src = frameSrc(i);
-          frames.current[i] = img;
-        }
+        enqueue(
+          reduced
+            ? [FRAME_COUNT - 1]
+            : [0, 1, 2, 3, 4, 24, 48, 72, 93, 94, 95],
+          true,
+        );
       },
-      { rootMargin: "50% 0px" },
+      { rootMargin: "25% 0px" },
     );
     io.observe(wrap);
     return () => {
       cancelled = true;
+      requestFrames.current = () => undefined;
+      queue.length = 0;
       io.disconnect();
     };
-  }, []);
+  }, [reduced]);
 
   // Reduced motion: once the final frame is ready, draw it statically.
   useEffect(() => {
@@ -176,6 +213,10 @@ function ScrubStage() {
         FRAME_COUNT - 1,
         Math.floor(progress * (FRAME_COUNT - 1)),
       );
+      requestFrames.current(
+        [idx, idx - 1, idx + 1, idx - 2, idx + 2, idx - 3, idx + 3, idx - 4, idx + 4],
+        true,
+      );
       if (idx !== drawn.current) {
         const img = frames.current[idx];
         if (img && img.complete && img.naturalWidth) {
@@ -209,7 +250,7 @@ function ScrubStage() {
     };
   }, [reduced]);
 
-  const ready = loaded >= FRAME_COUNT;
+  const ready = reduced || loaded >= INITIAL_READY_COUNT;
 
   return (
     <section
@@ -233,12 +274,12 @@ function ScrubStage() {
               <div
                 className="h-full bg-[#2997FF] transition-[width] duration-200"
                 style={{
-                  width: `${Math.round((loaded / FRAME_COUNT) * 100)}%`,
+                  width: `${Math.min(100, Math.round((loaded / INITIAL_READY_COUNT) * 100))}%`,
                 }}
               />
             </div>
             <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#86868B] tabular-nums">
-              {Math.round((loaded / FRAME_COUNT) * 100)}%
+              {Math.min(100, Math.round((loaded / INITIAL_READY_COUNT) * 100))}%
             </span>
           </div>
         )}

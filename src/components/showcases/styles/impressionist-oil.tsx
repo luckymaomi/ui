@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -172,7 +172,7 @@ type ComponentTab = "buttons" | "cards" | "inputs";
 /* ------------------------------------------------------------------ */
 
 export default function ShowcaseContent() {
-  const [heroVisible, setHeroVisible] = useState(false);
+  const heroVisible = true;
   const [activeTab, setActiveTab] = useState<ComponentTab>("buttons");
   const [hoveredSwatch, setHoveredSwatch] = useState<number | null>(null);
   const [activeAiRule, setActiveAiRule] = useState<number>(0);
@@ -182,11 +182,6 @@ export default function ShowcaseContent() {
   const [durationDemo, setDurationDemo] = useState<"slow" | "fast" | null>(
     null,
   );
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroVisible(true), 80);
-    return () => clearTimeout(t);
-  }, []);
 
   // AI Rules from lib/styles/impressionist-oil.ts
   const aiRules = [

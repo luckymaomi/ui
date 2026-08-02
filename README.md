@@ -85,4 +85,4 @@ npm.cmd run verify
 - [安全政策](SECURITY.md)
 - [MIT License](LICENSE)
 
-Content is statically generated under `/ui/`. Each style, animation and template has a canonical deep URL. Runtime UI uses Astro, React and standard DOM APIs. Structured discovery is provided through `robots.txt`, `llms.txt`, `sitemap.xml`, canonical metadata, Open Graph metadata and structured data.
+Content is statically generated under `/ui/`. Each style, animation and template has a canonical deep URL. Runtime UI uses Astro, React and standard DOM APIs. Build-time route CSS and per-page module preloads keep each independent canvas scoped to its current implementation; third-party fonts are non-blocking and retain system fallbacks. `npm.cmd run verify` enforces HTML/CSS/load-chain budgets alongside all 595 published pages and desktop/mobile browser paths. Structured discovery is provided through `robots.txt`, `llms.txt`, `sitemap.xml`, canonical metadata, Open Graph metadata and structured data.

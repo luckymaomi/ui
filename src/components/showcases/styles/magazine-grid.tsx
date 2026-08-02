@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -263,7 +263,7 @@ type NavCategory = (typeof navCategories)[number];
 /* ------------------------------------------------------------------ */
 
 export default function ShowcaseContent() {
-  const [heroVisible, setHeroVisible] = useState(false);
+  const heroVisible = true;
   const [activeNav, setActiveNav] = useState<NavCategory>("All");
   const [activeComponentTab, setActiveComponentTab] = useState<
     "card" | "button" | "nav" | "input"
@@ -287,11 +287,6 @@ export default function ShowcaseContent() {
 
   // aiRule 4: Readability First
   const [readabilityAnimOn, setReadabilityAnimOn] = useState(false);
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroVisible(true), 80);
-    return () => clearTimeout(t);
-  }, []);
 
   const filteredArticles =
     activeNav === "All"

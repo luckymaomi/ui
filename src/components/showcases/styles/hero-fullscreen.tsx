@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -564,7 +564,7 @@ const componentSnippets: Record<ComponentKey, { label: string; code: string }> =
 /* ------------------------------------------------------------------ */
 
 export default function ShowcaseContent() {
-  const [heroVisible, setHeroVisible] = useState(false);
+  const heroVisible = true;
   const [activeOverlay, setActiveOverlay] = useState(0);
   const [activeBgOption, setActiveBgOption] = useState(0);
   const [activeComponentTab, setActiveComponentTab] =
@@ -582,11 +582,6 @@ export default function ShowcaseContent() {
   const [hoveredFeatureCard, setHoveredFeatureCard] = useState<number | null>(
     null,
   );
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroVisible(true), 80);
-    return () => clearTimeout(t);
-  }, []);
 
   function handleCopy(key: ComponentKey) {
     navigator.clipboard.writeText(componentSnippets[key].code).then(() => {

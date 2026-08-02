@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -82,12 +81,7 @@ function RevealBlock({
 }
 
 export default function ShowcaseContent() {
-  const [heroRevealed, setHeroRevealed] = useState(false);
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroRevealed(true), 100);
-    return () => clearTimeout(t);
-  }, []);
+  const heroRevealed = true;
 
   return (
     <div className="min-h-screen bg-[#F9F8F6] text-[#1C1C1C]">
@@ -218,6 +212,11 @@ export default function ShowcaseContent() {
           <img
             src="/ui/styles/editorial-showcase/hero.jpg"
             alt="Editorial Hero"
+            width={1920}
+            height={1080}
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
             className="w-full h-full object-cover"
             style={{
               transform: heroRevealed ? "scale(1)" : "scale(1.2)",
@@ -262,6 +261,8 @@ export default function ShowcaseContent() {
                     alt={work.title}
                     width={300}
                     height={400}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -320,6 +321,10 @@ export default function ShowcaseContent() {
                 <img
                   src={project.image}
                   alt={project.title}
+                  width={project.id === 2 ? 1200 : 800}
+                  height={project.id === 1 ? 1200 : project.id === 2 || project.id === 3 ? 800 : 1000}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
                 />
               </div>
@@ -345,6 +350,10 @@ export default function ShowcaseContent() {
               <img
                 src="/ui/styles/editorial-showcase/portrait.jpg"
                 alt="Portrait"
+                width={800}
+                height={1000}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover"
               />
             </div>

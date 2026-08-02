@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -262,7 +262,7 @@ type PanelTab = "systems" | "weapons" | "comms" | "data";
 /* ------------------------------------------------------------------ */
 
 export default function ShowcaseContent() {
-  const [heroVisible, setHeroVisible] = useState(false);
+  const heroVisible = true;
   const [activeTab, setActiveTab] = useState<PanelTab>("systems");
   const [hoveredSwatch, setHoveredSwatch] = useState<number | null>(null);
   const [deployPressed, setDeployPressed] = useState(false);
@@ -273,11 +273,6 @@ export default function ShowcaseContent() {
   const [hazardHovered, setHazardHovered] = useState(false);
   const [triggerPressed, setTriggerPressed] = useState(false);
   const [cmdValue, setCmdValue] = useState("");
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroVisible(true), 80);
-    return () => clearTimeout(t);
-  }, []);
 
   /* ================================================================ */
   /* RENDER                                                            */

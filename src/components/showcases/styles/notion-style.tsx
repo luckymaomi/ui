@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -473,7 +473,7 @@ function CalloutBlock({
 /* ------------------------------------------------------------------ */
 
 export default function NotionStyleShowcase() {
-  const [heroRevealed, setHeroRevealed] = useState(false);
+  const heroRevealed = true;
   const [activeTab, setActiveTab] = useState<"checklist" | "table" | "board">(
     "checklist",
   );
@@ -481,11 +481,6 @@ export default function NotionStyleShowcase() {
   const [expandedSection, setExpandedSection] = useState<string | null>(
     "typography",
   );
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroRevealed(true), 100);
-    return () => clearTimeout(t);
-  }, []);
 
   const tabs = ["checklist", "table", "board"] as const;
 

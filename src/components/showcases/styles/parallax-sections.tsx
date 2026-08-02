@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -191,12 +191,7 @@ const colorPalette = [
 
 export default function ParallaxSectionsShowcase() {
   // Hero entrance
-  const [heroRevealed, setHeroRevealed] = useState(false);
-  useEffect(() => {
-    const t = setTimeout(() => setHeroRevealed(true), 100);
-    return () => clearTimeout(t);
-  }, []);
-
+  const heroRevealed = true;
   // Interactive state
   const [activeTab, setActiveTab] = useState<
     "technique" | "mobile" | "performance"

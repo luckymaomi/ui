@@ -244,7 +244,7 @@ function generateSeed(): number {
 /* ------------------------------------------------------------------ */
 
 export default function ShowcaseContent() {
-  const [heroVisible, setHeroVisible] = useState(false);
+  const heroVisible = true;
   const [activeTab, setActiveTab] = useState<ComponentTab>("buttons");
   const [hoveredSwatch, setHoveredSwatch] = useState<number | null>(null);
   const [activeAlgo, setActiveAlgo] = useState(0);
@@ -267,11 +267,6 @@ export default function ShowcaseContent() {
 
   // aiRule 4: Mathematical Glow demo
   const [glowTarget, setGlowTarget] = useState<number | null>(null);
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroVisible(true), 80);
-    return () => clearTimeout(t);
-  }, []);
 
   useEffect(() => {
     if (!flowActive) return;

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInView } from "@/components/showcases/useInView";
 import Link from "@/components/ShowcaseLink";
 
@@ -334,18 +334,13 @@ const navLabels = ["Dashboard", "Projects", "Analytics", "Reports", "Settings"];
 /* ------------------------------------------------------------------ */
 
 export default function ShowcaseContent() {
-  const [heroVisible, setHeroVisible] = useState(false);
+  const heroVisible = true;
   const [viewport, setViewport] = useState<ViewportMode>("desktop");
   const [activeTab, setActiveTab] = useState<ComponentTab>("cards");
   const [activeNavItem, setActiveNavItem] = useState(0);
   const [durationDemo, setDurationDemo] = useState<"fast" | "slow" | null>(
     null,
   );
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroVisible(true), 80);
-    return () => clearTimeout(t);
-  }, []);
 
   return (
     <div className="min-h-screen bg-[#f1f5f9] font-sans text-[#1e293b] overflow-x-hidden">
